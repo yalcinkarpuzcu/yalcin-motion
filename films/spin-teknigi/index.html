@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Satış Yolculuğu · SPIN Tekniği</title>
+    <script src="assets/js/gsap.min.js"></script>
+    <style>
+      /* Fonts: SIL OFL 1.1, see assets/fonts/OFL.txt */
+      @font-face { font-family: "Montserrat"; font-weight: 100 900; font-display: block; src: url("assets/fonts/montserrat-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Montserrat"; font-weight: 100 900; font-display: block; src: url("assets/fonts/montserrat-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Montserrat"; font-style: italic; font-weight: 100 900; font-display: block; src: url("assets/fonts/montserrat-latin-wght-italic.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Montserrat"; font-style: italic; font-weight: 100 900; font-display: block; src: url("assets/fonts/montserrat-latin-ext-wght-italic.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: block; src: url("assets/fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: block; src: url("assets/fonts/instrument-serif-latin-ext-400-italic.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/jetbrains-mono-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FEFF, U+FFFD; }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/jetbrains-mono-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+      :root {
+        --y: #FFFF00;          /* logo zemini (resmî) */
+        --ink: #141312; --ink2: #2A2724; --paper: #FAF6E8; --paper2: #EFE8D2; --mute: #8A8577;
+        --red: #E2412E; --red-soft: #F2A093;
+        --sans: "Montserrat", sans-serif; --serif: "Instrument Serif", serif; --mono: "JetBrains Mono", monospace;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--paper); }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: var(--sans); color: var(--ink); }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+      .abs { position: absolute; }
+      .hid { opacity: 0; }
+      .bg-y { background: var(--y); } .bg-p { background: var(--paper); } .bg-k { background: var(--ink); }
+
+      /* ---------- shared atoms ---------- */
+      .eyebrow { font: 600 26px/1 var(--mono); letter-spacing: .14em; white-space: nowrap; }
+      .h-xl { font: 900 132px/0.95 var(--sans); letter-spacing: -.035em; white-space: nowrap; }
+      .h-l { font: 850 92px/1.0 var(--sans); letter-spacing: -.03em; white-space: nowrap; }
+      .h-m { font: 800 64px/1.08 var(--sans); letter-spacing: -.02em; }
+      .serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0; }
+      .lede { font: 600 40px/1.25 var(--sans); letter-spacing: -.01em; }
+
+      .sign { position: absolute; width: 132px; height: 132px; border-radius: 50%; background: var(--y); border: 9px solid var(--ink); display: flex; align-items: center; justify-content: center; font: 900 70px/1 var(--sans); color: var(--ink); box-shadow: 0 10px 0 rgba(20,19,18,.18); }
+      .sign.big { width: 300px; height: 300px; border-width: 16px; font-size: 168px; box-shadow: 0 18px 0 rgba(20,19,18,.16); }
+      .sign.dark { background: var(--ink); color: var(--paper); border-color: var(--red); box-shadow: 0 0 0 10px rgba(226,65,46,.18); }
+
+      .qcard { position: absolute; left: 0; width: 1000px; padding: 34px 44px 34px 84px; border-radius: 28px; background: #FFFDF5; border: 3px solid var(--ink); font: 700 44px/1.22 var(--sans); letter-spacing: -.012em; color: var(--ink); box-shadow: 10px 12px 0 var(--ink); }
+      .qcard::before { content: "?"; position: absolute; left: 28px; top: 26px; font: 900 52px/1 var(--sans); color: var(--ink); opacity: .22; }
+      .qcard.ghost { background: transparent; box-shadow: none; border-style: dashed; color: var(--mute); border-color: var(--mute); }
+      .qcard.onk { background: var(--paper); border-color: var(--paper); box-shadow: 10px 12px 0 var(--red); }
+      .chip { display: inline-flex; align-items: center; gap: 12px; height: 64px; padding: 0 28px; border-radius: 40px; font: 700 30px/1 var(--sans); white-space: nowrap; }
+
+      /* ---------- stage rail (persistent) ---------- */
+      #rail { position: absolute; right: 64px; top: 52px; display: flex; gap: 10px; padding: 10px; border-radius: 48px; background: var(--paper); border: 3px solid var(--ink); z-index: 50; }
+      .rd { position: relative; width: 56px; height: 56px; border-radius: 50%; border: 3px solid var(--ink); font: 900 28px/50px var(--sans); text-align: center; color: var(--ink); }
+      .rd i { position: absolute; inset: -3px; border-radius: 50%; background: var(--ink); opacity: 0; }
+      .rd b { position: relative; }
+      .rd i.r { background: var(--red); }
+
+      /* ---------- 1 · open ---------- */
+      #s1 img { position: absolute; left: 480px; top: 60px; width: 960px; height: 960px; }
+
+      /* ---------- 2 · season tiles ---------- */
+      #tiles { position: absolute; left: 700px; top: 330px; display: flex; gap: 34px; }
+      .tile { position: relative; width: 260px; height: 340px; border-radius: 30px; border: 4px dashed rgba(20,19,18,.55); padding: 30px 28px; opacity: 0; }
+      .tile .eyebrow { font-size: 20px; color: rgba(20,19,18,.6); }
+      .tile .soon { position: absolute; left: 28px; bottom: 34px; font: 700 30px/1.1 var(--sans); color: rgba(20,19,18,.55); }
+      .tile.on { background: var(--ink); border: 4px solid var(--ink); }
+      .tile.on .eyebrow { color: var(--y); }
+      #tileWord { position: absolute; left: 28px; bottom: 30px; font: 900 76px/1 var(--sans); color: var(--y); letter-spacing: -.03em; transform-origin: 0 100%; }
+      #s2-label { left: 700px; top: 220px; }
+      #s2-sub { left: 700px; top: 730px; font: 600 34px/1.3 var(--sans); color: rgba(20,19,18,.75); }
+      #corner-logo { position: absolute; left: 90px; top: 250px; width: 520px; height: 520px; }
+
+      /* ---------- 3 · SPIN title ---------- */
+      #spinWord { position: absolute; left: 0; right: 0; top: 230px; display: flex; justify-content: center; gap: 4px; }
+      #spinWord span { display: inline-block; font: 900 400px/1 var(--sans); letter-spacing: -.04em; color: var(--y); }
+      #tekWord { position: absolute; left: 0; right: 0; top: 660px; text-align: center; font: 300 96px/1 var(--sans); letter-spacing: .32em; color: var(--paper); padding-left: .32em; }
+      #s3-ep { left: 0; right: 0; top: 150px; text-align: center; color: rgba(250,246,232,.65); }
+
+      /* ---------- 4 · why ---------- */
+      #why-q { left: 120px; top: 92px; }
+      #why-q .serif { font-size: 120px; }
+      #mega { position: absolute; left: 150px; top: 430px; width: 330px; height: 300px; }
+      #seller, #cust { position: absolute; top: 470px; width: 220px; height: 320px; }
+      #seller { left: 110px; } #cust { left: 1500px; }
+      .head { position: absolute; left: 50px; top: 0; width: 120px; height: 120px; border-radius: 50%; background: var(--ink); }
+      .body { position: absolute; left: 10px; top: 136px; width: 200px; height: 184px; border-radius: 100px 100px 24px 24px; background: var(--ink); }
+      .eye { position: absolute; top: 48px; width: 18px; height: 18px; border-radius: 50%; background: var(--paper); }
+      .lid { position: absolute; top: 55px; width: 26px; height: 6px; border-radius: 3px; background: var(--paper); opacity: 0; }
+      #zzz { position: absolute; left: 1700px; top: 380px; font: 800 64px/1 var(--sans); color: var(--mute); opacity: 0; }
+      #feat { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      .fc { position: absolute; left: 520px; top: 560px; background: var(--ink); color: var(--paper); opacity: 0; }
+      #megaLabel { left: 120px; top: 840px; }
+      #megaStrike { position: absolute; left: 112px; top: 878px; height: 8px; width: 620px; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); }
+      #qbub { position: absolute; left: 330px; top: 380px; width: 200px; height: 170px; opacity: 0; }
+      #qbub .b { position: absolute; inset: 0; border-radius: 50% 50% 50% 50% / 46% 46% 54% 54%; background: var(--y); border: 6px solid var(--ink); display: flex; align-items: center; justify-content: center; font: 900 120px/1 var(--sans); }
+      #qLabel { left: 120px; top: 930px; opacity: 0; }
+      #qLabel span { background: var(--y); padding: 0 14px; }
+      #why-mid { left: 640px; top: 480px; width: 760px; text-align: center; opacity: 0; }
+      #why-mid .serif { font-size: 76px; line-height: 1.05; }
+      #why-eq { left: 640px; top: 700px; width: 760px; text-align: center; opacity: 0; color: var(--mute); }
+      #custBadge { position: absolute; left: 1640px; top: 430px; width: 96px; height: 96px; border-radius: 50%; background: var(--y); border: 6px solid var(--ink); opacity: 0; }
+      #custBadge svg { position: absolute; inset: 14px; }
+      #why-end { left: 0; right: 0; top: 230px; text-align: center; opacity: 0; }
+      #why-end .serif { font-size: 104px; }
+      #horizon { position: absolute; left: 0; top: 960px; width: 1920px; height: 10px; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); }
+
+      /* ---------- 5 · map ---------- */
+      #mapWrap { position: absolute; inset: 0; transform-origin: 884px 937px; }
+      #road { position: absolute; left: 314px; top: 120px; width: 1292px; height: 884px; }
+      #map-title { left: 100px; top: 110px; }
+      #map-title .h-m { font-size: 70px; }
+      .slab { position: absolute; white-space: nowrap; opacity: 0; padding: 16px 24px 14px; border-radius: 20px; background: var(--paper); border: 4px solid var(--ink); box-shadow: 8px 9px 0 var(--ink); }
+      .slab b { display: block; font: 900 46px/1.15 var(--sans); letter-spacing: -.02em; }
+      .slab span { display: block; margin-top: 6px; font: 400 44px/1.15 var(--serif); font-style: italic; }
+      .msign { opacity: 0; }
+
+      /* ---------- stage scenes ---------- */
+      .st-left { position: absolute; left: 110px; top: 170px; width: 640px; }
+      .st-left .eyebrow { margin-top: 56px; }
+      .st-left .h-l { margin-top: 18px; }
+      .st-left .serif.sub { display: block; font-size: 72px; line-height: 1; margin-top: 10px; }
+      .st-left .rule { margin-top: 40px; font: 600 38px/1.28 var(--sans); max-width: 600px; }
+      .st-right { position: absolute; left: 820px; top: 0; width: 1040px; height: 1080px; }
+      .stamp { position: absolute; padding: 10px 26px; border: 7px solid var(--ink); border-radius: 14px; font: 900 64px/1 var(--sans); letter-spacing: .04em; color: var(--ink); transform: rotate(-8deg); opacity: 0; mix-blend-mode: multiply; }
+      .strike { position: absolute; left: 70px; height: 6px; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); }
+      .srcchip { background: var(--ink); color: var(--paper); opacity: 0; }
+
+      /* I scene */
+      #painWrap { position: absolute; left: 1360px; top: 560px; width: 0; height: 0; }
+      #painDot { position: absolute; left: -210px; top: -210px; width: 420px; height: 420px; border-radius: 50%; background: var(--red); transform: scale(.06); }
+      #painTxt { position: absolute; left: -300px; top: -50px; width: 600px; text-align: center; font: 900 100px/1 var(--sans); letter-spacing: .02em; color: var(--paper); opacity: 0; }
+      #painTxt2 { position: absolute; left: -300px; top: -50px; width: 600px; text-align: center; font: 900 100px/1 var(--sans); letter-spacing: .02em; color: var(--paper); opacity: 0; }
+      #lens { position: absolute; left: -95px; top: -95px; width: 190px; height: 190px; opacity: 0; }
+      #skip { position: absolute; left: 110px; top: 760px; width: 640px; height: 260px; }
+      #skipLbl { position: absolute; left: 130px; top: 1010px; font: 600 26px/1 var(--mono); color: var(--red-soft); opacity: 0; white-space: nowrap; letter-spacing: .06em; }
+
+      /* ---------- CRM map ---------- */
+      #ex-title { left: 100px; top: 110px; }
+      #crmChip { background: var(--ink); color: var(--y); font-size: 40px; height: 78px; padding: 0 34px; }
+      #puck { position: absolute; left: 0; top: 0; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: var(--paper); border: 8px solid var(--ink); opacity: 0; }
+
+      /* ---------- chat ---------- */
+      #panel { position: absolute; left: 330px; top: 150px; width: 1260px; height: 830px; border-radius: 40px; background: #FFFDF5; border: 4px solid var(--ink); box-shadow: 16px 18px 0 var(--ink); overflow: hidden; }
+      #panelK { position: absolute; inset: 0; background: var(--ink); opacity: 0; }
+      #ph { position: absolute; left: 0; right: 0; top: 0; height: 120px; border-bottom: 3px solid var(--ink); display: flex; align-items: center; padding: 0 44px; gap: 22px; }
+      #phAv { width: 64px; height: 64px; border-radius: 50%; background: var(--paper); border: 8px solid var(--ink); }
+      #phName { font: 800 36px/1 var(--sans); }
+      #phName small { display: block; margin-top: 8px; font: 600 20px/1 var(--mono); color: #6F6A5E; letter-spacing: .1em; }
+      #phTag { margin-left: auto; }
+      .page { position: absolute; left: 0; right: 0; top: 120px; bottom: 0; padding: 50px 56px; }
+      .tag { display: inline-flex; align-items: center; gap: 14px; height: 60px; padding: 0 24px 0 10px; border-radius: 40px; border: 3px solid var(--ink); font: 800 28px/1 var(--sans); white-space: nowrap; opacity: 0; }
+      .tag i { width: 42px; height: 42px; border-radius: 50%; background: var(--ink); color: var(--y); font: 900 24px/42px var(--sans); text-align: center; font-style: normal; }
+      .bub { position: absolute; max-width: 860px; padding: 30px 40px; border-radius: 34px; font: 700 42px/1.25 var(--sans); letter-spacing: -.01em; opacity: 0; }
+      .bub.me { right: 56px; background: var(--ink); color: var(--paper); border-bottom-right-radius: 8px; }
+      .bub.cu { left: 56px; background: var(--y); color: var(--ink); border: 3px solid var(--ink); border-bottom-left-radius: 8px; font: 400 58px/1.1 var(--serif); font-style: italic; }
+      .who { position: absolute; font: 600 20px/1 var(--mono); letter-spacing: .12em; color: #6F6A5E; opacity: 0; }
+      .dark .tag { border-color: var(--paper); color: var(--paper); }
+      .dark .tag i { background: var(--red); color: var(--paper); }
+      .dark .bub.me { background: var(--paper); color: var(--ink); }
+      .dots { display: flex; gap: 14px; padding: 8px 6px; }
+      .dots b { width: 20px; height: 20px; border-radius: 50%; background: var(--ink); }
+      #ofFlood { position: absolute; inset: 0; background: var(--red); opacity: 0; }
+      #ofTxt { position: absolute; left: 0; right: 0; top: 240px; text-align: center; font: 400 210px/1 var(--serif); font-style: italic; color: var(--paper); opacity: 0; }
+      #ofSub { position: absolute; left: 0; right: 0; top: 760px; text-align: center; color: var(--paper); opacity: 0; }
+      #yFlood { position: absolute; inset: 0; background: var(--y); opacity: 0; }
+
+      /* ---------- pipeline ---------- */
+      #pl-title { left: 100px; top: 96px; }
+      #plRoad { position: absolute; left: 0; top: 520px; width: 1920px; height: 96px; background: var(--ink); }
+      #plDash { position: absolute; left: 0; top: 564px; width: 1920px; height: 8px; background: repeating-linear-gradient(90deg, var(--paper) 0 50px, transparent 50px 100px); opacity: .7; }
+      .gate { position: absolute; top: 380px; width: 8px; height: 140px; background: var(--ink); }
+      .gate .sign { left: -62px; top: -128px; width: 132px; height: 132px; }
+      .tok { position: absolute; left: 0; top: 0; width: 92px; height: 72px; margin: -36px 0 0 -46px; border-radius: 16px; background: var(--paper); border: 4px solid var(--ink); }
+      .tok i { position: absolute; right: 10px; top: 10px; width: 22px; height: 22px; border-radius: 50%; background: var(--red); }
+      .tok b { position: absolute; left: 12px; top: 18px; width: 40px; height: 8px; border-radius: 4px; background: var(--ink); box-shadow: 0 16px 0 var(--ink); opacity: .5; }
+      #bin { position: absolute; left: 1080px; top: 860px; width: 460px; height: 150px; border: 4px dashed var(--ink); border-radius: 22px; opacity: 0; }
+      #binLbl { position: absolute; left: 22px; top: -50px; font: 700 26px/1 var(--mono); letter-spacing: .1em; }
+      #fbox { position: absolute; left: 1650px; top: 650px; width: 230px; height: 330px; border: 4px solid var(--ink); border-radius: 26px; background: var(--y); opacity: 0; }
+      #fboxLbl { position: absolute; left: 0; right: 0; top: 22px; text-align: center; font: 800 28px/1 var(--sans); letter-spacing: .04em; }
+      .cap { position: absolute; left: 100px; opacity: 0; white-space: nowrap; }
+      #cap1 { top: 700px; } #cap2 { top: 780px; } #cap3 { top: 700px; } #cap4 { top: 780px; } #cap5 { top: 900px; }
+
+      /* ---------- summary ---------- */
+      .strip { position: absolute; left: 0; width: 1920px; height: 360px; background: var(--ink); transform: scaleY(0); }
+      #s15 { color: var(--paper); }
+      #sum-ey { left: 140px; top: 150px; opacity: 0; color: var(--y); }
+      #sum1 { left: 140px; top: 300px; opacity: 0; }
+      #sum1 .h-l { font-size: 104px; }
+      #sum1 .x { position: relative; display: inline-block; }
+      #sum1 .x i { position: absolute; left: -8px; right: -8px; top: 50%; height: 12px; margin-top: -2px; background: var(--y); transform-origin: 0 50%; transform: scaleX(0); }
+      #sum2 { left: 140px; top: 470px; opacity: 0; isolation: isolate; }
+      #sum2 .h-l { font-size: 104px; }
+      #sum2 em { font-style: normal; position: relative; display: inline-block; color: var(--ink); }
+      #sum2 em u { position: absolute; left: -14px; right: -14px; top: 4px; bottom: -4px; background: var(--y); z-index: -1; transform-origin: 0 50%; transform: scaleX(0); text-decoration: none; }
+      #sum3 { left: 140px; top: 330px; width: 1640px; opacity: 0; }
+      #sum3 .serif { font-size: 118px; line-height: 1.05; }
+
+      /* ---------- outro ---------- */
+      #s16 { -webkit-mask-image: url("assets/road-ink.png"); mask-image: url("assets/road-ink.png"); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: 50% 50%; mask-position: 50% 50%; -webkit-mask-size: 768px 525px; mask-size: 768px 525px; }
+      #outLogo { position: absolute; left: 110px; top: 150px; width: 780px; height: 780px; }
+      #out-r { position: absolute; left: 980px; top: 250px; width: 860px; }
+      #out-r .lede { color: var(--ink); }
+      #out-plat { margin-top: 30px; font: 900 64px/1.1 var(--sans); letter-spacing: -.02em; white-space: nowrap; }
+      #out-chips { margin-top: 44px; display: flex; gap: 18px; }
+      #out-chips .chip { background: var(--ink); color: var(--y); opacity: 0; }
+      #out-bye { margin-top: 60px; font: 400 60px/1.1 var(--serif); font-style: italic; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="293.85" data-width="1920" data-height="1080">
+
+      <audio id="vo" class="clip" data-start="0" data-duration="293.85" data-track-index="9" data-volume="1" src="assets/voice.mp3"></audio>
+
+      <!-- 1 · open (poster frame = the official logo) -->
+      <div id="s1" class="clip bg-y" data-start="0" data-duration="4.4" data-track-index="0">
+        <img id="logo1" src="assets/logo-satis-yolculugu.png" alt="Satış Yolculuğu" />
+      </div>
+
+      <!-- 2 · season tiles -->
+      <div id="s2" class="clip bg-y" data-start="4.2" data-duration="9.4" data-track-index="1">
+        <img id="corner-logo" src="assets/logo-ink.png" alt="" />
+        <div id="s2-label" class="abs eyebrow hid">SATIŞ TEKNİKLERİ · BU SEZON</div>
+        <div id="tiles">
+          <div class="tile on" id="t0"><div class="eyebrow">BÖLÜM 1</div><div id="tileWord">SPIN</div></div>
+          <div class="tile" id="t1"><div class="eyebrow">BÖLÜM 2</div><div class="soon">yakında</div></div>
+          <div class="tile" id="t2"><div class="eyebrow">BÖLÜM 3</div><div class="soon">yakında</div></div>
+          <div class="tile" id="t3"><div class="eyebrow">…</div><div class="soon">yakında</div></div>
+        </div>
+        <div id="s2-sub" class="abs hid">Bu sezon satış tekniklerine de değiniyoruz.</div>
+      </div>
+
+      <!-- 3 · SPIN title -->
+      <div id="s3" class="clip bg-k" data-start="13.2" data-duration="6.9" data-track-index="2">
+        <div id="s3w" class="abs" style="inset:0">
+          <div id="s3-ep" class="abs eyebrow hid">SATIŞ TEKNİKLERİ · BÖLÜM 1</div>
+          <div id="spinWord"><span id="L0">S</span><span id="L1">P</span><span id="L2">I</span><span id="L3">N</span></div>
+          <div id="tekWord" class="hid">TEKNİĞİ</div>
+        </div>
+      </div>
+
+      <!-- 4 · why -->
+      <div id="s4" class="clip bg-p" data-start="19.8" data-duration="33.0" data-track-index="3">
+        <div id="s4w" class="abs" style="inset:0">
+          <div id="why-q" class="abs hid"><span class="h-l">Neden </span><span class="serif">SPIN?</span></div>
+          <div id="seller" class="hid"><div class="head"><div class="eye" style="left:68px"></div></div><div class="body"></div></div>
+          <svg id="mega" class="hid" viewBox="0 0 330 300"><path d="M40 120 L250 30 L250 270 L40 180 Z" fill="#141312"/><rect x="10" y="110" width="40" height="80" rx="10" fill="#141312"/><path d="M270 90 q40 60 0 120" stroke="#141312" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <div id="qbub"><div class="b">?</div></div>
+          <div id="feat">
+            <div class="fc chip" id="f0">Özellik</div><div class="fc chip" id="f1">Fiyat</div><div class="fc chip" id="f2">Demo</div>
+            <div class="fc chip" id="f3">Özellik</div><div class="fc chip" id="f4">Referans</div><div class="fc chip" id="f5">Özellik</div>
+          </div>
+          <div id="cust" class="hid"><div class="head"><div class="eye" id="e1" style="left:34px"></div><div class="eye" id="e2" style="left:68px"></div><div class="lid" id="l1" style="left:30px"></div><div class="lid" id="l2" style="left:64px"></div></div><div class="body"></div></div>
+          <div id="zzz">z z z</div>
+          <div id="custBadge"><svg viewBox="0 0 56 56"><path d="M10 29 L23 42 L46 15" stroke="#141312" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div id="megaLabel" class="abs eyebrow hid" style="font-size:40px">ANLATARAK SATMAK</div>
+          <div id="megaStrike"></div>
+          <div id="qLabel" class="abs eyebrow" style="font-size:40px"><span>DOĞRU SORULARI SORMAK</span></div>
+          <div id="why-mid" class="abs"><span class="serif">Müşteri dinlemiyor mu, sıkılıyor mu?</span></div>
+          <div id="why-eq" class="abs lede">Muhtemelen bir şeyler anlatıyorsunuz.</div>
+          <div id="why-end" class="abs"><span class="serif">Müşteri kendi kendine satın alır.</span></div>
+        </div>
+        <div id="horizon"></div>
+      </div>
+
+      <!-- 5 · SPIN road map (new component: the brand's own road carries the four stops) -->
+      <div id="s5" class="clip bg-y" data-start="52.4" data-duration="25.9" data-track-index="4">
+        <div id="mapWrap">
+          <img id="road" src="assets/road-ink.png" alt="" />
+          <div class="sign msign" id="mS" style="left:818px;top:871px">S</div>
+          <div class="sign msign" id="mP" style="left:533px;top:586px">P</div>
+          <div class="sign msign" id="mI" style="left:989px;top:396px">I</div>
+          <div class="sign msign" id="mN" style="left:1407px;top:254px">N</div>
+          <div class="slab" id="lS" style="left:990px;top:880px"><b>SITUATION</b><span>Durum</span></div>
+          <div class="slab" id="lP" style="left:190px;top:700px"><b>PROBLEM</b><span>Problem</span></div>
+          <div class="slab" id="lI" style="left:1060px;top:560px"><b>IMPLICATION</b><span>Etki</span></div>
+          <div class="slab" id="lN" style="left:1580px;top:380px"><b>NEED</b><span>İhtiyaç</span></div>
+        </div>
+        <div id="map-title" class="abs hid"><div class="eyebrow" style="margin-bottom:22px">SPIN NEDİR?</div><div class="h-m">4 aşamalı bir<br/>soru sorma sanatı</div></div>
+      </div>
+
+      <!-- 6 · S -->
+      <div id="s6" class="clip bg-p" data-start="77.9" data-duration="29.4" data-track-index="5">
+        <div id="s6w" class="abs" style="inset:0">
+          <div class="st-left">
+            <div class="sign big" id="bS" style="position:relative">S</div>
+            <div class="eyebrow">1 / 4</div>
+            <div class="h-l">SITUATION</div>
+            <span class="serif sub">Durum</span>
+            <div class="rule hid" id="sRule">Müşterinin mevcut durumunu anlamak için.</div>
+          </div>
+          <div class="st-right">
+            <div class="abs" id="sSrc" style="left:0;top:150px;display:flex;gap:16px;align-items:center">
+              <div class="eyebrow hid" id="sDik" style="color:var(--mute)">ZATEN</div>
+              <div class="chip srcchip" id="sc1">web sitesinde</div><div class="chip srcchip" id="sc2">LinkedIn'de</div>
+            </div>
+            <div class="qcard hid" id="sq1" style="top:270px">Kaç kişi çalışıyor?<div class="strike" id="sx1" style="top:66px;width:420px"></div></div>
+            <div class="qcard hid" id="sq2" style="top:440px">Cironuz nedir?<div class="strike" id="sx2" style="top:66px;width:330px"></div></div>
+            <div class="stamp" id="stamp" style="left:560px;top:380px">SORMAYIN</div>
+            <div class="chip hid" id="sCtx" style="position:absolute;left:0;top:640px;background:var(--y);border:3px solid var(--ink)">✓&nbsp; Bağlam kurdurun</div>
+            <div class="qcard hid" id="sq3" style="top:740px;background:var(--y)">Mevcut süreçleriniz şu an nasıl işliyor?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 · P -->
+      <div id="s7" class="clip bg-y" data-start="107.0" data-duration="14.8" data-track-index="6">
+        <div id="s7w" class="abs" style="inset:0">
+          <div class="st-left">
+            <div class="sign big" id="bP" style="position:relative;background:var(--paper)">P</div>
+            <div class="eyebrow">2 / 4</div>
+            <div class="h-l">PROBLEM</div>
+            <span class="serif sub hid" id="pSub">Yarayı kaşıyın.</span>
+            <div class="rule hid" id="pRule">Problemi müşterinin ağzından duyun.</div>
+          </div>
+          <div class="st-right">
+            <div class="qcard hid" id="pq1" style="top:300px">Süreçte nerelerde tıkanıyorsunuz?</div>
+            <div class="qcard hid" id="pq2" style="top:520px">Hangi konularda zorluk yaşıyorsunuz?</div>
+            <div class="abs hid" id="wound" style="left:938px;top:760px;width:44px;height:44px;border-radius:50%;background:var(--ink)"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 · I (proof: pain lens) -->
+      <div id="s8" class="clip bg-k" data-start="120.8" data-duration="19.6" data-track-index="7">
+        <div id="s8w" class="abs" style="inset:0;color:var(--paper)">
+          <div id="painWrap">
+            <div id="painDot"></div>
+            <svg id="lens" viewBox="0 0 190 190"><circle cx="95" cy="95" r="80" stroke="#FAF6E8" stroke-width="12" fill="none"/></svg>
+            <div id="painTxt">SORUN</div><div id="painTxt2">KRİZ</div>
+          </div>
+          <div class="st-left">
+            <div class="sign big dark" id="bI" style="position:relative">I</div>
+            <div class="eyebrow" style="color:var(--red-soft)">3 / 4</div>
+            <div class="h-l">IMPLICATION</div>
+            <span class="serif sub">Etki</span>
+            <div class="rule hid" id="iRule">Sihrin başladığı yer.</div>
+          </div>
+          <svg id="skip" viewBox="0 0 640 260" class="hid">
+            <line x1="20" y1="200" x2="620" y2="200" stroke="#FAF6E8" stroke-opacity=".35" stroke-width="6"/>
+            <g font-family="Montserrat" font-weight="900" font-size="30" text-anchor="middle">
+              <circle cx="60" cy="200" r="30" fill="#FAF6E8"/><text x="60" y="211" fill="#141312">S</text>
+              <circle cx="240" cy="200" r="30" fill="#FAF6E8"/><text x="240" y="211" fill="#141312">P</text>
+              <circle cx="420" cy="200" r="30" fill="#141312" stroke="#E2412E" stroke-width="6"/><text x="420" y="211" fill="#E2412E">I</text>
+              <circle cx="580" cy="200" r="30" fill="#FAF6E8"/><text x="580" y="211" fill="#141312">N</text>
+            </g>
+            <path id="skipArc" d="M240 160 C 300 20, 520 20, 580 160" stroke="#F2A093" stroke-width="7" fill="none" stroke-dasharray="14 12"/>
+          </svg>
+          <div id="skipLbl">ÇOĞU SATIŞÇI I'YI ATLIYOR</div>
+          <div class="st-right" style="left:1000px;width:880px">
+            <div class="qcard onk hid" id="iq1" style="top:150px;width:860px">Bu sorunu çözmemek size yılda ne kadara mal oluyor?</div>
+            <div class="qcard onk hid" id="iq2" style="top:800px;width:860px">Bu aksaklık ekibin motivasyonunu nasıl etkiliyor?</div>
+          </div>
+          <div class="abs lede hid" id="iEnd" style="left:110px;top:930px;color:var(--red-soft)">Sorunu acil bir krize dönüştürün.</div>
+        </div>
+              </div>
+
+      <!-- 9 · N -->
+      <div id="s9" class="clip bg-p" data-start="140.0" data-duration="12.9" data-track-index="8">
+        <div id="s9w" class="abs" style="inset:0">
+          <div class="st-left">
+            <div class="sign big" id="bN" style="position:relative">N</div>
+            <div class="eyebrow">4 / 4</div>
+            <div class="h-l">NEED</div>
+            <span class="serif sub">İhtiyaç</span>
+            <div class="rule hid" id="nRule">Çözümü siz söylemeyin, onlara söyletin.</div>
+          </div>
+          <div class="st-right">
+            <div class="qcard hid" id="nq1" style="top:300px">Bu sorunu çözmek kârlılığınızı nasıl artırır?</div>
+            <div class="qcard hid" id="nq2" style="top:520px">Bu süreci otomatize etseydiniz, kazandığınız zamanı nerede kullanırdınız?</div>
+          </div>
+        </div>
+        <div id="nGrow" class="abs" style="left:1150px;top:350px;width:420px;height:420px;border-radius:50%;background:var(--y)"></div>
+      </div>
+
+      <!-- 10 · CRM example on the road -->
+      <div id="s10" class="clip bg-y" data-start="152.5" data-duration="13.0" data-track-index="0">
+        <div id="map2" class="abs" style="inset:0;transform-origin:884px 937px">
+          <img src="assets/road-ink.png" alt="" style="position:absolute;left:314px;top:120px;width:1292px;height:884px" />
+          <div class="sign" style="left:818px;top:871px">S</div>
+          <div class="sign" style="left:533px;top:586px">P</div>
+          <div class="sign" style="left:989px;top:396px">I</div>
+          <div class="sign" style="left:1407px;top:254px">N</div>
+          <div id="puck"></div>
+        </div>
+        <div id="ex-title" class="abs hid"><div class="eyebrow" style="margin-bottom:22px">SOMUT BİR ÖRNEK</div><div class="h-m" style="font-size:70px">Bir CRM yazılımı<br/>satarken SPIN</div></div>
+        <div class="chip hid abs" id="crmChip" style="left:100px;top:420px">CRM</div>
+      </div>
+
+      <!-- 11–13 · chat -->
+      <div id="s11" class="clip bg-p" data-start="165.0" data-duration="60.8" data-track-index="1">
+        <div id="chatW" class="abs" style="inset:0">
+          <div id="panel">
+            <div id="panelK"></div>
+            <div id="ph"><div id="phAv"></div><div id="phName">Müşteri<small>CRM GÖRÜŞMESİ</small></div></div>
+            <!-- S -->
+            <div class="page" id="pgS">
+              <div class="tag" id="tgS"><i>S</i>Situation · Durum</div>
+              <div class="who" id="wS1" style="right:60px;top:150px">SATIŞÇI</div>
+              <div class="bub me" id="bS1" style="top:185px">Şu an satış ekibiniz müşteri takibini nasıl yapıyor?</div>
+              <div class="who" id="wS2" style="left:60px;top:420px">MÜŞTERİ</div>
+              <div class="bub cu" id="bS2" style="top:455px">Excel ile.</div>
+            </div>
+            <!-- P -->
+            <div class="page" id="pgP" style="opacity:0">
+              <div class="tag" id="tgP"><i>P</i>Problem</div>
+              <div class="bub me" id="bP1" style="top:130px">Peki Excel kullanırken veri girişi hataları veya takip edilemeyen müşteriler oluyor mu?</div>
+              <div class="bub cu" id="bP2" style="top:440px">Evet oluyor, bazen kaçırıyoruz.</div>
+            </div>
+            <!-- I -->
+            <div class="page dark" id="pgI" style="opacity:0">
+              <div class="tag" id="tgI"><i>I</i>Implication · Etki</div>
+              <div class="bub me" id="bI1" style="top:130px">Kaçırılan bu fırsatların yıllık ciro kaybına etkisi sizce nedir?</div>
+              <div class="bub me" id="bI2" style="top:320px">Bu durum satış ekibinizin moralini nasıl etkiliyor?</div>
+              <div class="bub cu" id="bI3" style="top:540px"><div class="dots"><b></b><b></b><b></b></div></div>
+            </div>
+            <!-- N -->
+            <div class="page" id="pgN" style="opacity:0">
+              <div class="tag" id="tgN"><i>N</i>Need · İhtiyaç</div>
+              <div class="bub me" id="bN1" style="top:130px">Eğer bu takibi otomatize edip hata payını sıfıra indirseydik, bu yıl sonu hedeflerinize ulaşmanızı nasıl etkilerdi?</div>
+              <div class="bub cu" id="bN2" style="top:500px">O harika olurdu, %20–%30 büyürdük.</div>
+            </div>
+          </div>
+        </div>
+        <div id="ofFlood"></div>
+        <div id="ofTxt">“Of, çok para<br/>kaybediyoruz.”</div>
+        <div id="ofSub" class="eyebrow" style="font-size:34px">İŞTE İSTEDİĞİMİZ NOKTA</div>
+        <div id="yFlood"></div>
+      </div>
+
+      <!-- 14 · pipeline (new component: the disqualify gate) -->
+      <div id="s14" class="clip bg-p" data-start="225.3" data-duration="40.2" data-track-index="2">
+        <div id="plW" class="abs" style="inset:0">
+          <div id="pl-title" class="abs hid"><div class="eyebrow" style="margin-bottom:22px">PIPELINE'DAKİ YERİ</div><div class="h-m" style="font-size:70px">SPIN fırsatları da eler.</div></div>
+          <div id="plRoad"></div><div id="plDash"></div>
+          <div class="gate" style="left:420px"><div class="sign">S</div></div>
+          <div class="gate" style="left:760px"><div class="sign">P</div></div>
+          <div class="gate" id="gI" style="left:1100px"><div class="sign" id="gIs">I</div></div>
+          <div class="gate" style="left:1440px"><div class="sign">N</div></div>
+          <div id="bin"><div id="binLbl">DİSKALİFİYE</div></div>
+          <div id="fbox"><div id="fboxLbl">FORECAST</div></div>
+          <div id="toks"></div>
+          <div class="cap lede" id="cap1">Satın almaya ikna eder</div>
+          <div class="cap lede" id="cap2">ve adayları diskalifiye eder.</div>
+          <div class="cap lede" id="cap3" style="font-weight:800">Acı yoksa satış yok.</div>
+          <div class="cap lede" id="cap4">Tahmin tutarlılığı artar.</div>
+          <div class="cap serif" id="cap5" style="font-size:64px">Boşuna kürek çekmeyin.</div>
+        </div>
+        <div class="strip" id="st1" style="top:0;transform-origin:50% 0"></div>
+        <div class="strip" id="st2" style="top:360px;transform-origin:50% 0"></div>
+        <div class="strip" id="st3" style="top:720px;transform-origin:50% 0"></div>
+      </div>
+
+      <!-- 15 · summary -->
+      <div id="s15" class="clip bg-k" data-start="265.2" data-duration="17.8" data-track-index="3">
+        <div id="sum-ey" class="abs eyebrow">TOPARLAYALIM</div>
+        <div id="sum1" class="abs"><span class="h-l"><span class="x">Özellik anlatmak<i id="sumX"></i></span> değil,</span></div>
+        <div id="sum2" class="abs"><span class="h-l">problemin <em>maliyetini<u id="sumU"></u></em></span><br/><span class="h-l">fark ettirmek.</span></div>
+        <div id="sum3" class="abs"><span class="serif">İnsanlar özellikleri değil, sorunlarının çözümünü ve değeri satın alır.</span></div>
+      </div>
+
+      <!-- 16 · outro (road-shaped mask opens onto the brand) -->
+      <div id="s16" class="clip bg-y" data-start="281.5" data-duration="12.35" data-track-index="4">
+        <img id="outLogo" src="assets/logo-satis-yolculugu.png" alt="Satış Yolculuğu" />
+        <div id="out-r">
+          <div class="lede hid" id="out-1">Bir bölümün daha sonuna geldik.</div>
+          <div id="out-plat" class="hid">Spotify · Apple Podcasts</div>
+          <div id="out-chips"><div class="chip" id="oc1">Takip et</div><div class="chip" id="oc2">Yıldız ver</div><div class="chip" id="oc3">Yorum yap</div></div>
+          <div id="out-bye">Bir sonraki bölümde görüşmek üzere.</div>
+        </div>
+      </div>
+
+      <!-- persistent stage rail -->
+      <div id="railClip" class="clip" data-start="62.6" data-duration="202.6" data-track-index="10" style="pointer-events:none">
+        <div id="rail">
+          <div class="rd" id="r0"><i></i><b>S</b></div>
+          <div class="rd" id="r1"><i></i><b>P</b></div>
+          <div class="rd" id="r2"><i class="r"></i><b>I</b></div>
+          <div class="rd" id="r3"><i></i><b>N</b></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const $ = (s) => document.querySelector(s);
+        const tl = gsap.timeline({ paused: true });
+        // enter: from-state → CSS-hidden-safe target, never rendered before t
+        const IN = (sel, t, from, to) => tl.fromTo(sel, from, Object.assign({ immediateRender: false }, to), t);
+        const TO = (sel, t, vars) => tl.to(sel, vars, t);
+
+        /* ===== 1 · open ===== */
+        tl.fromTo("#logo1", { scale: 1.0 }, { scale: 1.035, duration: 3.6, ease: "sine.inOut" }, 0);
+        // object carry: the logo travels to the corner of the season page
+        TO("#logo1", 3.4, { x: -610, y: -30, scale: 0.5416, duration: 0.8, ease: "power2.inOut" });
+
+        /* ===== 2 · season tiles ===== */
+        IN("#s2-label", 4.6, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" });
+        ["#t0", "#t1", "#t2", "#t3"].forEach((s, i) =>
+          IN(s, 5.0 + i * 0.22, { opacity: 0, x: 160 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }));
+        IN("#s2-sub", 6.2, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
+        TO("#t0", 11.0, { y: -16, duration: 0.5, ease: "power2.out" });
+        // type carry: SPIN leaves the tile and becomes the title
+        TO(["#t1", "#t2", "#t3", "#s2-sub", "#s2-label", "#corner-logo"], 12.5, { opacity: 0, duration: 0.5, ease: "power2.in" });
+        TO("#tileWord", 12.5, { scale: 2.4, x: 40, y: -40, duration: 0.7, ease: "power3.in" });
+
+        /* ===== 3 · SPIN title ===== */
+        const drops = [{ y: -520 }, { x: -700 }, { y: 520 }, { x: 700 }];
+        drops.forEach((d, i) => IN("#L" + i, 13.25 + i * 0.12, Object.assign({ opacity: 0 }, d), { opacity: 1, x: 0, y: 0, duration: 0.7, ease: "expo.out" }));
+        IN("#s3-ep", 14.2, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" });
+        IN("#tekWord", 15.4, { opacity: 0, letterSpacing: "0.6em" }, { opacity: 1, letterSpacing: "0.32em", duration: 1.2, ease: "power3.out" });
+        tl.fromTo("#spinWord", { scale: 1 }, { scale: 1.05, duration: 6, ease: "sine.inOut", immediateRender: false }, 13.4);
+        // whip pan out
+        TO("#s3w", 19.55, { x: -1920, filter: "blur(18px)", duration: 0.35, ease: "power3.in" });
+
+        /* ===== 4 · why ===== */
+        IN("#s4w", 19.8, { x: 1920, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.4, ease: "power3.out" });
+        IN("#why-q", 20.0, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" });
+        TO("#why-q", 22.3, { rotation: -2, duration: 0.25, ease: "power2.out" });
+        TO("#why-q", 22.55, { rotation: 0, duration: 0.3, ease: "power2.out" });
+        IN("#seller", 24.0, { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" });
+        IN("#cust", 24.2, { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" });
+        IN("#mega", 24.6, { opacity: 0, scale: 0.6, transformOrigin: "20% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" });
+        IN("#megaLabel", 25.2, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" });
+        // features blast toward the customer
+        const fy = [480, 560, 640, 520, 600, 690];
+        for (let i = 0; i < 6; i++) {
+          const t = 26.0 + i * 0.45;
+          IN("#f" + i, t, { opacity: 0, x: 0, y: 0, scale: 0.6 }, { opacity: 1, x: 560 + (i % 3) * 190, y: fy[i] - 560 + (i > 2 ? 40 : -40), scale: 1, duration: 1.0, ease: "power2.out" });
+        }
+        // customer falls asleep
+        TO(["#e1", "#e2"], 28.6, { opacity: 0, duration: 0.2 });
+        TO(["#l1", "#l2"], 28.6, { opacity: 1, duration: 0.2 });
+        IN("#zzz", 28.8, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "sine.out" });
+        TO("#zzz", 29.6, { y: -18, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 1 });
+        // "Oysa…": strike, chips fall, megaphone becomes one question
+        TO("#megaStrike", 30.2, { scaleX: 1, duration: 0.5, ease: "power3.out" });
+        for (let i = 0; i < 6; i++) TO("#f" + i, 30.6 + i * 0.06, { y: 700, rotation: (i % 2 ? 1 : -1) * (20 + i * 8), opacity: 0, duration: 0.9, ease: "power2.in" });
+        TO("#mega", 31.4, { opacity: 0, scale: 0.4, duration: 0.35, ease: "power2.in" });
+        IN("#qbub", 31.7, { opacity: 0, scale: 0.3, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" });
+        TO(["#megaLabel", "#megaStrike"], 33.0, { opacity: 0.35, duration: 0.4 });
+        IN("#qLabel", 33.0, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" });
+        TO("#zzz", 33.6, { opacity: 0, duration: 0.3 });
+        TO(["#l1", "#l2"], 33.8, { opacity: 0, duration: 0.15 });
+        TO(["#e1", "#e2"], 33.8, { opacity: 1, duration: 0.15 });
+        // listening? bored?
+        IN("#why-mid", 36.0, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
+        IN("#why-eq", 39.8, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" });
+        // SPIN: the customer buys by themselves
+        TO(["#why-q", "#why-mid", "#why-eq", "#megaLabel", "#megaStrike", "#qLabel", "#seller", "#qbub"], 44.9, { opacity: 0, duration: 0.5, ease: "power2.in" });
+        TO("#cust", 45.3, { x: -760, duration: 0.9, ease: "power3.inOut" });
+        IN("#custBadge", 46.4, { opacity: 0, scale: 0.2, x: -760 }, { opacity: 1, scale: 1, x: -760, duration: 0.5, ease: "back.out(1.7)" });
+        IN("#why-end", 46.0, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" });
+        // "Eğer hazırsanız başlıyoruz": the horizon line draws, then becomes the road
+        TO(["#why-end", "#cust", "#custBadge"], 51.3, { opacity: 0, duration: 0.5 });
+        TO("#horizon", 50.9, { scaleX: 1, duration: 1.0, ease: "power2.inOut" });
+
+        /* ===== 5 · road map ===== */
+        IN("#road", 52.4, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 2.2, ease: "power2.out" });
+        tl.fromTo("#mapWrap", { rotation: 0 }, { rotation: 1.4, duration: 25, ease: "sine.inOut", immediateRender: false }, 52.6);
+        IN("#map-title", 54.0, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" });
+        const mapOrder = [["#mS", "#lS", 68.3], ["#mP", "#lP", 71.0], ["#mI", "#lI", 72.6], ["#mN", "#lN", 75.4]];
+        mapOrder.forEach(([s, l, t]) => {
+          IN(s, t, { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)" });
+          IN(l, t + 0.15, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
+        });
+        // push-through into the S sign
+        TO("#map-title", 77.2, { opacity: 0, duration: 0.3 });
+        TO("#mapWrap", 77.4, { scale: 9, duration: 0.7, ease: "expo.in" });
+
+        /* ===== stage rail ===== */
+        IN("#rail", 62.6, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" });
+        const fill = (i, t, on) => TO(`#r${i} i`, t, { opacity: on ? 1 : 0, duration: 0.3 });
+        const color = (i, t, c) => TO(`#r${i} b`, t, { color: c, duration: 0.3 });
+        const stage = (i, t0, t1) => { fill(i, t0, 1); color(i, t0, "#FAF6E8"); fill(i, t1, 0); color(i, t1, "#141312"); };
+        stage(0, 78.1, 107.2); stage(1, 107.2, 120.8); stage(2, 120.8, 140.0); stage(3, 140.0, 152.5);
+        stage(0, 165.3, 173.8); stage(1, 173.8, 188.6); stage(2, 188.6, 209.8); stage(3, 209.8, 225.5);
+        fill(2, 244.4, 1); color(2, 244.4, "#FAF6E8"); fill(2, 250.0, 0); color(2, 250.0, "#141312");
+
+        /* ===== 6 · S ===== */
+        IN("#bS", 77.95, { scale: 2.6, x: 300, y: 260, opacity: 0 }, { scale: 1, x: 0, y: 0, opacity: 1, duration: 0.8, ease: "power3.out" });
+        IN("#s6 .st-left > :not(#bS):not(#sRule)", 78.3, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" });
+        IN("#sRule", 82.4, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
+        IN("#sDik", 86.5, { opacity: 0 }, { opacity: 1, duration: 0.4 });
+        IN("#sc1", 88.8, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" });
+        IN("#sc2", 90.4, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" });
+        IN("#sq1", 92.4, { opacity: 0, x: 120, rotation: 2 }, { opacity: 1, x: 0, rotation: 0, duration: 0.55, ease: "power3.out" });
+        IN("#sq2", 93.9, { opacity: 0, x: 120, rotation: -2 }, { opacity: 1, x: 0, rotation: 0, duration: 0.55, ease: "power3.out" });
+        IN("#stamp", 95.1, { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.22, ease: "power4.in" });
+        TO("#sx1", 95.35, { scaleX: 1, duration: 0.3, ease: "power2.out" });
+        TO("#sx2", 95.45, { scaleX: 1, duration: 0.3, ease: "power2.out" });
+        TO(["#sq1", "#sq2"], 95.6, { opacity: 0.45, duration: 0.5 });
+        IN("#sCtx", 97.4, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" });
+        IN("#sq3", 101.7, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" });
+        TO("#sq3", 102.5, { scale: 1.03, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 });
+        // parallax slide out (three depths)
+        TO("#s6 .st-right", 106.6, { x: -2600, duration: 0.6, ease: "power3.in" });
+        TO("#s6 .st-left", 106.6, { x: -1900, duration: 0.6, ease: "power3.in" });
+
+        /* ===== 7 · P ===== */
+        IN("#s7 .st-left", 107.0, { x: 1900 }, { x: 0, duration: 0.65, ease: "power3.out" });
+        IN("#s7 .st-right", 107.0, { x: 2600 }, { x: 0, duration: 0.75, ease: "power3.out" });
+        IN("#pSub", 109.6, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "sine.inOut" });
+        IN("#pq1", 112.6, { opacity: 0, y: 40, rotation: -3 }, { opacity: 1, y: 0, rotation: -1, duration: 0.6, ease: "power3.out" });
+        IN("#pq2", 114.6, { opacity: 0, y: 40, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.6, ease: "power3.out" });
+        IN("#pRule", 117.0, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "sine.inOut" });
+        IN("#wound", 118.8, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" });
+        TO("#wound", 119.4, { scale: 1.3, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" });
+
+        /* ===== 8 · I ===== */
+        // focal iris opening from the wound (1758, 782)
+        IN("#s8", 120.8, { clipPath: "circle(0px at 1780px 782px)" }, { clipPath: "circle(2300px at 1780px 782px)", duration: 0.9, ease: "power2.in" });
+        IN("#iRule", 122.6, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" });
+        // "most sellers skip it"
+        TO("#iRule", 125.5, { opacity: 0, duration: 0.3 });
+        IN("#skip", 125.8, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+        IN("#skipArc", 126.0, { strokeDashoffset: 600, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 0.8, ease: "power2.out" });
+        IN("#skipLbl", 126.4, { opacity: 0 }, { opacity: 1, duration: 0.4 });
+        TO(["#skip", "#skipLbl"], 129.6, { opacity: 0, duration: 0.4 });
+        // pain lens: the small problem grows under the glass
+        IN("#lens", 127.9, { opacity: 0, x: -260, y: 180 }, { opacity: 1, x: 0, y: 0, duration: 0.8, ease: "power3.out" });
+        TO("#painDot", 128.6, { scale: 1, duration: 2.0, ease: "expo.in" });
+        TO("#lens", 128.6, { scale: 2.6, opacity: 0, duration: 2.0, ease: "expo.in" });
+        IN("#painTxt", 130.5, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power4.out" });
+        IN("#iq1", 130.4, { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.55, ease: "expo.out" });
+        IN("#iq2", 134.1, { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.55, ease: "expo.out" });
+        tl.fromTo("#painDot", { x: 0 }, { x: 6, duration: 0.08, repeat: 9, yoyo: true, ease: "none", immediateRender: false }, 137.1);
+        TO("#painDot", 137.0, { scale: 1.25, duration: 0.6, ease: "expo.out" });
+        TO("#painTxt", 137.0, { opacity: 0, duration: 0.2 });
+        IN("#painTxt2", 137.15, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1.25, duration: 0.35, ease: "power4.out" });
+        IN("#iEnd", 137.4, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" });
+        // match cut: red crisis circle → yellow N circle
+        TO(["#iq1", "#iq2", "#painTxt2", "#iEnd", "#s8 .st-left"], 139.3, { opacity: 0, duration: 0.3 });
+        TO("#painDot", 139.3, { scale: 1, duration: 0.3, ease: "power2.inOut" });
+
+        /* ===== 9 · N ===== */
+        tl.fromTo("#nGrow", { scale: 1, x: 0, y: 0 }, { scale: 0.714, x: -1100, y: -240, duration: 0.9, ease: "power1.inOut", immediateRender: false }, 140.15);
+        TO("#nGrow", 141.0, { opacity: 0, duration: 0.15 });
+        IN("#bN", 140.9, { opacity: 0 }, { opacity: 1, duration: 0.15 });
+        IN("#s9 .st-left > :not(#bN):not(#nRule)", 140.6, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, stagger: 0.1, ease: "power1.inOut" });
+        IN("#nRule", 141.4, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
+        IN("#nq1", 144.0, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" });
+        IN("#nq2", 147.3, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" });
+        // dolly out: the stage page shrinks away
+        TO("#s9w", 152.0, { scale: 0.3, opacity: 0, duration: 0.5, ease: "power2.in" });
+
+        /* ===== 10 · CRM on the road ===== */
+        IN("#map2", 152.5, { scale: 2.2 }, { scale: 1, duration: 1.2, ease: "power2.inOut" });
+        IN("#ex-title", 152.9, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" });
+        IN("#crmChip", 157.4, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" });
+        IN("#puck", 160.6, { opacity: 0, scale: 0, left: 884, top: 1030 }, { opacity: 1, scale: 1, left: 884, top: 1030, duration: 0.4, ease: "back.out(2)" });
+        TO("#puck", 161.3, { top: 980, duration: 1.4, ease: "power2.inOut" });
+        // object carry: the traveller becomes the chat avatar
+        TO(["#ex-title", "#crmChip"], 164.2, { opacity: 0, duration: 0.3 });
+        TO("#puck", 164.4, { left: 406, top: 210, duration: 0.6, ease: "power2.inOut" });
+
+        /* ===== 11 · chat S + P ===== */
+        IN("#panel", 165.0, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power4.out" });
+        IN("#tgS", 165.4, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "power4.out" });
+        IN("#wS1", 167.4, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+        IN("#bS1", 167.5, { opacity: 0, x: 60, scale: 0.92, transformOrigin: "100% 100%" }, { opacity: 1, x: 0, scale: 1, duration: 0.45, ease: "power4.out" });
+        IN("#wS2", 171.0, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+        IN("#bS2", 171.1, { opacity: 0, x: -60, scale: 0.92, transformOrigin: "0% 100%" }, { opacity: 1, x: 0, scale: 1, duration: 0.45, ease: "power4.out" });
+        TO("#pgS", 173.7, { y: -120, opacity: 0, duration: 0.4, ease: "power2.in" });
+        IN("#pgP", 173.9, { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.45, ease: "power4.out" });
+        IN("#tgP", 174.0, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+        IN("#bP1", 176.3, { opacity: 0, x: 60, scale: 0.92, transformOrigin: "100% 100%" }, { opacity: 1, x: 0, scale: 1, duration: 0.45, ease: "power4.out" });
+        IN("#bP2", 183.8, { opacity: 0, x: -60, scale: 0.92, transformOrigin: "0% 100%" }, { opacity: 1, x: 0, scale: 1, duration: 0.45, ease: "power4.out" });
+        // hold… then hard cut to the dark implication page
+        tl.set("#pgP", { opacity: 0 }, 188.6);
+        tl.set("#panelK", { opacity: 1 }, 188.6);
+        tl.set("#panel", { borderColor: "#E2412E", boxShadow: "16px 18px 0 #E2412E" }, 188.6);
+        tl.set("#ph", { color: "#FAF6E8", borderColor: "#2A2724" }, 188.6);
+        tl.set("#phAv", { borderColor: "#E2412E" }, 188.6);
+        tl.set("#s11", { backgroundColor: "#141312" }, 188.6);
+        tl.set("#pgI", { opacity: 1 }, 188.6);
+
+        /* ===== 12 · chat I ===== */
+        IN("#tgI", 188.7, { opacity: 0, scale: 1.2 }, { opacity: 1, scale: 1, duration: 0.3, ease: "expo.out" });
+        IN("#bI1", 191.8, { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" });
+        IN("#bI2", 196.6, { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" });
+        IN("#bI3", 200.8, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" });
+        for (let k = 0; k < 3; k++) tl.fromTo(`#bI3 .dots b:nth-child(${k + 1})`, { y: 0 }, { y: -12, duration: 0.3, repeat: 5, yoyo: true, ease: "sine.inOut", immediateRender: false }, 200.9 + k * 0.15);
+        // the colour event: "Of"
+        IN("#ofFlood", 203.75, { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none" });
+        tl.set("#chatW", { opacity: 0 }, 203.9);
+        tl.set("#chatW", { opacity: 1 }, 209.8);
+        IN("#ofTxt", 203.85, { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.5, ease: "expo.out" });
+        IN("#ofSub", 205.8, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" });
+        tl.fromTo("#ofTxt", { scale: 1 }, { scale: 1.04, duration: 5, ease: "sine.inOut", immediateRender: false }, 204.4);
+        // graphic match colour: red → yellow, then the N page
+        TO(["#ofTxt", "#ofSub"], 209.4, { opacity: 0, duration: 0.25 });
+        IN("#yFlood", 209.55, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" });
+        tl.set(["#pgI"], { opacity: 0 }, 209.8);
+        tl.set("#panelK", { opacity: 0 }, 209.8);
+        tl.set("#panel", { borderColor: "#141312", boxShadow: "16px 18px 0 #141312" }, 209.8);
+        tl.set("#ph", { color: "#141312", borderColor: "#141312" }, 209.8);
+        tl.set("#phAv", { borderColor: "#141312" }, 209.8);
+        tl.set("#s11", { backgroundColor: "#FFFF00" }, 209.8);
+        tl.set("#ofFlood", { opacity: 0 }, 209.8);
+        tl.set("#pgN", { opacity: 1 }, 209.8);
+        TO("#yFlood", 209.85, { opacity: 0, duration: 0.5, ease: "power2.out" });
+
+        /* ===== 13 · chat N ===== */
+        IN("#tgN", 210.0, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" });
+        IN("#bN1", 212.3, { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" });
+        IN("#bN2", 219.9, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" });
+        TO("#bN2", 221.0, { scale: 1.04, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut", transformOrigin: "0% 100%" });
+        // speed ramp out
+        TO("#chatW", 224.9, { x: -2400, filter: "blur(14px)", duration: 0.45, ease: "expo.in" });
+
+        /* ===== 14 · pipeline ===== */
+        IN("#plW", 225.3, { x: 2400, filter: "blur(14px)" }, { x: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" });
+        IN("#pl-title", 226.0, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" });
+        IN("#cap1", 235.4, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" });
+        IN("#cap2", 240.3, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" });
+        IN("#bin", 240.4, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" });
+        TO(["#cap1", "#cap2"], 244.0, { opacity: 0, duration: 0.3 });
+        IN("#cap3", 244.3, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" });
+        TO("#gIs", 244.3, { backgroundColor: "#E2412E", color: "#FAF6E8", duration: 0.3 });
+        IN("#fbox", 250.2, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" });
+        IN("#cap4", 250.3, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" });
+        IN("#cap5", 260.0, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
+        // split stack out
+        ["#st1", "#st2", "#st3"].forEach((s, i) => IN(s, 264.6 + i * 0.1, { scaleY: 0 }, { scaleY: 1, duration: 0.45, ease: "power4.inOut" }));
+
+        // deal tokens: deterministic positions from t
+        const toks = $("#toks");
+        const N = 10, PAIN = [1, 0, 1, 1, 0, 1, 0, 0, 1, 0];
+        const els = [];
+        for (let i = 0; i < N; i++) {
+          const d = document.createElement("div"); d.className = "tok";
+          d.innerHTML = "<b></b>" + (PAIN[i] ? "<i></i>" : "");
+          toks.appendChild(d); els.push(d);
+        }
+        const GATE = 1100, BOXX = 1600, V = 150, Y = 568, FALL = Math.sqrt((935 - 568) / 450);
+        const slot = [], rest = []; let kept = 0, lost = 0;
+        for (let i = 0; i < N; i++) { if (PAIN[i]) slot[i] = kept++; else rest[i] = 1130 + 90 * lost++; }
+        function renderToks(t) {
+          for (let i = 0; i < N; i++) {
+            const e = els[i], dt = t - (232.0 + i * 2.0);
+            if (dt < 0) { e.style.opacity = 0; continue; }
+            let x = -60 + V * dt, y = Y, r = 0;
+            if (!PAIN[i] && x > GATE) {
+              const k = Math.min(1, (x - GATE) / V / FALL);
+              x = GATE + (rest[i] - GATE) * k; y = Y + (935 - Y) * k * k; r = (i % 2 ? 1 : -1) * 22 * k;
+            } else if (PAIN[i] && x > BOXX) {
+              const k = Math.min(1, (x - BOXX) / V / 0.6), q = 1 - Math.pow(1 - k, 3);
+              x = BOXX + (1712 + (slot[i] % 2) * 106 - BOXX) * q; y = Y + (935 - Math.floor(slot[i] / 2) * 84 - Y) * q;
+            }
+            e.style.opacity = 1;
+            e.style.transform = `translate(${x}px, ${y}px) rotate(${r}deg)`;
+          }
+        }
+        const proxy = { t: 225.3 };
+        tl.fromTo(proxy, { t: 225.3 }, { t: 265.5, duration: 40.2, ease: "none", immediateRender: false, onUpdate: () => renderToks(proxy.t) }, 225.3);
+        renderToks(225.3);
+
+        /* ===== 15 · summary ===== */
+        IN("#sum-ey", 265.3, { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.inOut" });
+        IN("#sum1", 268.0, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7, ease: "power4.out" });
+        TO("#sumX", 270.6, { scaleX: 1, duration: 0.45, ease: "power3.out" });
+        IN("#sum2", 271.7, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7, ease: "power4.out" });
+        IN("#sum2 em", 271.7, { color: "#FAF6E8" }, { color: "#FAF6E8", duration: 0.01 });
+        TO("#sum2 em", 273.0, { color: "#141312", duration: 0.2 });
+        TO("#sumU", 273.0, { scaleX: 1, duration: 0.6, ease: "power3.out" });
+        TO(["#sum1", "#sum2"], 275.7, { opacity: 0, y: -50, duration: 0.4, ease: "power2.in" });
+        IN("#sum3", 276.1, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" });
+
+        /* ===== 16 · outro: the road-shaped mask opens ===== */
+        const m = { s: 6 };
+        const setMask = () => {
+          const el = $("#s16"), w = 19.2 * m.s, h = w * 465 / 680;
+          const v = w + "px " + h + "px", pos = (960 - 150 / 680 * w) + "px " + (540 - 262 / 465 * h) + "px";
+          el.style.webkitMaskSize = v; el.style.maskSize = v; el.style.webkitMaskPosition = pos; el.style.maskPosition = pos;
+        };
+        tl.fromTo(m, { s: 40 }, { s: 9000, duration: 1.3, ease: "expo.in", immediateRender: false, onUpdate: setMask }, 281.5);
+        setMask();
+        IN("#outLogo", 281.5, { scale: 1.08 }, { scale: 1, duration: 2.5, ease: "sine.out" });
+        IN("#out-1", 282.0, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "sine.out" });
+        IN("#out-plat", 283.7, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "sine.out" });
+        IN("#oc1", 286.0, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" });
+        IN("#oc2", 287.0, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" });
+        IN("#oc3", 288.1, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" });
+        IN("#out-bye", 291.4, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "sine.out" });
+        tl.set({}, {}, 293.85);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>
