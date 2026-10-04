@@ -30,6 +30,6 @@ Merhaba {Hitap},
 
 Önerim büyük bir proje değil, tek bir süreç: seyahat ve konaklama onayı, performans takibi ya da özlük evrakı takibi. İlk uygulamayı görüşmede birlikte kuralım, ekibiniz ücretsiz bir pilotla kendi verisiyle, kendi işinde denesin.
 
-Zorlu Enerji (Electrip Global)'de olduğu gibi aynı çalışma alanı zamanla İK'dan masraf, hakediş ve şarj istasyonu kurulum takibine yayılıyor; her yeni süreç için yeniden kurulum gerekmiyor. Altyapı yatırımı yok; kullanıcı başına ödüyorsunuz, süreç sayısı bedeli değiştirmiyor.
+Zorlu Enerji'de (Electrip Global) olduğu gibi aynı çalışma alanı zamanla İK'dan masraf, hakediş ve şarj istasyonu kurulum takibine yayılıyor; her yeni süreç için yeniden kurulum gerekmiyor. Altyapı yatırımı yok; kullanıcı başına ödüyorsunuz, süreç sayısı bedeli değiştirmiyor.
 
 {Gün} veya {gün} 30 dakikanız olur mu? Şu an önceliğiniz değilse bu konudaki son e-postam; ileride gündeme gelirse bu mesaja cevap vermeniz yeterli.
