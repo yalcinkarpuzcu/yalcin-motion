@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="tr">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #root { position: absolute; inset: 0; }
+</style>
+<div id="root" data-composition-id="ch9" data-width="1920" data-height="1080">
+<div class="scene" id="c9">
+
+  <!-- 73 · brick by brick: the sales castle -->
+  <div class="shot" id="c9-s73">
+    <div class="bg bg-cream"></div>
+    <div class="cred" id="c9-cr1" style="left:160px;top:140px">BU SEZON · TUĞLA TUĞLA</div>
+    <div class="abs t-m" id="c9-kale" style="left:160px;top:200px">Satış <span class="serif" style="font-size:80px">kalesi</span></div>
+    <div class="abs" id="c9-base" style="left:520px;top:900px" data-paper="strip" data-w="880" data-h="40" data-fill="ink" data-seed="731"></div>
+    <div id="c9-castle" class="abs" style="left:560px;top:280px;width:820px;height:620px"></div>
+    <div class="abs" id="c9-flag" style="left:960px;top:20px;width:120px;height:200px">
+      <div class="abs" style="left:0;top:0;width:10px;height:200px;background:#151413"></div>
+      <div class="abs" style="left:10px;top:0" data-paper="poly" data-w="110" data-h="70" data-pts="[[0,0],[110,35],[0,70]]" data-fill="y" data-seed="732"></div>
+    </div>
+  </div>
+
+  <!-- 74 · next: discovery, with a surgeon's precision -->
+  <div class="shot" id="c9-s74">
+    <div class="bg bg-ink"></div>
+    <div class="cred" id="c9-cr2" style="left:160px;top:200px;color:#FFFF00">SIRADA</div>
+    <div class="abs t-m" id="c9-ih" style="left:160px;top:260px;color:#F4EEDC">Müşterinin ihtiyacını <span class="serif" style="font-size:80px;color:#FFFF00">keşfetmek</span></div>
+    <div class="abs" id="c9-line" style="left:160px;top:560px;width:1600px;height:6px;background:#FFFF00;transform-origin:left center"></div>
+    <div class="abs" id="c9-scal" style="left:60px;top:470px;width:420px;height:100px">
+      <div class="abs" style="left:0;top:40px" data-paper="strip" data-w="250" data-h="34" data-fill="paper2" data-seed="741"></div>
+      <div class="abs" style="left:240px;top:20px" data-paper="poly" data-w="180" data-h="70" data-pts="[[0,24],[120,0],[180,60],[0,56]]" data-fill="cream" data-seed="742"></div>
+    </div>
+    <div class="cred" id="c9-cr3" style="left:160px;top:620px;color:#F4EEDC">CERRAH TİTİZLİĞİNDE</div>
+    <div class="abs t-xl" id="c9-kesif" style="left:160px;top:700px;font-size:200px;color:#FFFF00">KEŞİF</div>
+  </div>
+
+  <!-- 75 · sign-off -->
+  <div class="shot" id="c9-s75">
+    <div class="bg bg-y"></div>
+    <img class="abs" id="c9-logo" src="assets/img/logo-official.png" alt="Satış Yolculuğu" style="left:180px;top:150px;width:780px;height:780px">
+    <div class="abs t-l" id="c9-kal" style="left:1040px;top:380px;width:800px;line-height:1.05">Satışta kal, <span class="serif" style="font-size:118px">zinde</span> kal.</div>
+    <div class="cred" id="c9-gu" style="left:1040px;top:640px">GÖRÜŞMEK ÜZERE · KENDİNE İYİ BAK</div>
+  </div>
+
+  <div class="grain"></div>
+</div>
+</div>
+<script>
+(function () {
+  const S = document.getElementById("c9");
+  const q = (s) => S.querySelector(s);
+  const qa = (s) => S.querySelectorAll(s);
+  // castle: 5 wall rows + 3 towers, 110 px bricks
+  let b = "", seed = 900;
+  const rows = [[0, 7], [0, 7], [0, 7], [0, 7], [0, 7]];
+  rows.forEach((rw, ri) => {
+    for (let i = rw[0]; i < rw[1]; i++) {
+      b += '<div class="abs c9-br" style="left:' + (i * 110 + (ri % 2 ? 55 : 0)) + "px;top:" + (550 - ri * 70) + 'px" data-paper="strip" data-w="104" data-h="64" data-fill="' + ((i * 3 + ri) % 5 === 0 ? "rust" : "ink") + '" data-seed="' + seed++ + '"></div>';
+    }
+  });
+  [0, 330, 660].forEach((x) => {
+    for (let k = 0; k < 3; k++) b += '<div class="abs c9-br" style="left:' + x + "px;top:" + (200 - k * 70) + 'px" data-paper="strip" data-w="104" data-h="64" data-fill="ink" data-seed="' + seed++ + '"></div>';
+  });
+  q("#c9-castle").innerHTML = b;
+
+  PAPER.build(S);
+  PAPER.tags(S);
+  const tl = gsap.timeline({ paused: true });
+  const cut = (id, a, b) => PAPER.cut(tl, q(id), a, b);
+
+  // 73 · stop-motion castle (surprise: the flag)
+  cut("#c9-s73", 0, 6.63);
+  tl.fromTo("#c9-cr1", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+  tl.fromTo("#c9-base", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "steps(10)" }, 0.90);
+  tl.fromTo(qa(".c9-br"), { y: -120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.12, ease: "steps(10)", stagger: 0.06 }, 2.94 - 0.3);
+  tl.fromTo("#c9-kale", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 4.78);
+  tl.fromTo("#c9-flag", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.3, ease: "steps(10)" }, 5.90);
+
+  // 74 · scalpel draws one clean line
+  cut("#c9-s74", 6.63, 14.59);
+  tl.fromTo("#c9-cr2", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 6.63);
+  tl.fromTo("#c9-ih", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.inOut" }, 7.09);
+  tl.fromTo("#c9-cr3", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 11.30);
+  tl.fromTo("#c9-scal", { x: 0 }, { x: 1600, duration: 1.2, ease: "power3.inOut" }, 11.30);
+  tl.fromTo("#c9-line", { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power3.inOut" }, 11.30);
+  tl.fromTo("#c9-kesif", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.5, ease: "power3.inOut" }, 13.09);
+
+  // 75 · sign-off; the last 1.5 s holds still
+  cut("#c9-s75", 14.59);
+  tl.fromTo("#c9-logo", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power2.out" }, 14.59);
+  tl.fromTo("#c9-kal", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, 16.00 - 0.2);
+  tl.fromTo("#c9-gu", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 18.42);
+
+  window.__timelines["ch9"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

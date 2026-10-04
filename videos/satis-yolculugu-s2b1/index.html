@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Satış Yolculuğu · Satışın Yeni Tanımı</title>
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/paper.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #151413; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #FFFF00; }
+      [data-composition-id="root"] > div[data-composition-src] { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="root" data-width="1920" data-height="1080" data-duration="506.4">
+      <div id="el-ch1" data-composition-id="ch1" data-composition-src="compositions/ch1.html" data-start="0.0" data-duration="40.7" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-ch2" data-composition-id="ch2" data-composition-src="compositions/ch2.html" data-start="40.7" data-duration="42.1" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-ch3" data-composition-id="ch3" data-composition-src="compositions/ch3.html" data-start="82.8" data-duration="47.9" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-ch4" data-composition-id="ch4" data-composition-src="compositions/ch4.html" data-start="130.7" data-duration="92.1" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-ch5" data-composition-id="ch5" data-composition-src="compositions/ch5.html" data-start="222.8" data-duration="87.6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-ch6" data-composition-id="ch6" data-composition-src="compositions/ch6.html" data-start="310.4" data-duration="64.8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-ch7" data-composition-id="ch7" data-composition-src="compositions/ch7.html" data-start="375.2" data-duration="69.3" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-ch8" data-composition-id="ch8" data-composition-src="compositions/ch8.html" data-start="444.5" data-duration="41.6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-ch9" data-composition-id="ch9" data-composition-src="compositions/ch9.html" data-start="486.1" data-duration="20.3" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <audio id="el-sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="506.4" data-track-index="11" data-volume="0.4"></audio>
+      <audio id="el-voice" src="assets/audio/bolum-ses.mp3" data-start="0" data-duration="506.4" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines["root"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+/* Shared look for every scene. */
+:root{--y:#FFFF00;--ink:#151413;--cream:#F4EEDC;--rust:#D9452B;--shade:#2A2826;--paper2:#E9E1C9}
+.scene{position:absolute;inset:0;overflow:hidden;font-family:Montserrat,sans-serif;color:var(--ink)}
+.bg{position:absolute;inset:0}
+.bg-y{background:var(--y)} .bg-ink{background:var(--ink)} .bg-cream{background:var(--cream)}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.07;background-image:radial-gradient(#151413 .7px,transparent .9px);background-size:5px 5px}
+.abs{position:absolute}
+.cred{position:absolute;font:600 24px/1 Montserrat;letter-spacing:.32em;white-space:nowrap}
+.t-xl{font:800 150px/.92 Montserrat;letter-spacing:-.025em}
+.t-l{font:800 104px/.95 Montserrat;letter-spacing:-.02em}
+.t-m{font:800 68px/1 Montserrat;letter-spacing:-.01em}
+.t-s{font:700 40px/1.1 Montserrat}
+.serif{font-family:"Instrument Serif";font-style:italic;font-weight:400;letter-spacing:0}
+.mono{font-family:"JetBrains Mono";font-weight:500}
+.tag{position:absolute;display:block;font:800 30px/1 Montserrat;letter-spacing:.04em;white-space:nowrap;padding:16px 24px}
+.tag>.tx{position:relative;z-index:1}
+.shot{position:absolute;inset:0;opacity:0;overflow:hidden}
+.full{position:absolute;inset:0}
+.on-ink{color:var(--cream)} .on-y{color:var(--ink)}
+.center{display:flex;align-items:center;justify-content:center;text-align:center}
+[data-jaunty]{line-height:1.12 !important}

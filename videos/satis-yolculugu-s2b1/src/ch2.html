@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="tr">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #root { position: absolute; inset: 0; }
+  #c2 .half { position: absolute; inset: 0; }
+  #c2 .lbl { font-size: 40px; padding: 18px 28px; }
+  #c2 .card { position: absolute; width: 760px; height: 420px; }
+  #c2 .bar { position: absolute; left: 0; width: 1920px; height: 370px; }
+</style>
+<div id="root" data-composition-id="ch2" data-width="1920" data-height="1080">
+<div class="scene" id="c2">
+
+  <!-- shot 7 · the word knots in the throat -->
+  <div class="shot" id="c2-s7">
+    <div class="bg bg-y"></div>
+    <svg class="abs" style="left:0;top:0" width="1920" height="1080">
+      <path id="c2-rope" d="M-40 560 L640 560 C900 560 980 300 820 300 C660 300 700 560 960 600 C1220 640 1300 560 1960 560" fill="none" stroke="#151413" stroke-width="64" stroke-linecap="round"/>
+    </svg>
+    <div class="tag lbl" id="c2-satis" data-tag="y" style="left:150px;top:520px;font-size:56px;padding:6px 26px;"><span class="tx">SATIŞ</span></div>
+    <div id="c2-crowd"></div>
+    <div class="cred" id="c2-cr1" style="left:0;width:1920px;text-align:center;top:930px">YALNIZ DEĞİLSİN</div>
+  </div>
+
+  <!-- shot 8 · the wrong story -->
+  <div class="shot" id="c2-s8">
+    <div class="bg bg-ink"></div>
+    <div class="abs" id="c2-book" style="left:610px;top:110px;width:700px;height:860px">
+      <div class="abs" style="left:0;top:0" data-paper="strip" data-w="700" data-h="860" data-fill="cream" data-seed="81"></div>
+      <div class="abs" style="left:60px;top:60px" data-paper="strip" data-w="580" data-h="12" data-fill="ink" data-seed="82" data-noshadow></div>
+      <div class="abs" style="left:60px;top:788px" data-paper="strip" data-w="580" data-h="12" data-fill="ink" data-seed="83" data-noshadow></div>
+      <div class="abs t-m" style="left:60px;top:300px;width:580px;text-align:center;line-height:1.1">YANLIŞ BİR <span class="serif" style="font-size:96px">hikâye</span></div>
+      <div class="abs" style="left:310px;top:540px" data-paper="disc" data-r="40" data-fill="rust" data-seed="84"></div>
+    </div>
+    <div class="cred on-ink" id="c2-cr2" style="left:0;width:1920px;text-align:center;top:1010px;color:#FFFF00">YILLARCA ANLATILDI</div>
+  </div>
+
+  <!-- shot 9-10 · the sticky salesman poster, in two halves so it can tear -->
+  <div class="shot" id="c2-s9">
+    <div class="bg bg-y"></div>
+    <div class="half" id="c2-hA"></div>
+    <div class="half" id="c2-hB"></div>
+  </div>
+
+  <!-- shot 11 · season 2 opens through the logo -->
+  <div class="shot" id="c2-s11">
+    <div class="bg bg-y"></div>
+    <img class="abs" id="c2-logo" src="assets/img/logo-official.png" alt="Satış Yolculuğu" style="left:420px;top:0;width:1080px;height:1080px">
+    <div class="tag lbl" id="c2-sz" data-tag="ink" style="left:1360px;top:180px;font-size:54px;color:#FFFF00"><span class="tx">2. SEZON</span></div>
+    <div class="abs" id="c2-mind" style="left:1150px;top:380px;width:700px;height:400px">
+      <div class="abs t-m" id="c2-wallet" style="left:0;top:40px">CÜZDANI <span class="serif" style="font-size:80px">değil,</span></div>
+      <div class="abs" id="c2-strike" style="left:-10px;top:78px;width:345px;height:16px;background:#D9452B;transform-origin:left center"></div>
+      <div class="tag lbl" id="c2-zih" data-tag="ink" style="left:0;top:170px;font-size:78px;color:#FFFF00;padding:20px 34px"><span class="tx">ZİHNİYETİ</span></div>
+    </div>
+  </div>
+
+  <!-- shot 12 · what it is vs what it should be -->
+  <div class="shot" id="c2-s12">
+    <div class="bg bg-cream"></div>
+    <div class="card" id="c2-k1" style="left:150px;top:330px">
+      <div class="abs" data-paper="strip" data-w="760" data-h="420" data-fill="paper2" data-seed="121"></div>
+      <div class="abs t-m center" style="left:0;top:0;width:760px;height:420px">NE OLDUĞU</div>
+      <div class="abs" id="c2-k1x" style="left:90px;top:200px;width:580px;height:18px;background:#D9452B;transform-origin:left center"></div>
+    </div>
+    <div class="card" id="c2-k2" style="left:1010px;top:330px">
+      <div class="abs" data-paper="strip" data-w="760" data-h="420" data-fill="ink" data-seed="122"></div>
+      <div class="abs t-m center" style="left:0;top:0;width:760px;height:420px;color:#FFFF00;line-height:1.1">NE <span class="serif" style="font-size:84px;color:#F4EEDC">&nbsp;olması&nbsp;</span> GEREKTİĞİ</div>
+    </div>
+    <div class="cred" id="c2-cr3" style="left:150px;top:200px">SATIŞIN GERÇEKTE…</div>
+  </div>
+
+  <!-- shot 13 · title card -->
+  <div class="shot" id="c2-s13">
+    <div class="bg bg-y"></div>
+    <div class="bar" id="c2-b1" style="top:-10px" data-paper="strip" data-w="1920" data-h="370" data-fill="ink" data-seed="131" data-noshadow></div>
+    <div class="bar" id="c2-b2" style="top:355px" data-paper="strip" data-w="1920" data-h="370" data-fill="ink" data-seed="132" data-noshadow></div>
+    <div class="bar" id="c2-b3" style="top:720px" data-paper="strip" data-w="1920" data-h="370" data-fill="ink" data-seed="133" data-noshadow></div>
+    <div class="cred" id="c2-cr4" style="left:160px;top:330px">SATIŞ YOLCULUĞU · 2. SEZON</div>
+    <div class="abs t-xl" id="c2-title" style="left:160px;top:400px;width:1600px;font-size:170px" data-jaunty="2.5" data-seed="134">SATIŞIN YENİ TANIMI</div>
+    <div class="cred" id="c2-cr5" style="left:160px;top:830px">TEKRAR HOŞ GELDİN</div>
+  </div>
+
+  <div class="grain"></div>
+</div>
+</div>
+<script>
+(function () {
+  const S = document.getElementById("c2");
+  const q = (s) => S.querySelector(s);
+  const qa = (s) => S.querySelectorAll(s);
+
+  // the crowd of "you're not alone" discs
+  let cr = "";
+  const R = PAPER.rng(77);
+  for (let i = 0; i < 16; i++) {
+    const a = (i / 16) * Math.PI * 2;
+    const x = 960 + Math.cos(a) * (700 + R() * 120) - 40;
+    const y = 470 + Math.sin(a) * (330 + R() * 60) - 40;
+    cr += '<div class="abs c2-cd" style="left:' + x.toFixed(0) + "px;top:" + y.toFixed(0) + 'px" data-paper="disc" data-r="' + (30 + Math.round(R() * 18)) + '" data-fill="' + (i % 3 ? "cream" : "paper2") + '" data-seed="' + (700 + i) + '"></div>';
+  }
+  q("#c2-crowd").innerHTML = cr;
+
+  // the poster (built twice, one per torn half)
+  const poster = (k) => `
+    <div class="abs c2-door" style="left:150px;top:300px" data-paper="strip" data-w="250" data-h="560" data-fill="ink" data-seed="${91 + k}"></div>
+    <div class="abs" style="left:350px;top:570px" data-paper="disc" data-r="14" data-fill="y" data-seed="92" data-noshadow></div>
+    <div class="abs" style="left:1500px;top:160px" data-paper="strip" data-w="160" data-h="330" data-fill="rust" data-seed="93"></div>
+    <div class="abs" style="left:1475px;top:140px" data-paper="strip" data-w="210" data-h="44" data-fill="ink" data-seed="94"></div>
+    <div class="abs c2-pup" style="left:760px;top:150px;width:300px;height:780px">
+      <div class="abs" style="left:20px;top:100px" data-paper="strip" data-w="260" data-h="44" data-fill="ink" data-seed="95"></div>
+      <div class="abs" style="left:70px;top:10px" data-paper="strip" data-w="160" data-h="110" data-fill="ink" data-seed="96"></div>
+      <div class="abs" style="left:55px;top:140px" data-paper="disc" data-r="95" data-fill="paper2" data-seed="97"></div>
+      <div class="abs c2-grin" style="left:95px;top:250px" data-paper="strip" data-w="110" data-h="24" data-fill="rust" data-seed="98" data-noshadow></div>
+      <div class="abs" style="left:95px;top:200px" data-paper="disc" data-r="10" data-fill="ink" data-seed="99" data-noshadow></div>
+      <div class="abs" style="left:185px;top:200px" data-paper="disc" data-r="10" data-fill="ink" data-seed="100" data-noshadow></div>
+      <div class="abs" style="left:20px;top:330px" data-paper="poly" data-w="260" data-h="440" data-pts="[[40,0],[220,0],[260,440],[0,440]]" data-fill="ink" data-seed="101"></div>
+      <div class="abs c2-case" style="left:250px;top:560px" data-paper="strip" data-w="170" data-h="120" data-fill="rust" data-seed="102"></div>
+    </div>
+    <div class="tag lbl c2-l1" data-tag="y" data-seed="111" style="left:470px;top:330px"><span class="tx">KANDIRAN</span></div>
+    <div class="tag lbl c2-l2" data-tag="y" data-seed="112" style="left:1110px;top:380px"><span class="tx">İTELEYEN</span></div>
+    <div class="tag lbl c2-l3" data-tag="y" data-seed="113" style="left:440px;top:600px"><span class="tx">YAPIŞKAN</span></div>
+    <div class="tag lbl c2-l4" data-tag="y" data-seed="114" style="left:1110px;top:600px"><span class="tx">GÜVENİLMEZ</span></div>
+    <div class="cred" style="left:120px;top:110px">KAPIDAN KOVSAN BACADAN GİRER</div>`;
+  q("#c2-hA").innerHTML = '<div class="bg bg-cream"></div>' + poster(0);
+  q("#c2-hB").innerHTML = '<div class="bg bg-cream"></div>' + poster(0);
+  // a hand-torn diagonal line splits the poster
+  const tear = [];
+  const TR = PAPER.rng(5);
+  for (let i = 0; i <= 18; i++) tear.push([1100 - i * 25 + (TR() * 2 - 1) * 26, i * 60]);
+  const left = "polygon(0 0," + tear.map((p) => p[0].toFixed(0) + "px " + p[1] + "px").join(",") + ",0 1080px)";
+  const right = "polygon(1920px 0," + tear.map((p) => p[0].toFixed(0) + "px " + p[1] + "px").join(",") + ",1920px 1080px)";
+  q("#c2-hA").style.clipPath = left;
+  q("#c2-hB").style.clipPath = right;
+
+  PAPER.build(S);
+  PAPER.tags(S);
+
+  const tl = gsap.timeline({ paused: true });
+  const cut = (id, a, b) => PAPER.cut(tl, q(id), a, b);
+
+  // shot 7 · knot
+  cut("#c2-s7", 0, {{w:Çünkü@46.7}});
+  const rope = q("#c2-rope"); const L = 2200;
+  rope.style.strokeDasharray = L;
+  tl.fromTo(rope, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: 1.6, ease: "power1.inOut" }, {{w:boğazında@42.2}} - 0.6);
+  tl.fromTo("#c2-satis", { x: -600 }, { x: 0, duration: 0.5, ease: "power2.out" }, 0.1);
+  tl.fromTo("#c2-satis", { rotation: 0 }, { rotation: -6, duration: 0.15, ease: "steps(2)", yoyo: true, repeat: 3, immediateRender: false }, {{w:düğümleniyorsa@42.8}});
+  tl.fromTo(qa(".c2-cd"), { scale: 0 }, { scale: 1, duration: 0.25, ease: "back.out(1.6)", stagger: { each: 0.06, from: "random" } }, {{w:yalnız@43.9}});
+  tl.fromTo("#c2-cr1", { opacity: 0 }, { opacity: 1, duration: 0.4 }, {{w:yalnız@43.9}});
+
+  // shot 8 · book
+  cut("#c2-s8", {{w:Çünkü@46.7}}, {{w:Satışçıyı@50.1}});
+  tl.fromTo("#c2-book", { x: -1400, rotation: -6 }, { x: 0, rotation: -2, duration: 0.5, ease: "power2.out" }, {{w:Çünkü@46.7}});
+  tl.fromTo("#c2-cr2", { opacity: 0 }, { opacity: 1, duration: 0.4 }, {{w:yıllarca@47.5}});
+  tl.to("#c2-book", { rotationY: -100, transformPerspective: 1600, transformOrigin: "left center", duration: 0.6, ease: "power2.in" }, {{w:anlatıldı@49.3}});
+
+  // shot 9 · the puppet comes together and gets its labels
+  cut("#c2-s9", {{w:Satışçıyı@50.1}}, {{w:Satış@65.4}});
+  const pups = qa(".c2-pup");
+  tl.fromTo(pups, { y: -900 }, { y: 0, duration: 0.6, ease: "steps(6)" }, {{w:Satışçıyı@50.1}});
+  const lab = (cls, t) => tl.fromTo(qa(cls), { scale: 1.6, opacity: 0, rotation: 0 }, { scale: 1, opacity: 1, rotation: (i) => 0, duration: 0.2, ease: "power4.out" }, t);
+  lab(".c2-l1", {{w:kandıran@51.5}});
+  lab(".c2-l2", {{w:iteleyen@53.9}});
+  tl.to(qa(".c2-case"), { x: 120, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1 }, {{w:iteleyen@53.9}});
+  // kicked out of the door …
+  tl.to(pups, { x: -620, duration: 0.5, ease: "power2.in" }, {{w:kapıdan@54.7}});
+  tl.to(pups, { opacity: 0, duration: 0.05 }, {{w:kapıdan@54.7}} + 0.5);
+  // … and back in down the chimney (surprise)
+  tl.set(pups, { x: 760, y: -900 }, {{w:bacadan@55.8}} - 0.3);
+  tl.set(pups, { opacity: 1 }, {{w:bacadan@55.8}} - 0.29);
+  tl.to(pups, { y: -50, duration: 0.45, ease: "steps(5)" }, {{w:bacadan@55.8}});
+  tl.to(pups, { x: 0, y: 0, duration: 0.5, ease: "power2.out" }, {{w:giren@56.3}} + 0.1);
+  lab(".c2-l3", {{w:yapışkan@56.9}});
+  lab(".c2-l4", {{w:güvenilmez@57.7}});
+  tl.to(qa(".c2-grin"), { scaleX: 1.5, duration: 0.3, ease: "steps(3)" }, {{w:karakter@58.4}});
+  // shot 10 · "ama bugün": a shake, then the poster tears and tumbles
+  tl.to("#c2-s9", { x: 8, duration: 0.05, ease: "steps(1)", yoyo: true, repeat: 5 }, {{w:Ama@60.7}});
+  tl.to("#c2-hA", { rotation: -14, x: -260, y: 1200, transformOrigin: "0% 100%", duration: 0.7, ease: "power2.in" }, {{w:yırtıp@64.2}});
+  tl.to("#c2-hB", { rotation: 18, x: 300, y: 1200, transformOrigin: "100% 100%", duration: 0.75, ease: "power2.in" }, {{w:yırtıp@64.2}} + 0.05);
+
+  // shot 11 · season 2: the logo opens through its own round mask
+  cut("#c2-s11", {{w:Satış@65.4}}, {{w:Hazırsan@72.5}});
+  tl.fromTo("#c2-logo", { clipPath: "circle(0% at 50% 38%)" }, { clipPath: "circle(75% at 50% 38%)", duration: 0.9, ease: "expo.out" }, {{w:Satış@65.4}});
+  tl.fromTo("#c2-sz", { scale: 0, rotation: -20 }, { scale: 1, rotation: -4, duration: 0.3, ease: "back.out(2)" }, {{w:2.@66.4}});
+  tl.to("#c2-logo", { x: -380, scale: 0.8, duration: 0.6, ease: "power3.inOut" }, {{w:sezon@68.7}});
+  tl.to("#c2-sz", { x: -1180, y: 40, duration: 0.6, ease: "power3.inOut" }, {{w:sezon@68.7}});
+  tl.fromTo("#c2-wallet", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, {{w:cüzdanı@69.5}});
+  tl.fromTo("#c2-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.inOut" }, {{w:değil@70.0}});
+  tl.fromTo("#c2-zih", { rotationX: -90, transformPerspective: 800 }, { rotationX: 0, duration: 0.35, ease: "expo.out" }, {{w:zihniyeti@70.8}});
+
+  // shot 12 · cards
+  cut("#c2-s12", {{w:Hazırsan@72.5}}, {{w:Tekrar@78.4}} - 0.2);
+  tl.fromTo("#c2-k1", { y: 700 }, { y: 0, duration: 0.4, ease: "power2.inOut" }, {{w:Hazırsan@72.5}});
+  tl.fromTo("#c2-cr3", { opacity: 0 }, { opacity: 1, duration: 0.4 }, {{w:gerçekte@73.6}});
+  tl.fromTo("#c2-k1x", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.inOut" }, {{w:doğrusu@75.3}});
+  tl.fromTo("#c2-k2", { rotationY: 90, transformPerspective: 1400 }, { rotationY: 0, duration: 0.45, ease: "power2.inOut" }, {{w:olması@76.0}});
+
+  // shot 13 · title card (bars slide in, title rides on them)
+  cut("#c2-s13", {{w:Tekrar@78.4}} - 0.2);
+  tl.fromTo("#c2-b1", { x: -1950 }, { x: 0, duration: 0.3, ease: "power4.out" }, {{w:Tekrar@78.4}} - 0.2);
+  tl.fromTo("#c2-b3", { x: 1950 }, { x: 0, duration: 0.3, ease: "power4.out" }, {{w:Tekrar@78.4}} - 0.1);
+  tl.set(["#c2-b1", "#c2-b3"], { opacity: 0 }, {{w:Tekrar@78.4}} + 0.6);
+  tl.fromTo("#c2-cr4", { opacity: 0 }, { opacity: 1, duration: 0.4 }, {{w:Tekrar@78.4}} + 0.4);
+  tl.fromTo(qa("#c2-title .jwi"), { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power4.out", stagger: 0.16 }, {{w:Tekrar@78.4}} + 0.5);
+  tl.fromTo("#c2-cr5", { opacity: 0 }, { opacity: 1, duration: 0.5 }, {{w:hoş@80.1}});
+  tl.set("#c2-b2", { opacity: 0 }, 0);
+  // split-stack out: three ink strips close the frame toward the dark chapter
+  tl.set(["#c2-b1", "#c2-b2", "#c2-b3"], { opacity: 1 }, {{dur}} - 0.6);
+  tl.fromTo("#c2-b1", { x: 1950 }, { x: 0, duration: 0.3, ease: "power4.in", immediateRender: false }, {{dur}} - 0.6);
+  tl.fromTo("#c2-b2", { x: -1950 }, { x: 0, duration: 0.3, ease: "power4.in", immediateRender: false }, {{dur}} - 0.5);
+  tl.fromTo("#c2-b3", { x: 1950 }, { x: 0, duration: 0.3, ease: "power4.in", immediateRender: false }, {{dur}} - 0.4);
+
+  window.__timelines["ch2"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

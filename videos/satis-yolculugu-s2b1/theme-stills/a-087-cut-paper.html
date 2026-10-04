@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<style>
+:root{--y:#FFFF00;--ink:#151413;--cream:#F4EEDC;--rust:#D9452B}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--y)}
+.stage{position:absolute;inset:0;background:var(--y)}
+.grain{position:absolute;inset:0;opacity:.08;background-image:radial-gradient(#000 0.6px,transparent 0.8px);background-size:5px 5px}
+.cred{position:absolute;font:600 22px/1 Montserrat;letter-spacing:.32em;color:var(--ink)}
+.title{position:absolute;font:800 112px/0.95 Montserrat;color:var(--ink);letter-spacing:-.02em}
+.title span{display:inline-block}
+.serif{font-family:"Instrument Serif";font-style:italic;font-weight:400;letter-spacing:0}
+.lbl{position:absolute;font:700 34px/1 Montserrat;letter-spacing:.06em}
+</style></head><body><div class="stage">
+<svg width="1920" height="1080" style="position:absolute;inset:0">
+  <!-- left cliff: cut paper, ink -->
+  <path d="M0 640 L120 628 L260 646 L410 634 L520 652 L548 1080 L0 1080Z" fill="#151413"/>
+  <!-- right cliff: cream -->
+  <path d="M1372 560 L1500 548 L1640 566 L1780 552 L1920 566 L1920 1080 L1350 1080Z" fill="#F4EEDC"/>
+  <path d="M1372 560 L1500 548 L1640 566 L1780 552 L1920 566 L1920 580 L1372 574Z" fill="#151413" opacity=".12"/>
+  <!-- water strips -->
+  <path d="M548 900 L1350 890 L1350 1080 L548 1080Z" fill="#151413" opacity=".9"/>
+  <path d="M600 930 L760 926 L758 936 L602 940Z M900 970 L1080 964 L1078 974 L902 980Z M1150 1010 L1290 1006 L1288 1015 L1152 1019Z" fill="#FFFF00" opacity=".55"/>
+  <!-- bridge: hand-cut paper road strip arcing between cliffs -->
+  <path d="M520 648 C760 560 1110 520 1376 566 L1372 610 C1110 566 770 606 532 694Z" fill="#151413"/>
+  <path d="M600 640 C800 584 1090 560 1300 586" stroke="#FFFF00" stroke-width="7" stroke-dasharray="38 30" fill="none"/>
+  <!-- pylons -->
+  <path d="M760 612 L776 610 L784 900 L752 902Z M1110 578 L1126 577 L1134 892 L1102 894Z" fill="#151413"/>
+  <!-- toll booth (paper) -->
+  <g transform="translate(1180 470) rotate(-2)">
+    <path d="M0 0 L110 -3 L112 96 L2 98Z" fill="#D9452B"/>
+    <path d="M-12 -6 L124 -10 L120 -34 L-8 -30Z" fill="#151413"/>
+    <text x="56" y="66" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="54" fill="#F4EEDC">₺</text>
+  </g>
+  <!-- paper disc: the walker -->
+  <circle cx="900" cy="560" r="22" fill="#D9452B"/>
+</svg>
+<div class="lbl" style="left:120px;top:700px;color:var(--y)">ACI</div>
+<div class="lbl" style="left:1460px;top:620px;color:var(--ink)">SONUÇ</div>
+<div class="title" style="left:120px;top:150px"><span style="transform:rotate(-2deg) translateY(4px)">Köprünün</span><br><span class="serif" style="font-size:128px;transform:rotate(1.5deg)">mimarı</span> <span style="transform:rotate(-1deg) translateY(-6px)">sensin.</span></div>
+<div class="cred" style="right:120px;top:160px">SEZON 2 · BÖLÜM 1</div>
+<div class="cred" style="right:120px;top:200px;opacity:.6">DEĞİŞKEN DENKLEM</div>
+<div class="grain"></div>
+</div></body></html>

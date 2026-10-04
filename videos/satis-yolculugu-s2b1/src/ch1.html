@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="tr">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #root { position: absolute; inset: 0; }
+  #c1 .eye-lid { position: absolute; left: 0; width: 1920px; height: 545px; }
+  #c1 .head { position: absolute; }
+  #c1 .mask { position: absolute; font-size: 22px; padding: 10px 14px; color: #FFFF00; letter-spacing: .06em; }
+  #c1 .euph { position: absolute; left: 0; font: 800 64px/1 Montserrat; padding: 26px 40px; white-space: nowrap; }
+  #c1 .frill { position: absolute; z-index: 0; width: 34px; height: 34px; border-radius: 50%; background: #D9452B; }
+  #c1 .bigword { position: absolute; left: 0; width: 1920px; text-align: center; }
+</style>
+<div id="root" data-composition-id="ch1" data-width="1920" data-height="1080">
+<div class="scene" id="c1">
+
+  <!-- shot 1 · the frame opens like an eye -->
+  <div class="shot" id="c1-s1">
+    <div class="bg bg-y"></div>
+    <div class="abs" id="c1-eye" style="left:610px;top:340px;width:700px;height:400px">
+      <svg width="700" height="400" style="overflow:visible"><path d="M10 200 C180 20 520 20 690 200 C520 380 180 380 10 200Z" fill="#F4EEDC" stroke="#151413" stroke-width="10"/></svg>
+      <div class="abs" id="c1-pupil" style="left:255px;top:105px" data-paper="disc" data-r="95" data-fill="ink" data-seed="12"></div>
+      <div class="abs" style="left:300px;top:140px" data-paper="disc" data-r="22" data-fill="cream" data-seed="13" data-noshadow></div>
+    </div>
+    <div class="cred" id="c1-cr1" style="left:0;width:1920px;text-align:center;top:840px">GÖZÜNÜN ÖNÜNE GETİR</div>
+    <div class="eye-lid" id="c1-lidT" style="top:-5px" data-paper="strip" data-w="1920" data-h="545" data-fill="ink" data-seed="14" data-noshadow></div>
+    <div class="eye-lid" id="c1-lidB" style="top:540px" data-paper="strip" data-w="1920" data-h="545" data-fill="ink" data-seed="15" data-noshadow></div>
+  </div>
+
+  <!-- shot 2 · dinner table from above -->
+  <div class="shot" id="c1-s2">
+    <div class="bg bg-y"></div>
+    <div class="abs" id="c1-table" style="left:300px;top:390px" data-paper="strip" data-w="1320" data-h="300" data-fill="ink" data-seed="21"></div>
+    <div id="c1-plates"></div>
+    <div id="c1-heads"></div>
+    <div class="cred" id="c1-cr2" style="left:120px;top:110px">AİLE YEMEĞİ</div>
+    <div class="cred" id="c1-cr3" style="left:120px;top:150px;opacity:.6">YILLAR SONRA</div>
+  </div>
+
+  <!-- shot 3 · close-up: everyone wears the same mask -->
+  <div class="shot" id="c1-s3">
+    <div class="bg bg-cream"></div>
+    <div class="head" id="c1-h1" style="left:170px;top:300px" data-paper="disc" data-r="220" data-fill="paper2" data-seed="31"></div>
+    <div class="head" id="c1-h2" style="left:740px;top:260px" data-paper="disc" data-r="220" data-fill="y" data-seed="32"></div>
+    <div class="head" id="c1-h3" style="left:1310px;top:300px" data-paper="disc" data-r="220" data-fill="paper2" data-seed="33"></div>
+    <div class="tag mask" id="c1-m1" data-tag="ink" style="left:210px;top:440px;font-size:40px;padding:20px 30px"><span class="tx">BEN BAŞARDIM</span></div>
+    <div class="tag mask" id="c1-m2" data-tag="ink" style="left:780px;top:400px;font-size:40px;padding:20px 30px"><span class="tx">BEN BAŞARDIM</span></div>
+    <div class="tag mask" id="c1-m3" data-tag="ink" style="left:1350px;top:440px;font-size:40px;padding:20px 30px"><span class="tx">BEN BAŞARDIM</span></div>
+    <div class="cred" id="c1-cr4" style="left:0;width:1920px;text-align:center;top:900px">MASANIN DİĞER UCUNDAN</div>
+  </div>
+
+  <!-- shot 4 · the question -->
+  <div class="shot" id="c1-s4">
+    <div class="bg bg-ink"></div>
+    <div class="abs" id="c1-bub" style="left:300px;top:180px" data-paper="poly" data-w="1320" data-h="700" data-pts="[[0,0],[1320,0],[1320,560],[420,560],[260,700],[280,560],[0,560]]" data-fill="y" data-seed="41"></div>
+    <div class="abs t-l" id="c1-q1" style="left:400px;top:260px;width:1120px" data-jaunty="2.5" data-seed="42">Eee, sen neler yapıyorsun?</div>
+    <div class="abs t-xl" id="c1-q2" style="left:400px;top:520px;width:1120px" data-jaunty="3" data-seed="43">Ne iştesin şimdi?</div>
+  </div>
+
+  <!-- shot 5 · a deep breath -->
+  <div class="shot" id="c1-s5">
+    <div class="bg bg-y"></div>
+    <div class="abs" id="c1-chest" style="left:660px;top:240px" data-paper="disc" data-r="300" data-fill="cream" data-seed="51"></div>
+    <div class="cred" id="c1-cr6" style="left:0;width:1920px;text-align:center;top:140px">DERİN BİR NEFES</div>
+    <div class="bigword t-xl" id="c1-bs" style="top:420px;font-size:180px">BEN SATIŞÇIYIM</div>
+    <div class="bigword serif" id="c1-dm" style="top:640px;font-size:96px">diyebiliyor musun?</div>
+  </div>
+
+  <!-- shot 6 · the euphemisms cover the word -->
+  <div class="shot" id="c1-s6">
+    <div class="bg bg-cream"></div>
+    <div class="bigword t-xl" data-layout-allow-overlap id="c1-word" style="top:450px;font-size:210px">SATIŞÇIYIM</div>
+    <div class="tag euph" id="c1-e1" data-tag="ink" style="top:300px;left:210px;color:#FFFF00"><span class="tx">PAZARLAMA TARAFINDAYIM</span></div>
+    <div class="tag euph" id="c1-e2" data-tag="y" style="top:470px;left:130px"><span class="tx">MÜŞTERİ İLİŞKİLERİNİ YÖNETİYORUM</span></div>
+    <div class="tag euph" id="c1-e3" data-tag="rust" style="top:640px;left:330px;color:#F4EEDC"><span class="tx">TİCARİ OPERASYONLARDAYIM</span></div>
+    <div class="cred" id="c1-cr5" style="left:0;width:1920px;text-align:center;top:900px">SÜSLÜ · YUMUŞATILMIŞ</div>
+  </div>
+
+  <div class="grain"></div>
+</div>
+</div>
+<script>
+(function () {
+  const S = document.getElementById("c1");
+  const q = (s) => S.querySelector(s);
+  const qa = (s) => S.querySelectorAll(s);
+
+  // plates and heads around the table
+  let ph = "", hh = "";
+  for (let i = 0; i < 5; i++) {
+    const x = 380 + i * 250;
+    ph += '<div class="abs c1-plate" style="left:' + x + 'px;top:420px" data-paper="disc" data-r="46" data-fill="cream" data-seed="' + (60 + i) + '"></div>';
+    ph += '<div class="abs c1-plate" style="left:' + x + 'px;top:578px" data-paper="disc" data-r="46" data-fill="' + (i === 4 ? "rust" : "cream") + '" data-seed="' + (70 + i) + '"></div>';
+    hh += '<div class="abs c1-hd" style="left:' + (x - 24) + 'px;top:226px" data-paper="disc" data-r="70" data-fill="' + (i % 2 ? "paper2" : "cream") + '" data-seed="' + (80 + i) + '"></div>';
+    hh += '<div class="abs c1-hd" style="left:' + (x - 24) + 'px;top:716px" data-paper="disc" data-r="70" data-fill="' + (i === 4 ? "rust" : i % 2 ? "cream" : "paper2") + '" data-seed="' + (90 + i) + '"></div>';
+  }
+  q("#c1-plates").innerHTML = ph;
+  q("#c1-heads").innerHTML = hh;
+
+  // frills: paper scallops along the top and bottom edge of each euphemism strip
+  [["#c1-e1", "#151413"], ["#c1-e2", "#FFFF00"], ["#c1-e3", "#D9452B"]].forEach(([id, col]) => {
+    let fr = "";
+    for (let k = 0; k <= 24; k++) {
+      const l = "calc(" + (k / 24 * 100).toFixed(2) + "% - 17px)";
+      fr += '<span class="frill c1-fr" style="left:' + l + ';top:-15px;background:' + col + '"></span>';
+      fr += '<span class="frill c1-fr" style="left:' + l + ';bottom:-15px;background:' + col + '"></span>';
+    }
+    q(id).insertAdjacentHTML("beforeend", fr);
+  });
+
+  PAPER.build(S);
+  PAPER.tags(S);
+
+  const tl = gsap.timeline({ paused: true });
+  const cut = (id, a, b) => PAPER.cut(tl, q(id), a, b);
+
+  // shot 1 · 0 → 5.31
+  cut("#c1-s1", 0, {{w:Bir@5.3}});
+  tl.fromTo("#c1-lidT", { y: 0 }, { y: -560, duration: 1.3, ease: "power2.inOut" }, 0.35);
+  tl.fromTo("#c1-lidB", { y: 0 }, { y: 560, duration: 1.3, ease: "power2.inOut" }, 0.35);
+  tl.fromTo("#c1-pupil", { x: -60 }, { x: 0, duration: 1.2, ease: "power2.out" }, 1.2);
+  tl.fromTo("#c1-cr1", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, {{w:gözünün@1.6}});
+  // a blink on "istiyorum"
+  tl.to("#c1-lidT", { y: -250, duration: 0.12, ease: "power2.in" }, {{w:istiyorum@3.9}});
+  tl.to("#c1-lidB", { y: 250, duration: 0.12, ease: "power2.in" }, {{w:istiyorum@3.9}});
+  tl.to("#c1-lidT", { y: -560, duration: 0.18, ease: "power2.out" }, {{w:istiyorum@3.9}} + 0.14);
+  tl.to("#c1-lidB", { y: 560, duration: 0.18, ease: "power2.out" }, {{w:istiyorum@3.9}} + 0.14);
+
+  // shot 2 · the table
+  cut("#c1-s2", {{w:Bir@5.3}}, {{w:Herkesin@10.6}});
+  tl.fromTo("#c1-table", { x: -1700 }, { x: 0, duration: 0.45, ease: "power2.out" }, {{w:Bir@5.3}});
+  tl.fromTo(qa(".c1-plate"), { scale: 0 }, { scale: 1, duration: 0.18, ease: "steps(3)", stagger: 0.07 }, {{w:yemeğindesin@5.8}});
+  tl.fromTo(qa(".c1-hd"), { y: (i) => (i % 2 ? 300 : -300), opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power2.out", stagger: 0.12 }, {{w:arkadaşlarınla@7.6}});
+  tl.fromTo("#c1-cr2", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, {{w:aile@5.5}});
+  tl.fromTo("#c1-cr3", { opacity: 0, x: -30 }, { opacity: 0.6, x: 0, duration: 0.4, ease: "power2.out" }, {{w:yıllar@8.4}});
+
+  // shot 3 · masks flip on together on "maskesi"
+  cut("#c1-s3", {{w:Herkesin@10.6}}, {{w:Eee@18.8}});
+  tl.fromTo(["#c1-h1", "#c1-h2", "#c1-h3"], { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.4)", stagger: 0.1 }, {{w:Herkesin@10.6}});
+  tl.fromTo(["#c1-m1", "#c1-m2", "#c1-m3"], { rotationX: 90, transformPerspective: 600 }, { rotationX: 0, duration: 0.3, ease: "back.out(1.4)" }, {{w:maskesi@13.0}} - 0.1);
+  // somebody turns to you: the middle head grows toward camera, its mask drops
+  tl.to(["#c1-h1", "#c1-m1"], { x: -500, opacity: 0, duration: 0.6, ease: "power2.in" }, {{w:dönüyor@16.2}});
+  tl.to(["#c1-h3", "#c1-m3"], { x: 500, opacity: 0, duration: 0.6, ease: "power2.in" }, {{w:dönüyor@16.2}});
+  tl.to("#c1-h2", { scale: 1.6, y: 40, duration: 1.2, ease: "power2.inOut" }, {{w:dönüyor@16.2}});
+  tl.to("#c1-m2", { y: 700, rotation: 18, duration: 0.7, ease: "power2.in" }, {{w:malum@16.9}});
+  tl.fromTo("#c1-cr4", { opacity: 0 }, { opacity: 1, duration: 0.4 }, {{w:masanın@14.3}});
+  tl.to("#c1-cr4", { opacity: 0, duration: 0.3 }, {{w:dönüyor@16.2}});
+
+  // shot 4 · the question (object carry: the yellow head becomes the bubble)
+  cut("#c1-s4", {{w:Eee@18.8}}, {{w:Derin@22.0}});
+  tl.fromTo("#c1-bub", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "expo.out" }, {{w:Eee@18.8}});
+  const q1 = qa("#c1-q1 .jwi"), q2 = qa("#c1-q2 .jwi");
+  const t1 = [{{w:Eee@18.8}}, {{w:sen@19.0}}, {{w:neler@19.3}}, {{w:yapıyorsun@19.8}}];
+  q1.forEach((el, i) => tl.fromTo(el, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.22, ease: "expo.out" }, t1[i]));
+  const t2 = [{{w:Ne@20.9}}, {{w:iştesin@21.1}}, {{w:şimdi@21.6}}];
+  q2.forEach((el, i) => tl.fromTo(el, { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "expo.out" }, t2[i]));
+
+  // shot 5 · deep breath, then the word holds
+  cut("#c1-s5", {{w:Derin@22.0}}, {{w:Yoksa@27.0}});
+  tl.fromTo("#c1-chest", { scale: 0.8 }, { scale: 1.12, duration: 1.4, ease: "sine.inOut" }, {{w:nefes@22.6}});
+  tl.to("#c1-chest", { scale: 1, duration: 1.0, ease: "sine.inOut" }, {{w:nefes@22.6}} + 1.4);
+  tl.fromTo("#c1-cr6", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "sine.out" }, {{w:Derin@22.0}});
+  tl.fromTo("#c1-bs", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.25, ease: "expo.out" }, {{w:Ben@24.8}});
+  tl.fromTo("#c1-dm", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "sine.out" }, {{w:diyebiliyor@25.6}});
+
+  // shot 6 · the euphemisms slide over SATIŞÇIYIM (type carry from shot 5)
+  cut("#c1-s6", {{w:Yoksa@27.0}});
+  tl.fromTo("#c1-word", { scale: 0.85 }, { scale: 1, duration: 0.5, ease: "power3.out" }, {{w:Yoksa@27.0}});
+  tl.fromTo("#c1-e1", { x: -1500 }, { x: 0, duration: 0.35, ease: "power3.out" }, {{w:Pazarlama@28.1}});
+  tl.fromTo("#c1-e2", { x: 1900 }, { x: 0, duration: 0.35, ease: "power3.out" }, {{w:Müşteri@29.7}});
+  tl.fromTo("#c1-e3", { x: -1500 }, { x: 0, duration: 0.35, ease: "power3.out" }, {{w:Ticari@32.4}});
+  // surprise: they grow frills on "süslü"
+  tl.fromTo(qa(".c1-fr"), { scale: 0 }, { scale: 1, duration: 0.14, ease: "back.out(2)", stagger: { each: 0.008, from: "random" } }, {{w:süslü@34.4}});
+  // "yumuşatılmış": everything softens and tilts
+  tl.to(["#c1-e1", "#c1-e2", "#c1-e3"], { rotation: (i) => [-3, 2, -2][i], duration: 0.6, ease: "sine.inOut" }, {{w:yumuşatılmış@35.0}});
+  tl.fromTo("#c1-cr5", { opacity: 0 }, { opacity: 1, duration: 0.4 }, {{w:süslü@34.4}});
+  // the word underneath tries to peek out
+  tl.to("#c1-e2", { x: 700, duration: 0.4, ease: "power2.out" }, {{w:kaçınan@38.2}});
+  tl.to("#c1-e2", { x: 0, duration: 0.25, ease: "power2.in" }, {{w:cümleler@39.0}});
+  // squeeze toward the knot of the next chapter
+  tl.to(["#c1-e1", "#c1-e2", "#c1-e3"], { scaleY: 0.2, y: (i) => [170, 0, -170][i], opacity: 0.0, duration: 0.5, ease: "power2.in" }, {{dur}} - 0.55);
+
+  window.__timelines["ch1"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

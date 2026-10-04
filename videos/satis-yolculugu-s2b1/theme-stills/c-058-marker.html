@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<style>
+:root{--y:#FFFF00;--ink:#1A1917;--paper:#F7F3E8;--rust:#D9452B}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#cfc7b3 1.6px,transparent 2px);background-size:32px 32px;background-position:16px 16px}
+.hand{position:absolute;font-family:Caveat;font-weight:700;color:var(--ink)}
+.sticky{position:absolute;width:260px;height:200px;background:#FFE97A;transform:rotate(5deg);box-shadow:0 10px 22px rgba(60,40,0,.18)}
+.tape{position:absolute;left:90px;top:-16px;width:90px;height:30px;background:rgba(26,25,23,.18);transform:rotate(-4deg)}
+</style></head><body>
+<div class="dots"></div>
+<svg width="1920" height="1080" style="position:absolute;inset:0" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- highlighter smear -->
+  <path d="M168 238 C420 228 700 236 1010 230" stroke="#FFFF00" stroke-width="64" opacity=".85"/>
+  <!-- shores -->
+  <path d="M120 640 C220 630 330 650 470 636 L520 900" stroke="#1A1917" stroke-width="7"/>
+  <path d="M1810 600 C1700 588 1560 606 1430 596 L1390 900" stroke="#1A1917" stroke-width="7"/>
+  <!-- water scribble -->
+  <path d="M540 880 c40 -14 80 14 120 0 s80 14 120 0 s80 14 120 0 s80 14 120 0 s80 14 120 0 s80 14 120 0 s80 14 120 0" stroke="#1A1917" stroke-width="4" opacity=".5"/>
+  <!-- bridge sketch -->
+  <path d="M470 636 C760 520 1140 500 1430 596" stroke="#1A1917" stroke-width="9"/>
+  <path d="M470 676 C760 566 1140 548 1430 636" stroke="#1A1917" stroke-width="5"/>
+  <path d="M640 590 L640 880 M800 556 L800 880 M960 540 L960 880 M1120 544 L1120 880 M1280 566 L1280 880" stroke="#1A1917" stroke-width="4" opacity=".7"/>
+  <!-- red marker ring around the toll -->
+  <path d="M1180 440 C1300 400 1420 430 1410 500 C1400 560 1250 580 1190 540 C1140 505 1170 450 1260 432" stroke="#D9452B" stroke-width="8"/>
+  <!-- arrow -->
+  <path d="M300 760 C500 800 700 790 880 740" stroke="#1A1917" stroke-width="5" stroke-dasharray="2 14"/>
+</svg>
+<div class="hand" style="left:170px;top:150px;font-size:120px;line-height:1">Satış = dönüşüm sanatı</div>
+<div class="hand" style="left:150px;top:560px;font-size:58px;color:var(--rust)">acı · problem</div>
+<div class="hand" style="left:1500px;top:510px;font-size:58px">kâr · huzur</div>
+<div class="hand" style="left:1230px;top:450px;font-size:62px">₺ geçiş</div>
+<div class="hand" style="left:820px;top:930px;font-size:52px">köprü = ürünün</div>
+<div class="sticky" style="left:1520px;top:760px"><div class="tape"></div><div class="hand" style="position:static;padding:34px 26px;font-size:46px;line-height:1.05">mimarı<br><span style="font-size:64px">sensin.</span></div></div>
+</body></html>
