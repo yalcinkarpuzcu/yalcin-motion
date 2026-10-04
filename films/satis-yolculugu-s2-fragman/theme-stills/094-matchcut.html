@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  :root{--y:#FFFF00;--ink:#151412;--paper:#F4EFE3;--mute:#8C867A}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1080px;height:1920px;background:var(--paper);font-family:Montserrat,sans-serif;color:var(--ink);overflow:hidden;position:relative}
+  svg{position:absolute;inset:0}
+  .h{position:absolute;left:80px;top:170px;font-weight:900;font-size:118px;line-height:.95;letter-spacing:-.035em}
+  .h em{font-style:normal;background:var(--y);padding:0 14px}
+  .side{position:absolute;font-weight:800;font-size:40px;line-height:1.05}
+  .side small{display:block;font-weight:600;font-size:24px;letter-spacing:.14em;color:var(--mute);margin-top:10px}
+  .strip{position:absolute;left:0;right:0;bottom:120px;height:190px;background:var(--ink);display:flex;align-items:center;gap:28px;padding:0 60px;color:var(--paper)}
+  .thumb{width:150px;height:120px;background:#2A2825;border:3px solid #3a3733;position:relative;overflow:hidden}
+  .strip p{font-weight:600;font-size:26px;letter-spacing:.12em}
+  .holes{position:absolute;left:0;right:0;height:14px;background:repeating-linear-gradient(90deg,transparent 0 20px,var(--paper) 20px 40px);opacity:.25}
+  .tag{position:absolute;left:60px;bottom:50px;font-weight:600;font-size:22px;letter-spacing:.2em;opacity:.7}
+</style></head><body>
+<div class="h">Köprüyü sat,<br><em>çimentoyu</em> değil.</div>
+<svg viewBox="0 0 1080 1920">
+  <!-- onion-skin ghost of the previous shot: the drill -->
+  <g fill="none" stroke="#8C867A" stroke-width="4" stroke-dasharray="14 12" opacity=".8">
+    <rect x="380" y="720" width="300" height="130" rx="26"/>
+    <path d="M680 760 h170 l40 25 l-40 25 h-170"/>
+    <path d="M430 850 l-30 220 h120 l20 -220"/>
+  </g>
+  <!-- registration marks locking the arch centre -->
+  <g stroke="#151412" stroke-width="3">
+    <path d="M540 900 v-60 M510 870 h60"/>
+    <circle cx="540" cy="870" r="16" fill="none"/>
+  </g>
+  <!-- banks -->
+  <path d="M0 1260 H300 L340 1600 H0Z" fill="#151412"/>
+  <path d="M1080 1260 H780 L740 1600 H1080Z" fill="#151412"/>
+  <!-- the rhyme shape: the yellow arch -->
+  <path d="M300 1260 Q540 880 780 1260" fill="none" stroke="#151412" stroke-width="54" stroke-linecap="round"/>
+  <path d="M300 1260 Q540 880 780 1260" fill="none" stroke="#FFFF00" stroke-width="36" stroke-linecap="round"/>
+  <path d="M300 1262 H780" stroke="#151412" stroke-width="16"/>
+  <g stroke="#151412" stroke-width="8">
+    <path d="M380 1262 V1170 M460 1262 V1110 M540 1262 V1075 M620 1262 V1110 M700 1262 V1170"/>
+  </g>
+</svg>
+<div class="side" style="left:60px;top:1120px">MEVCUT<small>ACI · EKSİK</small></div>
+<div class="side" style="right:60px;top:1120px;text-align:right">ARZULANAN<small>KÂR · VERİM</small></div>
+<div class="strip">
+  <div class="holes" style="top:12px"></div><div class="holes" style="bottom:12px"></div>
+  <div class="thumb"><svg viewBox="0 0 150 120"><rect x="38" y="40" width="60" height="26" rx="6" fill="none" stroke="#FFFF00" stroke-width="3"/><path d="M98 48 h30 l8 5 l-8 5 h-30" fill="none" stroke="#FFFF00" stroke-width="3"/></svg></div>
+  <p>▸</p>
+  <div class="thumb"><svg viewBox="0 0 150 120"><path d="M25 90 Q75 30 125 90" fill="none" stroke="#FFFF00" stroke-width="6"/></svg></div>
+  <p>MATKAP ▸ KÖPRÜ<br><span style="opacity:.6">match on: yatay eksen</span></p>
+</div>
+<div class="tag">094 · MATCH CUT · KANIT ANI</div>
+</body></html>
