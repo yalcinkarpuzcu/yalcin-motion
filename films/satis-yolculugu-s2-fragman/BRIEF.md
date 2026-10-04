@@ -4,10 +4,10 @@ format: 1080x1920              # dikey 9:16 · Reels / Shorts / TikTok
 duration: 70s                  # 60–75 sn aralığı; kesin süre storyboard'da müziğe göre
 audio: music                   # müzik + sıcak SFX, seslendirme yok
 loop: false
-theme: "TBD — 3. aşamada seçilecek"
+theme: "085 Constructivist Agitprop"
 ---
 
-# Satış Yolculuğu — Sezon 2 fragmanı ("Hikâyeyi yırtıyoruz")
+# Satış Yolculuğu — bölüm fragmanı ("Satış bir köprüdür")
 
 **One message:** Satış birinden para almak değil; dönüşüm yaratmaktır.
 
@@ -21,11 +21,11 @@ theme: "TBD — 3. aşamada seçilecek"
 | süre | beat | ekranda (az kelime) |
 |---|---|---|
 | 0–11 | Kanca: aile yemeği | "Eee, sen ne iş yapıyorsun?" → kaçamak cevaplar ("Pazarlama tarafındayım", "Müşteri ilişkileri…", "Ticari operasyonlar…"); "SATIŞÇIYIM" kelimesi boğazda düğümlenir |
-| 11–22 | Eski hikâye | "kapıdan kovsan bacadan giren" satışçı afişi → yırtılır: "BU HİKÂYEYİ YIRTIYORUZ" |
+| 11–22 | Eski hikâye | "kapıdan kovsan bacadan giren" satışçı afişi → yırtılır: "BU HİKÂYEYİ YIRTIYORUZ." |
 | 22–33 | Dönüm | "Kimse matkap almak istemez." Matkap → duvardaki aile fotoğrafı |
 | 33–52 | Kanıt: köprü | MEVCUT DURUM ↔ ARZULANAN DURUM, köprü kurulur; "Ürün = köprü · Sen = mimar · Fiyat = geçiş ücreti" |
 | 52–62 | Sonuç | "Para avcısı değilsin. DEĞER YARATICISISIN." |
-| 62–70 | Kapanış | Logo + "SEZON 2" (+ yayın bilgisi, aşağıda) · son ~1 sn sabit |
+| 62–70 | Kapanış | Bölümün ödevi: "İLK GÖRÜŞMEDE ÜRÜNDEN HİÇ BAHSETME." + logo · son ~1 sn sabit |
 
 **Components** (gerçek ürün arayüzü yok; hepsi hayali, bölümün metaforlarını çizer)
 | Component | Real or imaginary | Notes |
@@ -47,4 +47,4 @@ theme: "TBD — 3. aşamada seçilecek"
 
 **Deliverables:** `renders/satis-yolculugu-s2-fragman-1080x1920.mp4` (4K'dan küçültülmüş), ayrıca 4K master.
 
-**Açık sorular:** kapanış kartında yayın bilgisi (örn. "YouTube'da", "Spotify'da", bölüm adı/numarası) olacak mı? Müzik: lisanslı bir parçan var mı, yoksa ritim SFX ile mi kurulsun?
+**Kararlar:** "Sezon 2" ya da yayın bilgisi yazılmaz; ekrandaki her şey bölümün içeriğinden gelir. Ses: lisanslı parça yok, 120 BPM perküsif ritim + sıcak SFX.

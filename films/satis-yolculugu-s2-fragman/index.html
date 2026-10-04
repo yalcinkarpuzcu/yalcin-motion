@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Satış Yolculuğu · Satış bir köprüdür · 085 Constructivist Agitprop</title>
+    <script src="assets/js/gsap.min.js"></script>
+    <style>
+      /* Montserrat, SIL OFL 1.1 (assets/fonts/OFL-montserrat.txt) · latin + latin-ext served locally */
+      @font-face { font-family: "Montserrat"; font-weight: 600; font-display: block; src: url("assets/fonts/montserrat-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+20A0-20AB, U+20AD-20C0, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Montserrat"; font-weight: 600; font-display: block; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Montserrat"; font-weight: 800; font-display: block; src: url("assets/fonts/montserrat-latin-ext-800-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+20A0-20AB, U+20AD-20C0, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Montserrat"; font-weight: 800; font-display: block; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Montserrat"; font-weight: 900; font-display: block; src: url("assets/fonts/montserrat-latin-ext-900-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+20A0-20AB, U+20AD-20C0, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Montserrat"; font-weight: 900; font-display: block; src: url("assets/fonts/montserrat-latin-900-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+      :root { --y: #FFFF00; --ink: #151412; --paper: #F4EFE3; --brick: #C8402A; --mute: #8C867A; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #F4EFE3; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Montserrat", sans-serif; color: var(--ink); }
+      .clip { position: absolute; inset: 0; }
+      .stage { position: absolute; inset: 0; }
+      .abs { position: absolute; }
+      svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+
+      #paper { position: absolute; inset: 0; background: var(--paper); }
+      #grain { position: absolute; inset: 0; background: radial-gradient(rgba(21,20,18,.07) 1px, transparent 1.4px) 0 0 / 7px 7px; }
+
+      /* slogan type: Montserrat 900, tight, rotated by GSAP set */
+      .slg { position: absolute; font-weight: 900; letter-spacing: -.04em; line-height: .9; white-space: nowrap; }
+      .slg .ln, .ln { display: block; }
+      .blk { display: inline-block; background: var(--ink); color: var(--paper); padding: 6px 22px 16px; }
+      .blk.y { color: var(--y); }
+      .cap { font-weight: 600; letter-spacing: .14em; white-space: nowrap; }
+      .band { position: absolute; left: -120px; width: 1320px; display: flex; align-items: center; padding-left: 170px; font-weight: 800; letter-spacing: .1em; white-space: nowrap; }
+      .shard { position: absolute; background: var(--ink); }
+
+      /* 1 · table */
+      #s1-table { left: -210px; top: 1060px; width: 1500px; height: 300px; background: var(--ink); }
+      .plate { position: absolute; top: 60px; width: 180px; height: 180px; border-radius: 50%; background: var(--paper); border: 14px solid var(--brick); }
+      .plate::after { content: ""; position: absolute; inset: 30px; border-radius: 50%; border: 6px solid rgba(21,20,18,.18); }
+      #s1-cone { left: 560px; top: 640px; width: 620px; height: 360px; background: var(--brick); clip-path: polygon(0 34%, 100% 0, 100% 100%, 0 66%); }
+      #s1-q { left: 70px; top: 190px; font-size: 128px; }
+
+      /* 2 · evasive answers */
+      #s2-quote { left: 70px; top: 170px; font-size: 420px; line-height: .8; font-weight: 900; color: var(--brick); }
+      .ans { height: 230px; font-size: 64px; flex-direction: column; align-items: flex-start; justify-content: center; letter-spacing: .02em; line-height: 1.05; }
+      #s2-b1 { top: 640px; background: var(--ink); color: var(--paper); }
+      #s2-b2 { top: 990px; background: var(--paper); color: var(--ink); border-top: 10px solid var(--ink); border-bottom: 10px solid var(--ink); }
+      #s2-b3 { top: 1340px; background: var(--brick); color: var(--paper); }
+
+      /* 3 · word clamp */
+      #s3-word { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font-size: 250px; font-weight: 900; letter-spacing: -.045em; line-height: .86; }
+      #s3-word .ln { display: block; }
+      .jaw { position: absolute; top: 560px; width: 760px; height: 760px; background: var(--ink); }
+      #s3-jl { left: -760px; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+      #s3-jr { left: 1080px; clip-path: polygon(100% 0, 0 50%, 100% 100%); }
+      #s3-knot { left: 140px; top: 905px; width: 800px; height: 34px; background: var(--brick); }
+
+      /* 4–5 · poster + rip */
+      #s45-yellow { position: absolute; inset: 0; background: var(--y); opacity: 0; }
+      .half { position: absolute; inset: 0; }
+      #s45-a { clip-path: polygon(0 0, 100% 0, 100% 24%, 93% 27%, 86% 31%, 80% 33%, 73% 38%, 66% 41%, 60% 45%, 52% 48%, 46% 53%, 38% 56%, 31% 61%, 24% 63%, 17% 68%, 9% 71%, 0 76%); }
+      #s45-b { clip-path: polygon(100% 24%, 93% 27%, 86% 31%, 80% 33%, 73% 38%, 66% 41%, 60% 45%, 52% 48%, 46% 53%, 38% 56%, 31% 61%, 24% 63%, 17% 68%, 9% 71%, 0 76%, 0 100%, 100% 100%); }
+      .poster { position: absolute; left: 110px; top: 250px; width: 860px; height: 1420px; background: var(--brick); }
+      .poster .ph { position: absolute; left: 60px; top: 70px; font-size: 168px; font-weight: 900; letter-spacing: -.045em; color: var(--paper); }
+      .poster .pw { position: absolute; left: 64px; top: 270px; font-size: 30px; font-weight: 600; letter-spacing: .2em; color: var(--paper); opacity: .85; }
+      .poster .door { position: absolute; left: 250px; top: 420px; width: 360px; height: 760px; background: var(--paper); border: 16px solid var(--ink); }
+      .poster .gap { position: absolute; left: 594px; top: 420px; width: 70px; height: 760px; background: var(--ink); clip-path: polygon(0 0, 100% 6%, 100% 94%, 0 100%); }
+      .poster .foot { position: absolute; left: 540px; top: 1000px; width: 230px; height: 120px; background: var(--ink); clip-path: polygon(0 30%, 70% 0, 100% 40%, 100% 100%, 0 100%); }
+      .poster .knob { position: absolute; left: 540px; top: 790px; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); }
+      .stamp { position: absolute; padding: 10px 26px 14px; border: 8px solid var(--ink); color: var(--ink); background: var(--paper); font-weight: 900; font-size: 64px; letter-spacing: -.01em; }
+      #s45-cut { left: -160px; top: 1060px; width: 1400px; height: 36px; background: var(--y); transform-origin: 0 50%; }
+      #s45-slg { left: 76px; top: 520px; font-size: 136px; }
+
+      /* 6 · money eye + wall */
+      #s6-q { left: 80px; top: 200px; font-size: 150px; }
+      #s6-eye { left: 190px; top: 560px; width: 700px; height: 380px; }
+      #s6-cap { top: 930px; height: 96px; font-size: 40px; background: var(--ink); color: var(--paper); }
+      .brick { position: absolute; height: 92px; background: var(--ink); border: 7px solid var(--paper); }
+
+      /* 7 · drill */
+      #s7-slg { left: 80px; top: 180px; font-size: 148px; }
+      #s7-drill { left: -40px; top: 1345px; width: 560px; height: 220px; }
+      #s7-hole { left: 470px; top: 1385px; width: 140px; height: 140px; border-radius: 50%; background: var(--paper); border: 10px solid var(--brick); }
+
+      /* 8 · family photo */
+      #s8-slg { left: 80px; top: 190px; font-size: 150px; }
+      #s8-frame { left: 220px; top: 640px; width: 640px; height: 520px; border: 26px solid var(--ink); background: var(--paper); overflow: hidden; }
+      #s8-cap { left: 0; right: 0; top: 1300px; text-align: center; font-size: 34px; }
+      #s8-line { left: 220px; top: 1134px; width: 640px; height: 26px; background: var(--ink); transform-origin: 50% 50%; }
+
+      /* 9–10 · two banks + bridge */
+      #s9-hz { left: 0; top: 1134px; width: 1080px; height: 26px; background: var(--ink); }
+      #s9-cl { left: 40px; top: 1250px; font-size: 54px; font-weight: 900; letter-spacing: -.02em; line-height: .95; color: var(--paper); }
+      #s9-cr { right: 70px; top: 700px; text-align: right; font-size: 52px; font-weight: 900; letter-spacing: -.02em; line-height: .95; }
+      .sub { display: block; font-size: 26px; font-weight: 600; letter-spacing: .12em; margin-top: 14px; }
+      #s10-slg { left: 70px; top: 150px; font-size: 140px; }
+      #s10-b1 { top: 1600px; height: 96px; font-size: 36px; background: var(--brick); color: var(--paper); }
+      #s10-b2 { top: 1716px; height: 96px; font-size: 36px; background: var(--y); color: var(--ink); border-top: 8px solid var(--ink); border-bottom: 8px solid var(--ink); }
+
+      /* 11 · example */
+      #s11-cap { top: 200px; height: 100px; font-size: 40px; background: var(--ink); color: var(--paper); }
+      .disc { position: absolute; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 900; letter-spacing: -.04em; line-height: .9; }
+      #s11-a { left: 90px; top: 430px; width: 440px; height: 440px; background: var(--brick); color: var(--paper); font-size: 150px; }
+      #s11-a small, #s11-b small { font-size: 34px; letter-spacing: .14em; font-weight: 800; margin-top: 10px; }
+      #s11-x { left: 70px; top: 625px; width: 480px; height: 40px; background: var(--ink); transform-origin: 0 50%; }
+      #s11-b { left: 590px; top: 840px; width: 420px; height: 420px; background: var(--y); color: var(--ink); border: 14px solid var(--ink); font-size: 140px; }
+      #s11-arrow { left: 420px; top: 800px; width: 260px; height: 120px; background: var(--ink); clip-path: polygon(0 35%, 70% 35%, 70% 0, 100% 50%, 70% 100%, 70% 65%, 0 65%); }
+      #s11-c1 { left: 80px; top: 1340px; font-size: 38px; }
+      #s11-slg { left: 76px; top: 1450px; font-size: 118px; }
+
+      /* 12 · megaphone */
+      #s12-slg { left: 70px; top: 190px; font-size: 140px; }
+      #s12-x { left: 50px; top: 400px; width: 960px; height: 34px; background: var(--brick); transform-origin: 0 50%; }
+      #s12-cone { left: 120px; top: 830px; width: 680px; height: 420px; background: var(--ink); clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%); transform-origin: 0 50%; }
+      #s12-grip { left: 60px; top: 990px; width: 90px; height: 100px; background: var(--brick); }
+      #s12-mouth { left: 730px; top: 830px; width: 140px; height: 420px; border-radius: 50%; background: var(--y); border: 12px solid var(--ink); }
+      .ray { position: absolute; height: 22px; background: var(--ink); transform-origin: 0 50%; }
+      #s12-out { left: 70px; top: 1370px; font-size: 200px; }
+      #s12-out2 { left: 76px; top: 1600px; font-size: 104px; }
+      #s12-flood { left: 340px; top: 590px; width: 900px; height: 900px; border-radius: 50%; background: var(--y); }
+
+      /* 13–14 · logo + homework */
+      #s13-y { position: absolute; inset: 0; background: var(--y); }
+      .logo { position: absolute; left: 0; top: 380px; width: 1080px; height: 1080px; }
+      #s13-road { clip-path: polygon(0 0, 100% 0, 100% 57%, 0 57%); }
+      #s13-text { background: url("assets/brand/satis-yolculugu-logo.png") 0 0 / 100% 100% no-repeat; clip-path: polygon(0 57%, 100% 57%, 100% 100%, 0 100%); }
+      #s14-k { left: 80px; top: 1180px; font-size: 32px; }
+      #s14-h { left: 70px; top: 1250px; font-size: 92px; }
+      /* static agitprop diagonals: CSS rotate composes with GSAP transforms */
+      #s1-tw { rotate: -27deg; transform-origin: 50% 62%; }
+      #s1-q { rotate: -6deg; transform-origin: 0 0; }
+      #s1-cone { rotate: -14deg; transform-origin: 100% 50%; }
+      #s2-b1 { rotate: -8deg; }
+      #s2-b2 { rotate: 5deg; }
+      #s2-b3 { rotate: -6deg; }
+      #s3-knot { rotate: -4deg; }
+      .poster { rotate: -3deg; }
+      .st1 { rotate: -8deg; }
+      .st2 { rotate: 6deg; }
+      .st3 { rotate: -3deg; }
+      #s45-cut { rotate: -27deg; transform-origin: 0 50%; }
+      #s45-slg { rotate: -7deg; transform-origin: 0 0; }
+      #s6-q { rotate: -5deg; transform-origin: 0 0; }
+      #s6-cap { rotate: -6deg; }
+      #s7-slg { rotate: -6deg; transform-origin: 0 0; }
+      #s8-slg { rotate: -4deg; transform-origin: 0 0; }
+      #s9-cl { rotate: 4deg; }
+      #s9-cr { rotate: -6deg; }
+      #s10-slg { rotate: -7deg; transform-origin: 0 0; }
+      #s10-b1 { rotate: -8deg; }
+      #s10-b2 { rotate: -8deg; }
+      #s11-cap { rotate: -4deg; }
+      #s11-slg { rotate: -5deg; transform-origin: 0 0; }
+      #s11-arrow { rotate: 32deg; transform-origin: 50% 50%; }
+      #s11-x { rotate: -24deg; transform-origin: 0 50%; }
+      #s12-slg { rotate: -4deg; transform-origin: 0 0; }
+      #s12-x { rotate: -4deg; transform-origin: 0 50%; }
+      #s12-r1 { rotate: -28deg; }
+      #s12-r3 { rotate: 28deg; }
+      #s12-out { rotate: -6deg; transform-origin: 0 0; }
+      #s12-out2 { rotate: -6deg; transform-origin: 0 0; }
+      #s14-h { rotate: -5deg; transform-origin: 0 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="70" data-width="1080" data-height="1920">
+
+      <div id="bg" class="clip" data-start="0" data-duration="70" data-track-index="0">
+        <div id="paper"></div>
+      </div>
+
+      <!-- 1 · HOOK: family dinner (0–4) -->
+      <div id="s1" class="clip" data-start="0" data-duration="4.3" data-track-index="1">
+        <div class="stage" id="s1-st">
+          <div id="s1-cone" class="abs"></div>
+          <div id="s1-tw" class="abs" style="left:0;top:0;width:1080px;height:1920px">
+            <div id="s1-table" class="abs">
+              <div class="plate" style="left:250px"></div>
+              <div class="plate" style="left:520px"></div>
+              <div class="plate" style="left:790px"></div>
+              <div class="plate" style="left:1060px"></div>
+            </div>
+          </div>
+          <div id="s1-q" class="slg" data-layout-allow-overlap>
+            <span data-layout-allow-overlap class="ln" id="s1-l1">EEE,</span>
+            <span data-layout-allow-overlap class="ln" id="s1-l2">SEN NE İŞ</span>
+            <span data-layout-allow-overlap class="ln" id="s1-l3"><span data-layout-allow-overlap class="blk">YAPIYORSUN?</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 · HOOK: evasive answers (4–8.5) -->
+      <div id="s2" class="clip" data-start="3.75" data-duration="4.75" data-track-index="2">
+        <div class="stage" id="s2-st">
+          <div id="s2-quote" class="abs">“</div>
+          <div id="s2-b1" class="band ans"><span>PAZARLAMA</span><span>TARAFINDAYIM…</span></div>
+          <div id="s2-b2" class="band ans"><span>MÜŞTERİ İLİŞKİLERİNİ</span><span>YÖNETİYORUM…</span></div>
+          <div id="s2-b3" class="band ans"><span>TİCARİ</span><span>OPERASYONLARDAYIM…</span></div>
+        </div>
+      </div>
+
+      <!-- 3 · HOOK: the word clamp (8.5–11) -->
+      <div id="s3" class="clip" data-start="8.5" data-duration="2.5" data-track-index="3">
+        <div class="stage" id="s3-st">
+          <div id="s3-word"><div id="s3-sq" data-layout-allow-overlap><span data-layout-allow-overlap class="ln">SATIŞ</span><span data-layout-allow-overlap class="ln">ÇIYIM</span></div></div>
+          <div id="s3-knot" class="abs"></div>
+          <div id="s3-jl" class="jaw"></div>
+          <div id="s3-jr" class="jaw"></div>
+        </div>
+      </div>
+
+      <!-- 4–5 · OLD STORY + RIP (11–20) -->
+      <div id="s45" class="clip" data-start="11" data-duration="9" data-track-index="4">
+        <div class="stage" id="s45-st">
+          <div id="s45-yellow"></div>
+          <div id="s45-slg" class="slg" data-layout-allow-overlap>
+            <span data-layout-allow-overlap class="ln" id="s45-l1">BU</span>
+            <span data-layout-allow-overlap class="ln" id="s45-l2">HİKÂYEYİ</span>
+            <span data-layout-allow-overlap class="ln" id="s45-l3"><span data-layout-allow-overlap class="blk y">YIRTIYORUZ.</span></span>
+          </div>
+          <div id="s45-drop" class="stage">
+            <div class="half" id="s45-a"></div>
+            <div class="half" id="s45-b"></div>
+          </div>
+          <div id="s45-cut" class="abs"></div>
+          <div id="s45-shards" class="stage"></div>
+        </div>
+      </div>
+
+      <!-- 6 · MONEY? (20–24.5) -->
+      <div id="s6" class="clip" data-start="20" data-duration="4.6" data-track-index="5">
+        <div class="stage" id="s6-st">
+          <div id="s6-q" class="slg" data-layout-allow-overlap><span data-layout-allow-overlap class="ln">PARA</span><span data-layout-allow-overlap class="ln"><span data-layout-allow-overlap class="blk">ALMAK?</span></span></div>
+          <svg id="s6-eye" class="abs" viewBox="0 0 700 380">
+            <path id="s6-lid" d="M20 190 Q350 -60 680 190 Q350 440 20 190Z" fill="#F4EFE3" stroke="#151412" stroke-width="18"/>
+            <g id="s6-iris"><circle cx="350" cy="190" r="128" fill="#C8402A" stroke="#151412" stroke-width="14"/>
+            <text x="350" y="245" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="170" fill="#F4EFE3">₺</text></g>
+          </svg>
+          <div id="s6-cap" class="band">₺ GÖRDÜĞÜ AN: DUVAR.</div>
+        </div>
+      </div>
+
+      <!-- the wall, carried from 6 into 7 (20–28.5) -->
+      <div id="wall" class="clip" data-start="20" data-duration="8.5" data-track-index="6">
+        <div class="stage" id="wall-st"></div>
+      </div>
+
+      <!-- 7 · DRILL (24.5–28.5) -->
+      <div id="s7" class="clip" data-start="24.5" data-duration="4.3" data-track-index="7">
+        <div class="stage" id="s7-st">
+          <div id="s7-slg" class="slg" data-layout-allow-overlap><span data-layout-allow-overlap class="ln">KİMSE</span><span data-layout-allow-overlap class="ln">MATKAP</span><span data-layout-allow-overlap class="ln"><span data-layout-allow-overlap class="blk">İSTEMEZ.</span></span></div>
+          <div id="s7-hole" class="abs"></div>
+          <svg id="s7-drill" class="abs" viewBox="0 0 560 220">
+            <rect x="40" y="40" width="270" height="110" rx="18" fill="#151412"/>
+            <path d="M90 150 L170 150 L150 220 L60 220Z" fill="#151412"/>
+            <rect x="310" y="70" width="60" height="50" fill="#C8402A"/>
+            <g id="s7-bit"><path d="M370 82 L520 90 L560 95 L520 100 L370 108Z" fill="#151412"/>
+            <path d="M400 83 L410 107 M440 85 L450 105 M480 87 L490 103" stroke="#F4EFE3" stroke-width="5"/></g>
+            <rect x="70" y="62" width="150" height="16" fill="#F4EFE3" opacity=".35"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 8 · THE PHOTO (28.5–32.5) -->
+      <div id="s8" class="clip" data-start="28.2" data-duration="4.3" data-track-index="8">
+        <div class="stage" id="s8-st">
+          <div class="stage" id="s8-cam">
+            <div id="s8-slg" class="slg" data-layout-allow-overlap><span data-layout-allow-overlap class="ln">İSTEDİĞİ</span><span data-layout-allow-overlap class="ln"><span data-layout-allow-overlap class="blk">BU.</span></span></div>
+            <svg class="full" id="s8-nail"><path d="M540 470 L330 640 M540 470 L750 640" stroke="#151412" stroke-width="8" fill="none"/><circle cx="540" cy="470" r="16" fill="#151412"/></svg>
+            <div id="s8-frame" class="abs">
+              <svg viewBox="0 0 588 468" style="width:100%;height:100%" id="s8-fam">
+                <circle cx="470" cy="90" r="46" fill="#C8402A"/>
+                <g fill="#151412">
+                  <circle cx="160" cy="170" r="50"/><path d="M90 468 Q90 240 160 240 Q230 240 230 468Z"/>
+                  <circle cx="300" cy="185" r="46"/><path d="M236 468 Q236 250 300 250 Q364 250 364 468Z"/>
+                  <circle cx="400" cy="265" r="32"/><path d="M356 468 Q356 310 400 310 Q444 310 444 468Z"/>
+                  <circle cx="490" cy="290" r="26"/><path d="M454 468 Q454 330 490 330 Q526 330 526 468Z"/>
+                </g>
+              </svg>
+            </div>
+            <div id="s8-cap" class="cap">HUZUR · TAMAMLANMIŞ BİR EV</div>
+          </div>
+          <div id="s8-line" class="abs"></div>
+        </div>
+      </div>
+
+      <!-- 9–10 · TWO BANKS + THE BRIDGE (32.5–44) -->
+      <div id="s910" class="clip" data-start="32.5" data-duration="12" data-track-index="9">
+        <div class="stage" id="s910-st">
+          <svg class="full" id="s9-art">
+            <g id="s9-water" stroke="#151412" stroke-width="6" stroke-dasharray="40 30" opacity=".35">
+              <path d="M450 1250 H680"/><path d="M440 1330 H700"/><path d="M460 1410 H690"/>
+            </g>
+            <path id="s9-bl" d="M0 1160 L430 1160 L330 1920 L0 1920Z" fill="#151412"/>
+            <path id="s9-br" d="M1080 1160 L700 1160 L790 1920 L1080 1920Z" fill="#151412"/>
+            <g id="s9-circ"><circle id="s9-disc" cx="870" cy="860" r="300" fill="#F4EFE3" stroke="#151412" stroke-width="16"/></g>
+            <g id="s10-wedge"><path d="M330 1168 L812 1010 L830 1132Z" fill="#FFFF00" stroke="#151412" stroke-width="10" stroke-linejoin="round"/></g>
+          </svg>
+          <div id="s9-hz" class="abs"></div>
+          <div id="s9-cl" class="abs" data-layout-allow-overlap><span data-layout-allow-overlap class="ln">MEVCUT</span><span data-layout-allow-overlap class="ln">DURUM</span><span data-layout-allow-overlap class="sub">ACI · PROBLEM · EKSİK</span></div>
+          <div id="s9-cr" class="abs" data-layout-allow-overlap><span data-layout-allow-overlap class="ln">ARZULANAN</span><span data-layout-allow-overlap class="ln">DURUM</span><span data-layout-allow-overlap class="sub">KÂR · VERİM · CİRO</span></div>
+          <div id="s10-slg" class="slg" data-layout-allow-overlap><span data-layout-allow-overlap class="ln" id="s10-l1">SATIŞ</span><span data-layout-allow-overlap class="ln" id="s10-l2">BİR</span><span data-layout-allow-overlap class="ln" id="s10-l3"><span data-layout-allow-overlap class="blk y">KÖPRÜDÜR.</span></span></div>
+          <div id="s10-shards" class="stage"></div>
+          <div id="s10-b1" class="band">ÜRÜN = KÖPRÜ  ·  SEN = MİMAR</div>
+          <div id="s10-b2" class="band">FİYAT = GEÇİŞ ÜCRETİ ▶</div>
+        </div>
+      </div>
+
+      <!-- 11 · THE EXAMPLE (44–50) -->
+      <div id="s11" class="clip" data-start="43.5" data-duration="6.5" data-track-index="10">
+        <div class="stage" id="s11-st">
+          <div id="s11-cap" class="band">AY SONU RAPORU</div>
+          <div id="s11-a" class="disc"><span>3</span><small>GÜN</small></div>
+          <div id="s11-x" class="abs"></div>
+          <div id="s11-arrow" class="abs"></div>
+          <div id="s11-b" class="disc"><span>3</span><small>SAAT</small></div>
+          <div id="s11-c1" class="abs cap">FAZLA MESAİ BÜTÇESİ −%80</div>
+          <div id="s11-slg" class="slg" data-layout-allow-overlap><span data-layout-allow-overlap class="ln">SONUCU</span><span data-layout-allow-overlap class="ln"><span data-layout-allow-overlap class="blk">MASAYA KOY.</span></span></div>
+        </div>
+      </div>
+
+      <!-- 12 · MEGAPHONE (50–57) -->
+      <div id="s12" class="clip" data-start="50" data-duration="7.2" data-track-index="11">
+        <div class="stage" id="s12-st">
+          <div id="s12-slg" class="slg" data-layout-allow-overlap><span data-layout-allow-overlap class="ln">PARA AVCISI</span><span data-layout-allow-overlap class="ln">DEĞİLSİN.</span></div>
+          <div id="s12-x" class="abs"></div>
+          <div id="s12-grip" class="abs"></div>
+          <div id="s12-cone" class="abs"></div>
+          <div class="ray" id="s12-r1" style="left:900px;top:880px;width:120px"></div>
+          <div class="ray" id="s12-r2" style="left:920px;top:1030px;width:140px"></div>
+          <div class="ray" id="s12-r3" style="left:900px;top:1180px;width:120px"></div>
+          <div id="s12-mouth" class="abs"></div>
+          <div id="s12-out" class="slg" data-layout-allow-overlap><span data-layout-allow-overlap class="blk y">DEĞER</span></div>
+          <div id="s12-out2" class="slg" data-layout-allow-overlap>YARATICISISIN.</div>
+          <div id="s12-flood" class="abs"></div>
+        </div>
+      </div>
+
+      <!-- 13–14 · LOGO + HOMEWORK (57–70) -->
+      <div id="s1314" class="clip" data-start="56.9" data-duration="13.1" data-track-index="12">
+        <div class="stage" id="s1314-st">
+          <div id="s13-y"></div>
+          <div id="s13-logo" class="stage">
+            <img id="s13-road" class="logo" src="assets/brand/satis-yolculugu-logo.png" alt="Satış Yolculuğu" />
+            <div id="s13-text" class="logo"></div>
+          </div>
+          <div id="s14-k" class="abs cap">BÖLÜMÜN ÖDEVİ</div>
+          <div id="s14-h" class="slg" data-layout-allow-overlap><span data-layout-allow-overlap class="ln" id="s14-l1"><span data-layout-allow-overlap class="blk">İLK GÖRÜŞMEDE</span></span><span data-layout-allow-overlap class="ln" id="s14-l2" style="margin-top:14px">ÜRÜNDEN HİÇ</span><span data-layout-allow-overlap class="ln" id="s14-l3">BAHSETME.</span></div>
+        </div>
+      </div>
+
+      <audio id="score" src="assets/audio/score.m4a" data-start="0" data-duration="70" data-track-index="14" data-volume="1"></audio>
+
+      <div id="fx" class="clip" data-start="0" data-duration="70" data-track-index="13">
+        <div id="grain"></div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        // seeded PRNG: identical layout on every render
+        function rng(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+
+        function shards(container, n, seed, cx, cy, spread, colours) {
+          var r = rng(seed), out = [];
+          for (var i = 0; i < n; i++) {
+            var d = document.createElement("div");
+            d.className = "shard";
+            var w = 14 + r() * 50, h = 10 + r() * 22;
+            d.style.cssText = "left:" + (cx - w / 2) + "px;top:" + (cy - h / 2) + "px;width:" + w + "px;height:" + h + "px;background:" + colours[i % colours.length];
+            container.appendChild(d);
+            var a = r() * Math.PI * 2, dist = spread * (0.45 + r() * 0.55);
+            out.push({ el: d, x: Math.cos(a) * dist, y: Math.sin(a) * dist, rot: (r() - 0.5) * 220 });
+          }
+          return out;
+        }
+
+        function build() {
+          var tl = gsap.timeline({ paused: true });
+          var POSTER = document.getElementById("poster-src").innerHTML;
+          document.getElementById("s45-a").innerHTML = POSTER;
+          document.getElementById("s45-b").innerHTML = POSTER;
+
+          // static rotations (agitprop diagonals)
+
+          function shake(sel, at) {
+            tl.to(sel, { keyframes: [{ x: 7, y: -5, duration: 1 / 30 }, { x: -6, y: 4, duration: 1 / 30 }, { x: 3, y: -2, duration: 1 / 30 }, { x: 0, y: 0, duration: 1 / 30 }], ease: "none" }, at);
+          }
+          function burst(list, at, dur) {
+            list.forEach(function (s, i) {
+              tl.fromTo(s.el, { x: 0, y: 0, rotation: 0, opacity: 1, scale: 1 }, { x: s.x, y: s.y, rotation: s.rot, duration: dur, ease: "expo.out" }, at);
+              tl.to(s.el, { opacity: 0, scale: .4, duration: .35, ease: "power2.in" }, at + dur * .55);
+            });
+          }
+
+          // ============ 1 · dinner (0–4) — first frame is the designed poster ============
+          tl.fromTo("#s1-table", { x: 0 }, { x: 0, duration: .01 }, 0);
+          tl.fromTo(".plate", { scale: 1 }, { scale: 1, duration: .01 }, 0);
+          tl.fromTo("#s1-cone", { scaleX: 1 }, { scaleX: 1.08, duration: .25, ease: "power2.out", yoyo: true, repeat: 1 }, .9);
+          tl.fromTo("#s1-l1", { scale: 1 }, { scale: 1.06, duration: .25, ease: "power2.out", yoyo: true, repeat: 1, transformOrigin: "0 50%" }, .9);
+          tl.fromTo("#s1-l2", { x: 1600 }, { x: 0, duration: .35, ease: "expo.out" }, 1.25);
+          tl.fromTo("#s1-l3", { x: -1600 }, { x: 0, duration: .4, ease: "expo.out" }, 1.75);
+          tl.fromTo("#s1-l3 .blk", { scale: 1.12 }, { scale: 1, duration: .5, ease: "power3.out" }, 2.25);
+          tl.fromTo("#s1-tw", { y: 0 }, { y: -26, duration: 3.6, ease: "sine.inOut" }, 0);
+          // whip pan out
+          tl.to("#s1-st", { x: -1300, filter: "blur(26px)", duration: .25, ease: "power2.in" }, 3.75);
+
+          // ============ 2 · evasive answers (4–8.5) ============
+          tl.fromTo("#s2-st", { x: 1600, filter: "blur(26px)" }, { x: 0, filter: "blur(0px)", duration: .32, ease: "power3.out" }, 4.0);
+          tl.fromTo("#s2-quote", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: .4, ease: "power2.out" }, 4.15);
+          tl.fromTo("#s2-b1", { x: -1600 }, { x: 0, duration: .35, ease: "power4.out" }, 4.5);
+          tl.fromTo("#s2-b2", { x: 1600 }, { x: 0, duration: .35, ease: "power4.out" }, 5.5);
+          tl.fromTo("#s2-b3", { x: -1600 }, { x: 0, duration: .35, ease: "power4.out" }, 6.5);
+          tl.fromTo("#s2-st", { scale: 1 }, { scale: 1.04, duration: 2.9, ease: "sine.inOut", immediateRender: false }, 4.6);
+          // 7.9 → 8.5 hold frame: nothing moves, then a hard cut on the bar
+
+          // ============ 3 · word clamp (8.5–11) ============
+          tl.fromTo("#s3-word", { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: .25, ease: "expo.out" }, 8.5);
+          tl.fromTo("#s3-jl", { x: 0 }, { x: 330, duration: 1.7, ease: "power2.in" }, 8.75);
+          tl.fromTo("#s3-jr", { x: 0 }, { x: -330, duration: 1.7, ease: "power2.in" }, 8.75);
+          tl.fromTo("#s3-sq", { scaleX: 1 }, { scaleX: .52, duration: 1.7, ease: "power2.in" }, 8.75);
+          tl.fromTo("#s3-knot", { scaleX: 0 }, { scaleX: 1, duration: .5, ease: "power2.inOut" }, 9.7);
+          tl.fromTo("#s3-st", { scale: 1 }, { scale: 1.12, duration: 2.5, ease: "power2.in" }, 8.5);
+          shake("#s3-sq", 10.45);
+
+          // ============ 4 · old poster (11–15) ============
+          tl.fromTo("#s45-drop", { y: -1900 }, { y: 0, duration: .25, ease: "steps(3)" }, 11.05);
+          [".st1", ".st2", ".st3"].forEach(function (c, i) {
+            tl.fromTo("#s45-st " + c, { scale: 1.7, opacity: 0 }, { scale: 1, opacity: 1, duration: .15, ease: "steps(3)" }, 12.0 + i * .55);
+          });
+          tl.fromTo("#s45-drop", { rotation: 0 }, { rotation: 1.2, duration: 3.2, ease: "sine.inOut", immediateRender: false }, 11.4);
+
+          // ============ 5 · the rip (15–20) ============
+          tl.fromTo("#s45-cut", { scaleX: 0 }, { scaleX: 1, duration: .2, ease: "power4.in" }, 14.8);
+          tl.set("#s45-yellow", { opacity: 1 }, 15.0);
+          tl.to("#s45-cut", { opacity: 0, duration: .15 }, 15.05);
+          tl.to("#s45-a", { x: -900, y: -520, rotation: -14, duration: .8, ease: "expo.out" }, 15.0);
+          tl.to("#s45-b", { x: 900, y: 560, rotation: 11, duration: .8, ease: "expo.out" }, 15.0);
+          shake("#s45-st", 15.0);
+          burst(shards(document.getElementById("s45-shards"), 14, 7, 540, 1000, 520, ["#151412", "#C8402A", "#151412"]), 15.0, .7);
+          tl.fromTo("#s45-l1", { x: -1600 }, { x: 0, duration: .35, ease: "expo.out" }, 15.5);
+          tl.fromTo("#s45-l2", { x: 1600 }, { x: 0, duration: .35, ease: "expo.out" }, 15.75);
+          tl.fromTo("#s45-l3", { y: 600, opacity: 0 }, { y: 0, opacity: 1, duration: .45, ease: "expo.out" }, 16.0);
+          tl.fromTo("#s45-slg", { scale: 1 }, { scale: 1.05, duration: 3.5, ease: "sine.inOut", immediateRender: false }, 16.4);
+
+          // ============ 6 · money eye + wall (20–24.5) ============
+          tl.fromTo("#s6-q", { rotation: -20, x: 1600, opacity: 0 }, { rotation: 0, x: 0, opacity: 1, duration: .55, ease: "power3.out" }, 20.1);
+          tl.fromTo("#s6-eye", { scaleY: 0 }, { scaleY: 1, duration: .4, ease: "power3.out" }, 20.9);
+          tl.fromTo("#s6-iris", { x: -90 }, { x: 70, duration: 1.2, ease: "sine.inOut" }, 21.3);
+          // bricks rise row by row
+          var wall = document.getElementById("wall-st"), rows = 8, bricks = [];
+          for (var rI = 0; rI < rows; rI++) {
+            var y = 1920 - (rI + 1) * 92, off = (rI % 2) ? -110 : 0;
+            for (var c = 0; c < 6; c++) {
+              var b = document.createElement("div");
+              b.className = "brick";
+              b.style.cssText = "left:" + (off + c * 220) + "px;top:" + y + "px;width:220px";
+              wall.appendChild(b);
+              bricks.push({ el: b, row: rI });
+            }
+          }
+          bricks.forEach(function (b, i) {
+            tl.fromTo(b.el, { y: -160, opacity: 0 }, { y: 0, opacity: 1, duration: .16, ease: "steps(2)" }, 21.9 + b.row * .2 + (i % 6) * .025);
+          });
+          tl.fromTo("#s6-cap", { x: 1600 }, { x: 0, duration: .35, ease: "power4.out" }, 23.2);
+          tl.to("#s6-st", { opacity: 0, duration: .3, ease: "power2.in" }, 24.3);
+
+          // ============ 7 · drill (24.5–28.5) ============
+          tl.fromTo("#s7-slg .ln", { x: -1600 }, { x: 0, duration: .35, ease: "expo.out", stagger: .22 }, 24.6);
+          tl.fromTo("#s7-drill", { scale: 0, transformOrigin: "100% 50%" }, { scale: 1, duration: .5, ease: "power4.out" }, 25.2);
+          tl.fromTo("#s7-bit", { x: 0 }, { x: -6, duration: .05, ease: "none", repeat: 21, yoyo: true }, 25.8);
+          tl.fromTo("#s7-hole", { scale: 0 }, { scale: 1, duration: .7, ease: "power2.out" }, 26.2);
+          tl.to("#s7-drill", { x: -700, duration: .4, ease: "power2.in" }, 27.1);
+          // push-through the hole
+          tl.to(["#s7-st", "#wall-st"], { scale: 9, transformOrigin: "540px 1455px", duration: .7, ease: "power4.in" }, 27.6);
+
+          // ============ 8 · the photo (28.5–32.5) ============
+          tl.fromTo("#s8-st", { clipPath: "circle(0px at 540px 1455px)" }, { clipPath: "circle(2300px at 540px 1455px)", duration: .55, ease: "power2.in" }, 28.2);
+          tl.fromTo("#s8-cam", { scale: 1.18 }, { scale: 1, duration: 3.2, ease: "sine.inOut" }, 28.2);
+          tl.fromTo("#s8-slg .ln", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "sine.inOut", stagger: .25 }, 29.0);
+          tl.fromTo("#s8-cap", { opacity: 0 }, { opacity: 1, duration: .6, ease: "sine.inOut" }, 30.0);
+          // line to horizon
+          tl.to("#s8-cam", { opacity: 0, duration: .45, ease: "sine.inOut" }, 31.9);
+          tl.to("#s8-line", { scaleX: 1080 / 640, duration: .6, ease: "sine.inOut" }, 31.9);
+
+          // ============ 9 · two banks (32.5–36) ============
+          tl.fromTo("#s9-bl", { y: 800 }, { y: 0, duration: .6, ease: "power2.out" }, 32.55);
+          tl.fromTo("#s9-br", { y: 800 }, { y: 0, duration: .6, ease: "power2.out" }, 32.75);
+          tl.fromTo("#s9-water", { opacity: 0 }, { opacity: .35, duration: .6 }, 33.0);
+          tl.fromTo("#s9-circ", { scale: 0, transformOrigin: "870px 860px" }, { scale: 1, duration: .6, ease: "power2.out" }, 33.2);
+          tl.fromTo("#s9-cl", { x: -1600 }, { x: 0, duration: .45, ease: "power2.out" }, 33.6);
+          tl.fromTo("#s9-cr", { x: 1600 }, { x: 0, duration: .45, ease: "power2.out" }, 34.0);
+
+          // ============ 10 · the bridge strike (36–44) ============
+          tl.fromTo("#s10-wedge", { x: 1600 }, { x: 0, duration: .25, ease: "power4.in" }, 36.15);
+          tl.to("#s9-disc", { fill: "#FFFF00", duration: .05, ease: "none" }, 36.4);
+          shake("#s910-st", 36.4);
+          burst(shards(document.getElementById("s10-shards"), 12, 23, 400, 1160, 360, ["#151412", "#FFFF00", "#151412"]), 36.4, .6);
+          tl.fromTo("#s10-l1", { x: -1600 }, { x: 0, duration: .35, ease: "expo.out" }, 37.0);
+          tl.fromTo("#s10-l2", { x: 1600 }, { x: 0, duration: .35, ease: "expo.out" }, 37.25);
+          tl.fromTo("#s10-l3", { x: -1600 }, { x: 0, duration: .4, ease: "expo.out" }, 37.5);
+          tl.fromTo("#s10-b1", { x: -1600 }, { x: 0, duration: .35, ease: "expo.out" }, 38.6);
+          tl.fromTo("#s10-b2", { x: 1600 }, { x: 0, duration: .35, ease: "expo.out" }, 39.6);
+          tl.fromTo("#s910-st", { scale: 1 }, { scale: 1.035, duration: 4, ease: "sine.inOut", transformOrigin: "540px 1100px", immediateRender: false }, 39.4);
+
+          // ============ 11 · the example (44–50), opened by a focal iris from the bridge ============
+          tl.fromTo("#s11-st", { clipPath: "circle(0px at 570px 1090px)" }, { clipPath: "circle(2300px at 570px 1090px)", duration: .6, ease: "expo.inOut" }, 43.5);
+          tl.fromTo("#s11-cap", { x: -1600 }, { x: 0, duration: .4, ease: "expo.out" }, 44.1);
+          tl.fromTo("#s11-a", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: .5, ease: "expo.inOut" }, 44.5);
+          tl.fromTo("#s11-x", { scaleX: 0 }, { scaleX: 1, duration: .22, ease: "power4.in" }, 45.5);
+          tl.to("#s11-a", { opacity: .55, duration: .3 }, 45.75);
+          tl.fromTo("#s11-arrow", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: .35, ease: "power3.out" }, 45.9);
+          tl.fromTo("#s11-b", { scale: 0 }, { scale: 1, duration: .5, ease: "expo.out" }, 46.3);
+          tl.fromTo("#s11-c1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: .4, ease: "power2.out" }, 47.2);
+          tl.fromTo("#s11-slg .ln", { y: 160, opacity: 0 }, { y: 0, opacity: 1, duration: .45, ease: "expo.out", stagger: .25 }, 47.9);
+
+          // ============ 12 · megaphone (50–57) ============
+          tl.fromTo("#s12-mouth", { scaleX: 3, opacity: 1 }, { scaleX: 1, duration: .5, ease: "power3.out" }, 50.0);
+          tl.fromTo("#s12-slg .ln", { x: -1600 }, { x: 0, duration: .4, ease: "back.out(1.4)", stagger: .3 }, 50.3);
+          tl.fromTo("#s12-x", { scaleX: 0 }, { scaleX: 1, duration: .3, ease: "power4.out" }, 51.6);
+          tl.to("#s12-slg", { opacity: .4, duration: .2 }, 51.9);
+          // 52.0–52.5 hard stop: nothing moves, the beat drops out
+          tl.fromTo("#s12-cone", { scaleX: 0 }, { scaleX: 1, duration: .5, ease: "back.out(1.4)" }, 52.5);
+          tl.fromTo("#s12-grip", { scaleY: 0 }, { scaleY: 1, duration: .3, ease: "power3.out" }, 52.6);
+          ["#s12-r1", "#s12-r2", "#s12-r3"].forEach(function (r, i) {
+            tl.fromTo(r, { scaleX: 0 }, { scaleX: 1, duration: .25, ease: "expo.out" }, 53.0 + i * .08);
+          });
+          tl.fromTo("#s12-out", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: .5, ease: "back.out(1.4)" }, 53.0);
+          tl.fromTo("#s12-out2", { x: 1600 }, { x: 0, duration: .4, ease: "expo.out" }, 53.5);
+          tl.fromTo("#s12-mouth", { scale: 1 }, { scale: 1.06, duration: .25, ease: "power2.out", yoyo: true, repeat: 3, immediateRender: false }, 54.2);
+          // colour match: the yellow floods the frame
+          tl.fromTo("#s12-flood", { scale: 0 }, { scale: 4.2, duration: .8, ease: "power3.inOut" }, 56.2);
+
+          // ============ 13 · logo (57–62) ============
+          tl.fromTo("#s13-road", { clipPath: "polygon(0 0, 0 0, 0 57%, 0 57%)" }, { clipPath: "polygon(0 0, 100% 0, 100% 57%, 0 57%)", duration: 1.1, ease: "power3.inOut" }, 57.3);
+          tl.fromTo("#s13-text", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: .6, ease: "power3.inOut" }, 58.4);
+          tl.fromTo("#s13-logo", { scale: 1 }, { scale: 1.03, duration: 3, ease: "sine.inOut", immediateRender: false }, 59.0);
+
+          // ============ 14 · homework (62–70) ============
+          tl.to("#s13-logo", { scale: .56, y: -560, duration: .8, ease: "power2.out" }, 62.0);
+          tl.fromTo("#s14-k", { opacity: 0 }, { opacity: 1, duration: .4, ease: "power2.out" }, 62.6);
+          tl.fromTo("#s14-l1", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: .6, ease: "steps(13)" }, 62.9);
+          tl.fromTo("#s14-l2", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: .5, ease: "steps(11)" }, 63.7);
+          tl.fromTo("#s14-l3", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: .45, ease: "steps(9)" }, 64.3);
+          tl.fromTo("#s14-h", { y: 0 }, { y: -12, duration: 3.8, ease: "power2.out" }, 65.0);
+          // everything rests from 68.8 s; the last second is held still
+
+          window.__timelines["main"] = tl;
+        }
+
+        Promise.all([
+          document.fonts.load('900 120px "Montserrat"'),
+          document.fonts.load('800 60px "Montserrat"'),
+          document.fonts.load('600 30px "Montserrat"'),
+          document.fonts.load('900 120px "Montserrat"', "ŞĞİÇÖÜ₺"),
+        ]).then(function () { return document.fonts.ready; }).then(build).catch(function (e) { console.error("build failed: " + e.message); });
+      })();
+    </script>
+
+    <template id="poster-src">
+      <div class="poster">
+        <div class="ph">SATIŞÇI</div>
+        <div class="pw">KAPIDAN KOVSAN BACADAN GİRER</div>
+        <div class="door"></div>
+        <div class="gap"></div>
+        <div class="knob"></div>
+        <div class="foot"></div>
+      </div>
+      <div class="stamp st1" style="left:90px;top:1180px">KANDIRAN</div>
+      <div class="stamp st2" style="left:520px;top:1300px">İTELEYEN</div>
+      <div class="stamp st3" style="left:180px;top:1480px">YAPIŞKAN</div>
+    </template>
+  </body>
+</html>
