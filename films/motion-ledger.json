@@ -1,0 +1,62 @@
+{
+  "films": [
+    {
+      "name": "satis-yolculugu-kopru-fragmani",
+      "date": "2026-10-04",
+      "themes": [
+        "085"
+      ],
+      "transitions": [
+        "whip-pan",
+        "beat-cut-hold-frame",
+        "motif:cut",
+        "split-tear-mask",
+        "motif:cut",
+        "object-carry",
+        "push-through",
+        "line-to-horizon",
+        "motif:cut",
+        "focal-iris",
+        "match-cut-shape",
+        "graphic-match-color",
+        "motif:cut"
+      ],
+      "new_components": [
+        "word-clamp",
+        "diagonal-poster-rip"
+      ],
+      "entrances": [
+        "slash-in",
+        "band-slam-alternate",
+        "clamp-squeeze",
+        "stamp-drop",
+        "tear-reveal",
+        "rotate-in",
+        "scale-from-point",
+        "iris-settle",
+        "horizon-rise",
+        "wedge-strike",
+        "mask-wipe",
+        "megaphone-unfold",
+        "colour-flood",
+        "type-on"
+      ],
+      "eases": [
+        "expo.out",
+        "power4.out",
+        "power2.in",
+        "steps(3)",
+        "expo.out",
+        "power3.out",
+        "power4.in",
+        "sine.inOut",
+        "power2.out",
+        "power4.in",
+        "expo.inOut",
+        "back.out(1.4)",
+        "power3.inOut",
+        "power2.out"
+      ]
+    }
+  ]
+}
