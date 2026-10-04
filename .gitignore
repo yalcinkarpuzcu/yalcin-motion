@@ -9,3 +9,9 @@ node_modules/
 __pycache__/
 .DS_Store
 Thumbs.db
+
+# HyperFrames skills installed locally via `npx skills add heygen-com/hyperframes`
+.agents/
+skills-lock.json
+.claude/skills/*
+!.claude/skills/saas-motion-video/
