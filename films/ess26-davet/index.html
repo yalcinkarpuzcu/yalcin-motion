@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>ESS'26 · Davet · 094 Match Cut</title>
+    <script src="assets/js/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand.css" />
+    <style>
+      /* R = (800, 1010): the lime dot's fixed home in every shot */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #111014; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "DM Sans", sans-serif; color: var(--ink); }
+      .clip { position: absolute; inset: 0; }
+      .mont { font-family: "Montserrat", sans-serif; font-weight: 800; }
+
+      #bg { background: radial-gradient(90% 60% at 70% 52%, #1d1a24 0%, #141218 55%, #111014 100%); }
+      #grain { background: url(assets/grain.png); opacity: .07; mix-blend-mode: overlay; pointer-events: none; }
+
+      /* the dot */
+      #dot { position: absolute; left: 772px; top: 982px; width: 56px; height: 56px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 28px #C9FF5F88, 0 0 70px #C9FF5F33; }
+      #ring { position: absolute; left: 772px; top: 982px; width: 56px; height: 56px; border-radius: 50%; border: 4px solid var(--lime); opacity: 0; }
+
+      /* 1 · hook */
+      #hook-h { position: absolute; left: 80px; top: 610px; font-size: 128px; line-height: 1.02; letter-spacing: -.01em; }
+      #hook-h .ln { display: block; overflow: hidden; padding-bottom: 6px; }
+      #hook-h .w { display: inline-block; }
+      #hook-h .dim { color: #8E86A0; }
+
+      /* 2 · reveal */
+      #stage { position: absolute; inset: 0; clip-path: circle(28px at 800px 1010px); }
+      #stage-img { position: absolute; inset: -40px; background: url(assets/photos/sanliurfa-stage.png) 28% 50% / cover; filter: saturate(1.05) brightness(.62); }
+      #stage-tint { position: absolute; inset: 0; background: linear-gradient(180deg, #111014ee 0%, #11101466 34%, #6C35D222 60%, #111014dd 100%); }
+      #title { position: absolute; left: 80px; top: 300px; font-size: 138px; line-height: .98; letter-spacing: -.015em; }
+      #title .ln { display: block; }
+      #kicker { position: absolute; left: 84px; top: 236px; font: 700 28px "DM Sans"; letter-spacing: .16em; color: var(--lime); }
+
+      /* 3 · route */
+      #route-band { position: absolute; left: 0; top: 0; width: 1080px; height: 460px; background: linear-gradient(180deg, #111014 0%, #111014 62%, #11101400 100%); }
+      #route-cap { position: absolute; left: 80px; top: 300px; font: 700 30px "DM Sans"; letter-spacing: .14em; color: var(--lav); }
+      #world { position: absolute; left: 0; top: 0; width: 1080px; height: 5200px; }
+      #world svg { position: absolute; left: 0; top: 0; }
+      .stamp { position: absolute; width: 470px; height: 150px; border: 5px solid var(--lav); border-radius: 22px; color: var(--lav); display: flex; flex-direction: column; justify-content: center; padding-left: 34px; transform-origin: 50% 50%; }
+      .stamp b { font: 800 66px/1 "Montserrat"; }
+      .stamp span { font: 700 30px "DM Sans"; letter-spacing: .14em; margin-top: 6px; }
+      .stamp::after { content: ""; position: absolute; inset: 8px; border: 2px dashed #A98BF066; border-radius: 15px; }
+      .trail { position: absolute; width: 96px; height: 96px; border-radius: 50%; border: 3px dashed #A98BF099; }
+      #lens { position: absolute; left: 650px; top: 860px; width: 300px; height: 300px; border-radius: 50%; overflow: hidden; transform: scale(.1867); box-shadow: 0 0 0 6px var(--lime); opacity: 0; }
+      #lens div { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; }
+
+      /* 4 · numbers */
+      #flood { position: absolute; inset: 0; background: var(--lime); clip-path: circle(28px at 800px 1010px); }
+      #nums { position: absolute; inset: 0; color: #111014; }
+      #nums-cap { position: absolute; left: 84px; top: 300px; font: 700 30px "DM Sans"; letter-spacing: .14em; color: #3a3a1c; }
+      .num { position: absolute; left: 80px; display: flex; align-items: baseline; gap: 26px; }
+      .num b { font: 800 210px/1 "Montserrat"; letter-spacing: -.03em; min-width: 0; }
+      .num span { font: 700 34px/1.15 "DM Sans"; letter-spacing: .08em; }
+
+      /* 5 · badge */
+      .strap { position: absolute; width: 44px; height: 1300px; background: linear-gradient(90deg, #4b2a95, #6C35D2 45%, #5a2db5); transform-origin: 50% 100%; }
+      #badge-rig { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 800px 1010px; }
+      #badge { position: absolute; left: 530px; top: 930px; width: 540px; height: 650px; border-radius: 34px; background: linear-gradient(170deg, #3b3050 0%, #2a2235 100%); box-shadow: 0 30px 80px #0009, inset 0 0 0 2px #A98BF033; overflow: hidden; }
+      #badge .slot { position: absolute; left: 210px; top: 48px; width: 120px; height: 64px; border-radius: 32px; background: #19161e; }
+      #badge .k { position: absolute; left: 40px; top: 150px; font: 700 24px "DM Sans"; letter-spacing: .16em; color: var(--lav); }
+      #badge .role { position: absolute; left: 40px; top: 206px; font: 800 66px/1 "Montserrat"; letter-spacing: .01em; }
+      #badge .bar { position: absolute; left: 40px; top: 290px; width: 120px; height: 8px; border-radius: 4px; background: var(--lime); }
+      #badge .date { position: absolute; left: 40px; top: 330px; font: 800 84px/1 "Montserrat"; color: var(--lime); letter-spacing: -.02em; }
+      #badge .place { position: absolute; left: 40px; top: 446px; font: 700 32px/1.25 "DM Sans"; color: var(--ink); }
+      #badge .logos { position: absolute; left: 32px; bottom: 22px; display: flex; gap: 28px; align-items: center; }
+      #badge .logos img { height: 84px; }
+      #chips-cap { position: absolute; left: 64px; top: 1030px; font: 700 26px "DM Sans"; letter-spacing: .16em; color: var(--lav); }
+      .chip { position: absolute; left: 60px; padding: 18px 28px; border-radius: 40px; background: #26212e; border: 2px solid #A98BF055; font: 700 32px "DM Sans"; white-space: nowrap; }
+      .chip i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: var(--lav); margin-right: 14px; vertical-align: 3px; }
+
+      /* 6 · cta */
+      #cta-top { position: absolute; left: 84px; top: 300px; font: 700 30px "DM Sans"; letter-spacing: .14em; color: var(--lav); }
+      #cta-kick { position: absolute; left: 84px; top: 786px; font: 700 44px "DM Sans"; letter-spacing: .14em; color: var(--lav); }
+      #cta-city { position: absolute; left: 70px; top: 868px; font-size: 192px; line-height: 1; letter-spacing: -.02em; }
+      #cta-date { position: absolute; left: 80px; top: 1125px; font: 800 72px/1 "Montserrat"; color: var(--lime); }
+      #cta-place { position: absolute; left: 82px; top: 1212px; font: 500 38px "DM Sans"; color: #CFC8DA; }
+      #cta-btn { position: absolute; left: 80px; top: 1300px; padding: 26px 50px; border-radius: 60px; background: var(--lime); color: #111014; font: 800 46px "Montserrat"; letter-spacing: .04em; }
+      #cta-logos { position: absolute; left: 80px; top: 1500px; display: flex; gap: 52px; align-items: center; }
+      #cta-logos img { height: 96px; }
+      #cta-logos .sep { width: 2px; height: 70px; background: #ffffff33; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22.5" data-width="1080" data-height="1920">
+      <div id="bg" class="clip" data-start="0" data-duration="22.5" data-track-index="0"></div>
+
+      <!-- 1 · hook -->
+      <div id="s1" class="clip" data-start="0" data-duration="4.2" data-track-index="1">
+        <div id="hook-h" class="mont">
+          <span class="ln"><span class="w">FİKİR</span></span>
+          <span class="ln"><span class="w dim">TEK BAŞINA</span></span>
+          <span class="ln"><span class="w">BÜYÜMEZ</span></span>
+        </div>
+      </div>
+
+      <!-- 2 · reveal -->
+      <div id="s2" class="clip" data-start="4" data-duration="2.8" data-track-index="2">
+        <div id="s2-move" class="clip">
+          <div id="stage"><div id="stage-img"></div><div id="stage-tint"></div></div>
+          <div id="kicker">LET'S SCALE UP · FİNAL ZİRVESİ</div>
+          <div id="title" class="mont"><span class="ln">EURASIA</span><span class="ln">STARTUP</span><span class="ln">SUMMIT'26</span></div>
+        </div>
+      </div>
+
+      <!-- 3 · route -->
+      <div id="s3" class="clip" data-start="6.3" data-duration="4.9" data-track-index="3">
+        <div id="world">
+          <svg width="1080" height="5200" viewBox="0 0 1080 5200">
+            <path id="route" d="M800 1700 C 560 1900, 560 2300, 800 2500 C 1000 2650, 1000 3050, 800 3300 C 560 3500, 560 3900, 800 4100 C 1000 4250, 1000 4650, 800 4900 L 800 5200" fill="none" stroke="#6C35D2" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 22"/>
+          </svg>
+          <!-- stops at world y 1700, 2500, 3300, 4100, 4900 -->
+          <div class="trail" style="left:752px;top:1652px"></div>
+          <div class="trail" style="left:752px;top:2452px"></div>
+          <div class="trail" style="left:752px;top:3252px"></div>
+          <div class="trail" style="left:752px;top:4052px"></div>
+          <div class="stamp" id="st1" style="left:80px;top:1625px"><b>2021</b><span>İSTANBUL</span></div>
+          <div class="stamp" id="st2" style="left:80px;top:2425px"><b>2022</b><span>BODRUM</span></div>
+          <div class="stamp" id="st3" style="left:80px;top:3225px"><b>2023</b><span>İSTANBUL</span></div>
+          <div class="stamp" id="st4" style="left:80px;top:4025px"><b>2024</b><span>ŞANLIURFA</span></div>
+          <div class="stamp" id="st5" style="left:80px;top:4825px"><b>2025</b><span>ESKİŞEHİR</span></div>
+        </div>
+        <div id="route-band"></div>
+        <div id="route-cap">2021'DEN BERİ · HER YIL BİR ŞEHİR</div>
+        <div id="lens">
+          <div id="ph2" style="background-image:url(assets/photos/audience.png)"></div>
+          <div id="ph4" style="background-image:url(assets/photos/sanliurfa-stage.png);background-position:30% 50%"></div>
+          <div id="ph5" style="background-image:url(assets/photos/award.png)"></div>
+        </div>
+      </div>
+
+      <!-- 4 · numbers on the lime flood -->
+      <div id="s4" class="clip" data-start="10.3" data-duration="4.4" data-track-index="4">
+        <div id="flood">
+          <div id="nums">
+            <div id="nums-cap">GEÇMİŞ ZİRVELERDE</div>
+            <div class="num" id="n1" style="top:420px"><b data-to="83">83</b><span>STARTUP</span></div>
+            <div class="num" id="n2" style="top:690px"><b data-to="121">121</b><span>KONUŞMACI<br>&amp; MENTOR</span></div>
+            <div class="num" id="n3" style="top:960px"><b data-to="62">62</b><span>PARTNER<br>&amp; SPONSOR</span></div>
+            <div class="num" id="n4" style="top:1230px"><b data-to="17">17</b><span>ÜLKEDEN<br>KATILIMCI</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 · badge -->
+      <div id="s5" class="clip" data-start="14.3" data-duration="4.2" data-track-index="5">
+        <div id="chips-cap">24 EKİM'DE</div>
+        <div class="chip" id="c1" style="top:1090px"><i></i>Keynote &amp; Panel</div>
+        <div class="chip" id="c2" style="top:1200px"><i></i>Girişimci Sunumları</div>
+        <div class="chip" id="c3" style="top:1310px"><i></i>B2B Matchmaking</div>
+        <div class="chip" id="c4" style="top:1420px"><i></i>Networking</div>
+        <div id="badge-rig">
+          <div class="strap" style="left:640px;top:-280px;transform:rotate(-17deg)"></div>
+          <div class="strap" style="left:916px;top:-280px;transform:rotate(17deg)"></div>
+          <div id="badge">
+            <div class="slot"></div>
+            <div class="k">EURASIA STARTUP SUMMIT'26</div>
+            <div class="role">KATILIMCI</div>
+            <div class="bar"></div>
+            <div class="date">24.10.2026</div>
+            <div class="place">Çorlu Sanayi ve<br>Ticaret Odası</div>
+            <div class="logos"><img src="assets/logos/jci-avrasya.png" alt="JCI Avrasya" /><img src="assets/logos/lets-scale-up.png" alt="Let's Scale Up" /></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 · cta -->
+      <div id="s6" class="clip" data-start="18.5" data-duration="4" data-track-index="6">
+        <div id="cta-top">EURASIA STARTUP SUMMIT'26</div>
+        <div id="cta-kick">SIRADAKİ DURAK</div>
+        <div id="cta-city" class="mont">ÇORLU</div>
+        <div id="cta-date">24 EKİM 2026</div>
+        <div id="cta-place">Çorlu Sanayi ve Ticaret Odası</div>
+        <div id="cta-btn">YERİNİ AL</div>
+        <div id="cta-logos"><img src="assets/logos/jci-avrasya.png" alt="JCI Avrasya" /><div class="sep"></div><img src="assets/logos/lets-scale-up.png" alt="Let's Scale Up" /><div class="sep"></div><img src="assets/logos/ctso.png" alt="Çorlu TSO" /></div>
+      </div>
+
+      <!-- the motif, always on top -->
+      <div id="fx" class="clip" data-start="0" data-duration="22.5" data-track-index="7">
+        <div id="ring"></div>
+        <div id="dot"></div>
+      </div>
+      <div id="grain" class="clip" data-start="0" data-duration="22.5" data-track-index="8"></div>
+    </div>
+
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        const R = "800px 1010px";
+
+        /* ---------- 1 · hook (0–4) ---------- */
+        gsap.set("#dot", { scale: 0, opacity: 1 });
+        tl.fromTo("#hook-h .w", { yPercent: 105 }, { yPercent: 0, duration: .7, ease: "expo.out", stagger: .45 }, .3);
+        tl.fromTo("#dot", { scale: 0 }, { scale: 1, duration: .45, ease: "expo.out" }, 2.0);
+        tl.fromTo("#hook-h", { opacity: 1, x: 0 }, { opacity: 0, x: -30, duration: .6, ease: "power2.in" }, 3.1);
+        tl.fromTo("#dot", { scale: 1 }, { scale: 1.22, duration: .3, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 3.35);
+
+        /* ---------- 2 · reveal (4–6.5): iris from the dot ---------- */
+        tl.fromTo("#stage", { clipPath: "circle(28px at " + R + ")" }, { clipPath: "circle(1500px at " + R + ")", duration: .95, ease: "power4.out" }, 4.0);
+        tl.fromTo("#stage-img", { scale: 1.0 }, { scale: 1.09, duration: 2.8, ease: "none" }, 4.0);
+        tl.set("#dot", { opacity: 0 }, 4.02);
+        tl.fromTo("#ring", { opacity: 0, scale: 1 }, { opacity: 1, scale: 1, duration: .01, immediateRender: false }, 4.02);
+        tl.fromTo("#title .ln", { x: -90, opacity: 0 }, { x: 0, opacity: 1, duration: .55, ease: "power4.out", stagger: .09 }, 4.2);
+        tl.fromTo("#kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .5, ease: "power2.out" }, 4.6);
+        /* speed ramp out: the whole reveal accelerates upward */
+        tl.fromTo("#s2-move", { y: 0, filter: "blur(0px)" }, { y: -2100, filter: "blur(14px)", duration: .55, ease: "expo.in" }, 6.0);
+
+        /* ---------- 3 · route (6.5–11): world scrolls, dot stays ---------- */
+        const stopY = [1700, 2500, 3300, 4100, 4900];
+        const stopT = [7.0, 7.75, 8.5, 9.25, 10.0];
+        const wy = (i) => 1010 - stopY[i];
+        tl.set("#ring", { opacity: 0 }, 6.45);
+        tl.set("#dot", { opacity: 1, scale: 1 }, 6.45);
+        tl.fromTo("#world", { y: wy(0) + 1500, filter: "blur(10px)" }, { y: wy(0), filter: "blur(0px)", duration: .6, ease: "expo.out" }, 6.4);
+        for (let i = 1; i < 5; i++) {
+          tl.fromTo("#world", { y: wy(i - 1) }, { y: wy(i), duration: .45, ease: "power2.inOut", immediateRender: false }, stopT[i] - .45);
+        }
+        tl.fromTo("#route-cap", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: .5, ease: "power2.out" }, 6.7);
+        for (let i = 0; i < 5; i++) {
+          const s = "#st" + (i + 1);
+          tl.fromTo(s, { opacity: 0, scale: 1.25, rotation: -11 }, { opacity: 1, scale: 1, rotation: -4, duration: .22, ease: "power3.out" }, stopT[i] - .02);
+          tl.fromTo(s, { filter: "brightness(1.6)" }, { filter: "brightness(1)", duration: .12, ease: "steps(2)", immediateRender: false }, stopT[i] + .2);
+        }
+        /* photo flashes inside the dot at Bodrum, Şanlıurfa, Eskişehir */
+        [[1, "#ph2"], [3, "#ph4"], [4, "#ph5"]].forEach(([i, ph]) => {
+          const t = stopT[i];
+          tl.set("#lens div", { opacity: 0 }, t - .01);
+          tl.set(ph, { opacity: 1 }, t);
+          tl.fromTo("#lens", { opacity: 0, scale: .1867 }, { opacity: 1, scale: 1, duration: .22, ease: "power3.out", immediateRender: false }, t + .02);
+          if (i < 4) tl.fromTo("#lens", { scale: 1, opacity: 1 }, { scale: .1867, opacity: 0, duration: .18, ease: "power2.in", immediateRender: false }, stopT[i + 1] - .5);
+        });
+        tl.fromTo("#lens", { scale: 1, opacity: 1 }, { scale: .1867, opacity: 0, duration: .2, ease: "power2.in", immediateRender: false }, 10.35);
+        tl.fromTo("#world", { y: wy(4) }, { y: wy(4) - 180, duration: .55, ease: "power2.in", immediateRender: false }, 10.45);
+
+        /* ---------- 4 · numbers (11–14.5): graphic match, colour ---------- */
+        tl.fromTo("#flood", { clipPath: "circle(28px at " + R + ")" }, { clipPath: "circle(2300px at " + R + ")", duration: .55, ease: "power3.in" }, 10.45);
+        ["#n1", "#n2", "#n3", "#n4"].forEach((n, i) => {
+          const t = 11.1 + i * .5;
+          const b = document.querySelector(n + " b");
+          const to = +b.dataset.to;
+          const p = { v: 0 };
+          tl.fromTo(n, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: .4, ease: "power3.out" }, t);
+          tl.fromTo(p, { v: 0 }, { v: to, duration: .7, ease: "power3.out", onUpdate: () => { b.textContent = Math.round(p.v); } }, t);
+        });
+        tl.fromTo("#nums-cap", { opacity: 0 }, { opacity: 1, duration: .4, ease: "power1.out" }, 11.0);
+        /* object carry: the flood collapses back into the dot */
+        tl.fromTo("#flood", { clipPath: "circle(2300px at " + R + ")" }, { clipPath: "circle(28px at " + R + ")", duration: .55, ease: "power3.inOut", immediateRender: false }, 14.0);
+        tl.fromTo("#nums", { scale: 1, opacity: 1, transformOrigin: R }, { scale: .2, opacity: 0, duration: .45, ease: "power3.in" }, 14.0);
+
+        /* ---------- 5 · badge (14.5–18.5) ---------- */
+        tl.fromTo("#badge-rig", { y: -1500 }, { y: 0, duration: .45, ease: "power2.in" }, 14.55);
+        const sw = { t: 0 };
+        tl.fromTo(sw, { t: 0 }, { t: 3.5, duration: 3.5, ease: "none", onUpdate: () => {
+          const a = 9 * Math.exp(-1.4 * sw.t) * Math.cos(5.2 * sw.t);
+          gsap.set("#badge", { rotation: a, transformOrigin: "270px 80px" });
+        } }, 15.0);
+        tl.fromTo("#dot", { scale: 1 }, { scale: .8, duration: .2, ease: "power2.out", immediateRender: false }, 15.0);
+        tl.fromTo("#chips-cap", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: .4, ease: "power2.out" }, 15.3);
+        tl.fromTo(".chip", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: .45, ease: "power3.out", stagger: .5 }, 15.5);
+
+        /* ---------- 6 · cta (18.5–22.5): match cut, hole → full stop ---------- */
+        tl.set("#dot", { scale: 1 }, 18.5);
+        tl.fromTo("#cta-city", { x: -120, opacity: 0 }, { x: 0, opacity: 1, duration: .6, ease: "power2.out" }, 18.5);
+        tl.fromTo("#cta-kick", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: .45, ease: "power2.out" }, 18.75);
+        tl.fromTo("#cta-top", { opacity: 0 }, { opacity: 1, duration: .5, ease: "power1.out" }, 19.0);
+        tl.fromTo("#cta-date", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: .5, ease: "power3.out" }, 19.25);
+        tl.fromTo("#cta-place", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .5, ease: "power3.out" }, 19.45);
+        tl.fromTo("#cta-btn", { opacity: 0, scale: .9, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: .5, ease: "power2.out" }, 19.9);
+        tl.fromTo("#cta-logos > *", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .45, ease: "power2.out", stagger: .08 }, 20.3);
+        tl.fromTo("#dot", { scale: 1 }, { scale: 1.18, duration: .25, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 20.5);
+
+        tl.set({}, {}, 22.5);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

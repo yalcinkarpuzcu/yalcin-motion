@@ -4,7 +4,7 @@ format: 1080x1920
 duration: 22s
 audio: music              # müzik + ince, sıcak SFX
 loop: false
-theme: "TBD (stage 3)"
+theme: "094 Match Cut"
 ---
 
 # Eurasia Startup Summit '26: Instagram davet filmi
