@@ -1,0 +1,13 @@
+[INFO] [Compiler] Fetched 11 font face(s) for "DM Sans" from Google Fonts (cached to /root/.cache/hyperframes/fonts/dm-sans)
+[INFO] [Compiler] Fetched 11 font face(s) for "Montserrat" from Google Fonts (cached to /root/.cache/hyperframes/fonts/montserrat)
+[INFO] [Compiler] Injected deterministic @font-face rules for 2 requested font families
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+[BrowserManager] Browser launched (HeadlessChrome/152.0.7977.30, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (1ms)
+[initSession:screenshot] page.goto complete (273ms)
+[initSession:screenshot] GSAP proxy flush complete (283ms)
+[HyperFrames] render runtime fps {"canonicalFps":30,"source":"render-options","rawFpsSource":"render-options","rawFps":30}
+[initSession:screenshot] pollHfReady complete (442ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (445ms)
+[initSession:screenshot] applyVideoMetadataHints complete (446ms)
+[initSession:screenshot] media + fonts + tailwind ready (452ms)
