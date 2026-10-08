@@ -9,9 +9,9 @@ theme: "094 Match Cut"
 
 # Eurasia Startup Summit '26: Instagram davet filmi
 
-**One message:** Vibe to Venture: her girişim bir vibe ile başlar; 24 Ekim'de Çorlu'da katılımcı ya da partner olarak yerini al.
+**One message:** Vine to Venture: her girişim bir vine (filiz) gibi başlar ve büyür; 24 Ekim'de Çorlu'da katılımcı ya da partner olarak yerini al.
 
-**Revizyon (v2):** Duyuru + paydaşlık birlikte; slogan "VIBE TO VENTURE" (kullanıcıdan, PDF'te yok). Kanca VIBE● ile açılır, CTA VIBE TO VENTURE● ile kapanır; yaka kartı GİRİŞİMCİ → YATIRIMCI → PARTNER döner; CTA'da YERİNİ AL + PARTNER OL + info@letscaleup.org.
+**Revizyon (v2):** Duyuru + paydaşlık birlikte; slogan "VINE TO VENTURE" (kullanıcıdan, PDF'te yok). Kanca VINE● ile açılır, CTA VINE TO VENTURE● ile kapanır; yaka kartı GİRİŞİMCİ → YATIRIMCI → PARTNER döner; CTA'da YERİNİ AL + PARTNER OL + info@letscaleup.org.
 
 **Audience & channel:** Girişimciler, yatırımcılar, mentorlar ve ekosistemin geri kalanı. Instagram Reels / Story, 9:16, 1080×1920. Ses açık izlenmesi beklenir ama film sessizken de anlaşılmalı.
 

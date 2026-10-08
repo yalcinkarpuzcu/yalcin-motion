@@ -9,9 +9,9 @@ theme: "056 Workflow Canvas"
 
 # Eurasia Startup Summit '26: sponsor ve paydaş filmi
 
-**One message:** Vibe to Venture: vibe'dan venture'a giden yolda aradaki bağ markanız; 24 Ekim'de Çorlu'da partner ya da katılımcı olarak yerinizi alın.
+**One message:** Vine to Venture: vine'dan venture'a giden yolda aradaki bağ markanız; 24 Ekim'de Çorlu'da partner ya da katılımcı olarak yerinizi alın.
 
-**Revizyon (v2):** Duyuru + paydaşlık birlikte; slogan "VIBE TO VENTURE" (kullanıcıdan, PDF'te yok). Kanca: VIBE TO VENTURE. / ARADAKİ BAĞ: MARKANIZ.; ağ başlığı: VIBE'DAN VENTURE'A TEK SALONDA.; CTA'da slogan + tarih/mekân + "Partner ya da katılımcı olarak yerinizi alın."
+**Revizyon (v2):** Duyuru + paydaşlık birlikte; slogan "VINE TO VENTURE" (kullanıcıdan, PDF'te yok). Kanca: VINE TO VENTURE. / ARADAKİ BAĞ: MARKANIZ.; ağ başlığı: VINE'DAN VENTURE'A TEK SALONDA.; CTA'da slogan + tarih/mekân + "Partner ya da katılımcı olarak yerinizi alın."
 
 **Audience & channel:** Potansiyel sponsorlar, partnerler ve kurumsal paydaşlar (şirketler, kamu, yatırımcılar). Instagram Reels / Story, 9:16, 1080×1920. Film sessizken de anlaşılmalı.
 
