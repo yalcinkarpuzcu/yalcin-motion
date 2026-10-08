@@ -34,7 +34,7 @@
       /* hook */
       #hook-h { position: absolute; left: 80px; top: 330px; font-size: 84px; line-height: 1.08; }
       #hook-h .ln { display: block; }
-      #hook-h .l2 { color: var(--lav); }
+      #hook-h .l2, #hook-h .l3 { color: var(--lav); }
 
       /* top titles */
       #kick { position: absolute; left: 82px; top: 236px; font: 700 28px "DM Sans"; letter-spacing: .16em; color: var(--lav); }
@@ -66,7 +66,8 @@
 
       /* horizon + cta */
       #horizon { position: absolute; left: 0; top: 1074px; width: 1080px; height: 12px; border-radius: 6px; background: var(--lime); box-shadow: 0 0 24px #C9FF5F88; transform-origin: 0 50%; }
-      #cta-top { position: absolute; left: 84px; top: 300px; font: 700 28px "DM Sans"; letter-spacing: .16em; color: var(--lav); }
+      #cta-top { position: absolute; left: 84px; top: 290px; font: 800 36px "Montserrat"; letter-spacing: .12em; color: var(--lime); }
+      #cta-top2 { position: absolute; left: 84px; top: 344px; font: 700 26px "DM Sans"; letter-spacing: .14em; color: var(--lav); }
       #cta-up { position: absolute; left: 0; top: 700px; width: 1080px; height: 370px; overflow: hidden; }
       #cta-k { position: absolute; left: 84px; top: 40px; font: 700 40px "DM Sans"; letter-spacing: .12em; color: var(--lav); }
       #cta-h { position: absolute; left: 78px; top: 110px; font-size: 92px; line-height: 1.02; }
@@ -74,7 +75,7 @@
       #cta-logos img { height: 104px; }
       #cta-mail { position: absolute; left: 80px; top: 1130px; font: 800 64px "Montserrat"; color: var(--lime); }
       #cta-meta { position: absolute; left: 82px; top: 1226px; font: 500 34px/1.35 "DM Sans"; color: #CFC8DA; }
-      #cta-logos { position: absolute; left: 80px; top: 1380px; display: flex; gap: 52px; align-items: center; }
+      #cta-logos { position: absolute; left: 80px; top: 1440px; display: flex; gap: 52px; align-items: center; }
       #cta-logos img { height: 92px; }
       #cta-logos .sep { width: 2px; height: 70px; background: #ffffff33; }
     </style>
@@ -95,13 +96,13 @@
       </div>
 
       <div id="s1" class="clip" data-start="0" data-duration="4" data-track-index="2">
-        <div id="hook-h" class="mont"><span class="ln l1">LOGONUZ SAHNEDE.</span><span class="ln l2">PEKİ YA TEMAS?</span></div>
+        <div id="hook-h" class="mont"><span class="ln l1">VIBE TO VENTURE.</span><span class="ln l2">ARADAKİ BAĞ:</span><span class="ln l3">MARKANIZ.</span></div>
       </div>
 
       <div id="s23" class="clip" data-start="4" data-duration="8.5" data-track-index="3">
         <div id="kick">EURASIA STARTUP SUMMIT'26</div>
         <div class="hd mont" id="hd1"><div class="ln"><span>24 EKİM 2026</span></div><div class="ln"><span>ÇORLU</span></div></div>
-        <div class="hd mont" id="hd2"><div class="ln"><span>DOĞRU İNSANLAR.</span></div><div class="ln"><span>TEK SALON.</span></div></div>
+        <div class="hd mont" id="hd2"><div class="ln"><span>VIBE'DAN VENTURE'A</span></div><div class="ln"><span>TEK SALONDA.</span></div></div>
         <div id="stats-cap">GEÇMİŞ ZİRVELERDE</div>
         <div id="stats">
           <div class="st"><b data-to="83">83</b><span>STARTUP</span></div>
@@ -125,13 +126,14 @@
 
       <!-- 5 · cta -->
       <div id="s5" class="clip" data-start="17.5" data-duration="5.5" data-track-index="5">
-        <div id="cta-top">EURASIA STARTUP SUMMIT'26</div>
+        <div id="cta-top">VIBE TO VENTURE</div>
+        <div id="cta-top2">EURASIA STARTUP SUMMIT'26</div>
         <div id="cta-up">
           <div id="cta-k">ESS'26 İŞ BİRLİĞİNİ</div>
           <div id="cta-h" class="mont"><span>BİRLİKTE</span><span>TASARLAYALIM.</span></div>
         </div>
         <div id="cta-mail">info@letscaleup.org</div>
-        <div id="cta-meta">24 Ekim 2026 · Çorlu Sanayi ve Ticaret Odası</div>
+        <div id="cta-meta">24 Ekim 2026 · Çorlu Sanayi ve Ticaret Odası<br>Partner ya da katılımcı olarak yerinizi alın.</div>
         <div id="cta-logos"><img src="assets/logos/jci-avrasya.png" alt="JCI Avrasya" /><div class="sep"></div><img src="assets/logos/lets-scale-up.png" alt="Let's Scale Up" /><div class="sep"></div><img src="assets/logos/ctso.png" alt="Çorlu TSO" /></div>
       </div>
 
@@ -210,7 +212,8 @@
         tl.fromTo("#cam", { scale: 1.9 }, { scale: 2.05, duration: 3.5, ease: "power2.out" }, 0);
         tl.fromTo("#hub", { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: .8, ease: "power2.out" }, .2);
         tl.fromTo("#hook-h .l1", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: .8, ease: "steps(16)" }, .5);
-        tl.fromTo("#hook-h .l2", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: .7, ease: "steps(14)" }, 1.9);
+        tl.fromTo("#hook-h .l2", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: .55, ease: "steps(12)" }, 1.55);
+        tl.fromTo("#hook-h .l3", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: .45, ease: "steps(9)" }, 2.3);
         /* 3.5–4.0: hold frame, nothing moves */
 
         /* ---------- 2 · reveal (4–6.5): cut on the drop, cables snap ---------- */
@@ -270,7 +273,7 @@
         tl.fromTo("#cta-k", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: .6, ease: "power3.out" }, 17.9);
         tl.fromTo("#cta-mail", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: .6, ease: "power3.out" }, 18.4);
         tl.fromTo("#cta-meta", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, 18.7);
-        tl.fromTo("#cta-top", { opacity: 0 }, { opacity: 1, duration: .5, ease: "power1.out" }, 19.0);
+        tl.fromTo(["#cta-top", "#cta-top2"], { opacity: 0 }, { opacity: 1, duration: .5, ease: "power1.out", stagger: .15 }, 19.0);
         tl.fromTo("#cta-logos > *", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .45, ease: "power2.out", stagger: .08 }, 19.3);
 
         tl.set({}, {}, 23);

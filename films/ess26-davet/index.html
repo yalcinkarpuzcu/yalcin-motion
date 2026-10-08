@@ -22,7 +22,9 @@
       #ring { position: absolute; left: 772px; top: 982px; width: 56px; height: 56px; border-radius: 50%; border: 4px solid var(--lime); opacity: 0; }
 
       /* 1 · hook */
-      #hook-h { position: absolute; left: 80px; top: 610px; font-size: 128px; line-height: 1.02; letter-spacing: -.01em; }
+      #hook-h { position: absolute; left: 80px; top: 738px; line-height: 1.02; letter-spacing: -.01em; }
+      #hook-h .k { font-size: 64px; color: var(--lav); }
+      #hook-h .v { font-size: 268px; letter-spacing: -.02em; }
       #hook-h .ln { display: block; overflow: hidden; padding-bottom: 6px; }
       #hook-h .w { display: inline-block; }
       #hook-h .dim { color: #8E86A0; }
@@ -33,7 +35,8 @@
       #stage-tint { position: absolute; inset: 0; background: linear-gradient(180deg, #111014ee 0%, #11101466 34%, #6C35D222 60%, #111014dd 100%); }
       #title { position: absolute; left: 80px; top: 300px; font-size: 138px; line-height: .98; letter-spacing: -.015em; }
       #title .ln { display: block; }
-      #kicker { position: absolute; left: 84px; top: 236px; font: 700 28px "DM Sans"; letter-spacing: .16em; color: var(--lime); }
+      #kicker { position: absolute; left: 84px; top: 228px; font: 800 36px "Montserrat"; letter-spacing: .12em; color: var(--lime); }
+      #rsub { position: absolute; left: 84px; top: 726px; font: 700 26px "DM Sans"; letter-spacing: .12em; color: #E2DCEB; }
 
       /* 3 · route */
       #route-band { position: absolute; left: 0; top: 0; width: 1080px; height: 460px; background: linear-gradient(180deg, #111014 0%, #111014 62%, #11101400 100%); }
@@ -62,7 +65,8 @@
       #badge { position: absolute; left: 530px; top: 930px; width: 540px; height: 650px; border-radius: 34px; background: linear-gradient(170deg, #3b3050 0%, #2a2235 100%); box-shadow: 0 30px 80px #0009, inset 0 0 0 2px #A98BF033; overflow: hidden; }
       #badge .slot { position: absolute; left: 210px; top: 48px; width: 120px; height: 64px; border-radius: 32px; background: #19161e; }
       #badge .k { position: absolute; left: 40px; top: 150px; font: 700 24px "DM Sans"; letter-spacing: .16em; color: var(--lav); }
-      #badge .role { position: absolute; left: 40px; top: 206px; font: 800 66px/1 "Montserrat"; letter-spacing: .01em; }
+      #badge .role { position: absolute; left: 40px; top: 206px; width: 470px; height: 72px; overflow: hidden; font: 800 66px/1 "Montserrat"; letter-spacing: .01em; }
+      #badge .role span { position: absolute; left: 0; top: 2px; }
       #badge .bar { position: absolute; left: 40px; top: 290px; width: 120px; height: 8px; border-radius: 4px; background: var(--lime); }
       #badge .date { position: absolute; left: 40px; top: 330px; font: 800 84px/1 "Montserrat"; color: var(--lime); letter-spacing: -.02em; }
       #badge .place { position: absolute; left: 40px; top: 446px; font: 700 32px/1.25 "DM Sans"; color: var(--ink); }
@@ -74,12 +78,16 @@
 
       /* 6 · cta */
       #cta-top { position: absolute; left: 84px; top: 300px; font: 700 30px "DM Sans"; letter-spacing: .14em; color: var(--lav); }
-      #cta-kick { position: absolute; left: 84px; top: 786px; font: 700 44px "DM Sans"; letter-spacing: .14em; color: var(--lav); }
-      #cta-city { position: absolute; left: 70px; top: 868px; font-size: 192px; line-height: 1; letter-spacing: -.02em; }
-      #cta-date { position: absolute; left: 80px; top: 1125px; font: 800 72px/1 "Montserrat"; color: var(--lime); }
-      #cta-place { position: absolute; left: 82px; top: 1212px; font: 500 38px "DM Sans"; color: #CFC8DA; }
-      #cta-btn { position: absolute; left: 80px; top: 1300px; padding: 26px 50px; border-radius: 60px; background: var(--lime); color: #111014; font: 800 46px "Montserrat"; letter-spacing: .04em; }
-      #cta-logos { position: absolute; left: 80px; top: 1500px; display: flex; gap: 52px; align-items: center; }
+      #cta-kick { position: absolute; left: 76px; top: 774px; font: 800 134px/1 "Montserrat"; letter-spacing: -.01em; color: var(--lav); }
+      #cta-city { position: absolute; left: 76px; top: 911px; font-size: 134px; line-height: 1; letter-spacing: -.01em; }
+      #cta-date { position: absolute; left: 80px; top: 1095px; font: 800 58px/1 "Montserrat"; color: var(--lime); }
+      #cta-place { position: absolute; left: 82px; top: 1166px; font: 500 38px "DM Sans"; color: #CFC8DA; }
+      #cta-btns { position: absolute; left: 80px; top: 1250px; display: flex; gap: 22px; }
+      #cta-btn2 { padding: 24px 44px; border-radius: 60px; border: 4px solid var(--lav); color: var(--ink); font: 800 42px "Montserrat"; letter-spacing: .04em; }
+      #cta-mail { position: absolute; left: 82px; top: 1392px; font: 700 34px "DM Sans"; color: #CFC8DA; }
+      #cta-mail b { color: var(--lime); }
+      #cta-btn { padding: 24px 44px; border-radius: 60px; background: var(--lime); color: #111014; font: 800 42px "Montserrat"; letter-spacing: .04em; }
+      #cta-logos { position: absolute; left: 80px; top: 1480px; display: flex; gap: 52px; align-items: center; }
       #cta-logos img { height: 96px; }
       #cta-logos .sep { width: 2px; height: 70px; background: #ffffff33; }
     </style>
@@ -91,9 +99,8 @@
       <!-- 1 · hook -->
       <div id="s1" class="clip" data-start="0" data-duration="4.2" data-track-index="1">
         <div id="hook-h" class="mont">
-          <span class="ln"><span class="w">FİKİR</span></span>
-          <span class="ln"><span class="w dim">TEK BAŞINA</span></span>
-          <span class="ln"><span class="w">BÜYÜMEZ</span></span>
+          <span class="ln k"><span class="w">HER GİRİŞİM BİR</span></span>
+          <span class="ln v"><span class="w">VIBE</span></span>
         </div>
       </div>
 
@@ -101,7 +108,8 @@
       <div id="s2" class="clip" data-start="4" data-duration="2.8" data-track-index="2">
         <div id="s2-move" class="clip">
           <div id="stage"><div id="stage-img"></div><div id="stage-tint"></div></div>
-          <div id="kicker">LET'S SCALE UP · FİNAL ZİRVESİ</div>
+          <div id="kicker">VIBE TO VENTURE</div>
+          <div id="rsub">LET'S SCALE UP FİNAL ZİRVESİ · 24 EKİM 2026 · ÇORLU</div>
           <div id="title" class="mont"><span class="ln">EURASIA</span><span class="ln">STARTUP</span><span class="ln">SUMMIT'26</span></div>
         </div>
       </div>
@@ -158,7 +166,7 @@
           <div id="badge">
             <div class="slot"></div>
             <div class="k">EURASIA STARTUP SUMMIT'26</div>
-            <div class="role">KATILIMCI</div>
+            <div class="role" data-layout-allow-overlap><span id="r1" data-layout-allow-overlap>GİRİŞİMCİ</span><span id="r2" data-layout-allow-overlap>YATIRIMCI</span><span id="r3" data-layout-allow-overlap>PARTNER</span></div>
             <div class="bar"></div>
             <div class="date">24.10.2026</div>
             <div class="place">Çorlu Sanayi ve<br>Ticaret Odası</div>
@@ -170,11 +178,12 @@
       <!-- 6 · cta -->
       <div id="s6" class="clip" data-start="18.5" data-duration="4" data-track-index="6">
         <div id="cta-top">EURASIA STARTUP SUMMIT'26</div>
-        <div id="cta-kick">SIRADAKİ DURAK</div>
-        <div id="cta-city" class="mont">ÇORLU</div>
-        <div id="cta-date">24 EKİM 2026</div>
+        <div id="cta-kick">VIBE TO</div>
+        <div id="cta-city" class="mont">VENTURE</div>
+        <div id="cta-date">24 EKİM 2026 · ÇORLU</div>
         <div id="cta-place">Çorlu Sanayi ve Ticaret Odası</div>
-        <div id="cta-btn">YERİNİ AL</div>
+        <div id="cta-btns"><div id="cta-btn">YERİNİ AL</div><div id="cta-btn2">PARTNER OL</div></div>
+        <div id="cta-mail">Partnerlik: <b>info@letscaleup.org</b></div>
         <div id="cta-logos"><img src="assets/logos/jci-avrasya.png" alt="JCI Avrasya" /><div class="sep"></div><img src="assets/logos/lets-scale-up.png" alt="Let's Scale Up" /><div class="sep"></div><img src="assets/logos/ctso.png" alt="Çorlu TSO" /></div>
       </div>
 
@@ -194,7 +203,7 @@
 
         /* ---------- 1 · hook (0–4) ---------- */
         gsap.set("#dot", { scale: 0, opacity: 1 });
-        tl.fromTo("#hook-h .w", { yPercent: 105 }, { yPercent: 0, duration: .7, ease: "expo.out", stagger: .45 }, .3);
+        tl.fromTo("#hook-h .w", { yPercent: 105 }, { yPercent: 0, duration: .7, ease: "expo.out", stagger: .6 }, .4);
         tl.fromTo("#dot", { scale: 0 }, { scale: 1, duration: .45, ease: "expo.out" }, 2.0);
         tl.fromTo("#hook-h", { opacity: 1, x: 0 }, { opacity: 0, x: -30, duration: .6, ease: "power2.in" }, 3.1);
         tl.fromTo("#dot", { scale: 1 }, { scale: 1.22, duration: .3, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 3.35);
@@ -205,7 +214,8 @@
         tl.set("#dot", { opacity: 0 }, 4.02);
         tl.fromTo("#ring", { opacity: 0, scale: 1 }, { opacity: 1, scale: 1, duration: .01, immediateRender: false }, 4.02);
         tl.fromTo("#title .ln", { x: -90, opacity: 0 }, { x: 0, opacity: 1, duration: .55, ease: "power4.out", stagger: .09 }, 4.2);
-        tl.fromTo("#kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .5, ease: "power2.out" }, 4.6);
+        tl.fromTo("#kicker", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .5, ease: "power2.out" }, 4.55);
+        tl.fromTo("#rsub", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: .45, ease: "power2.out" }, 4.75);
         /* speed ramp out: the whole reveal accelerates upward */
         tl.fromTo("#s2-move", { y: 0, filter: "blur(0px)" }, { y: -2100, filter: "blur(14px)", duration: .55, ease: "expo.in" }, 6.0);
 
@@ -259,17 +269,23 @@
           gsap.set("#badge", { rotation: a, transformOrigin: "270px 80px" });
         } }, 15.0);
         tl.fromTo("#dot", { scale: 1 }, { scale: .8, duration: .2, ease: "power2.out", immediateRender: false }, 15.0);
+        gsap.set(["#r2", "#r3"], { yPercent: 110 });
+        tl.fromTo("#r1", { yPercent: 0 }, { yPercent: -110, duration: .3, ease: "power3.inOut" }, 16.0);
+        tl.fromTo("#r2", { yPercent: 110 }, { yPercent: 0, duration: .3, ease: "power3.inOut", immediateRender: false }, 16.0);
+        tl.fromTo("#r2", { yPercent: 0 }, { yPercent: -110, duration: .3, ease: "power3.inOut", immediateRender: false }, 17.0);
+        tl.fromTo("#r3", { yPercent: 110 }, { yPercent: 0, duration: .3, ease: "power3.inOut", immediateRender: false }, 17.0);
         tl.fromTo("#chips-cap", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: .4, ease: "power2.out" }, 15.3);
         tl.fromTo(".chip", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: .45, ease: "power3.out", stagger: .5 }, 15.5);
 
         /* ---------- 6 · cta (18.5–22.5): match cut, hole → full stop ---------- */
         tl.set("#dot", { scale: 1 }, 18.5);
         tl.fromTo("#cta-city", { x: -120, opacity: 0 }, { x: 0, opacity: 1, duration: .6, ease: "power2.out" }, 18.5);
-        tl.fromTo("#cta-kick", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: .45, ease: "power2.out" }, 18.75);
+        tl.fromTo("#cta-kick", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: .5, ease: "power2.out" }, 18.65);
         tl.fromTo("#cta-top", { opacity: 0 }, { opacity: 1, duration: .5, ease: "power1.out" }, 19.0);
         tl.fromTo("#cta-date", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: .5, ease: "power3.out" }, 19.25);
         tl.fromTo("#cta-place", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .5, ease: "power3.out" }, 19.45);
-        tl.fromTo("#cta-btn", { opacity: 0, scale: .9, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: .5, ease: "power2.out" }, 19.9);
+        tl.fromTo("#cta-btns > *", { opacity: 0, scale: .9, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: .45, ease: "power2.out", stagger: .2 }, 19.75);
+        tl.fromTo("#cta-mail", { opacity: 0 }, { opacity: 1, duration: .4, ease: "power1.out" }, 20.15);
         tl.fromTo("#cta-logos > *", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .45, ease: "power2.out", stagger: .08 }, 20.3);
         tl.fromTo("#dot", { scale: 1 }, { scale: 1.18, duration: .25, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 20.5);
 

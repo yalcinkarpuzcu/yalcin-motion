@@ -166,8 +166,10 @@ drums[int(3.5 * SR): int(4.0 * SR)] = 0
 # SFX on the picture
 for i, t in enumerate(np.arange(0.5, 1.3, 0.05)):                   # typewriter line 1
     place(sfx, t, hat(900 + i, 0.03), 0.05)
-for i, t in enumerate(np.arange(1.9, 2.6, 0.05)):                   # typewriter line 2
+for i, t in enumerate(np.arange(1.55, 2.1, 0.05)):                  # typewriter line 2
     place(sfx, t, hat(950 + i, 0.03), 0.05)
+for i, t in enumerate(np.arange(2.3, 2.75, 0.05)):                  # typewriter line 3
+    place(sfx, t, hat(980 + i, 0.03), 0.05)
 place(sfx, 4.0, room(pad([50, 57, 62, 65, 69], 1.4)) * 1.4, 0.9)    # the snap stab
 place(sfx, 4.0, kick(0.6), 0.7)
 for i in range(7):

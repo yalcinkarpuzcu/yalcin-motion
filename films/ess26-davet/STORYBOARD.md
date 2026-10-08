@@ -1,4 +1,6 @@
-# Storyboard: ESS'26 · Instagram davet filmi
+# Storyboard: ESS'26 · Instagram davet filmi (v2: Vibe to Venture, duyuru + paydaşlık)
+
+> v2: the dot is the *vibe* in the hook and the full stop of *VENTURE* in the CTA, so the film itself travels vibe → venture. Frame notes below describe v1 where not updated in the ledger.
 
 Theme: 094 Match Cut · Format: 1080×1920 · Length: 22.5 s · Sound: music (120 BPM, 1 bar = 2 s) + warm SFX
 
@@ -12,12 +14,12 @@ Theme: 094 Match Cut · Format: 1080×1920 · Length: 22.5 s · Sound: music (12
 
 | # | start | dur | beat | tone | entrance | transition_out | ease | direction | palette | camera | components | new_component | sfx | notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 0:00 | 4.0 | hook | mysterious | word-clip-up | focal-iris | expo.out | left-to-right | ink+lime | locked | motif:lime-dot, headline | | soft-tick | "FİKİR / TEK BAŞINA / BÜYÜMEZ●": the full stop is the lime dot at R; the words dim away and the dot stays alone for half a beat |
-| 2 | 0:04 | 2.5 | reveal | bold | iris-from-dot | speed-ramp | power4.out | radial | violet+ink | push-in | motif:lime-dot, stage-photo, title-lockup | | stab | surprise: on the drop the dot opens into an iris onto a real past summit stage; EURASIA STARTUP SUMMIT'26 lands in three lines |
+| 1 | 0:00 | 4.0 | hook | mysterious | word-clip-up | focal-iris | expo.out | left-to-right | ink+lime | locked | motif:lime-dot, headline | | soft-tick | "HER GİRİŞİM BİR / VIBE●": the full stop is the lime dot at R (the vibe); the words dim away and the dot stays alone for half a beat |
+| 2 | 0:04 | 2.5 | reveal | bold | iris-from-dot | speed-ramp | power4.out | radial | violet+ink | push-in | motif:lime-dot, stage-photo, title-lockup | | stab | surprise: on the drop the dot opens into an iris onto a real past summit stage; EURASIA STARTUP SUMMIT'26 lands in three lines under the lime VIBE TO VENTURE kicker, with the date line below |
 | 3 | 0:06.5 | 4.5 | proof | warm | stamp-press | graphic-match-color | power2.inOut | bottom-up | ink+lavender | tracking (world scrolls, dot locked at R) | motif:lime-dot, dotted-route, past-photos | route-stamp-passport | stamp-thud ×5 | the dot stays still while the route scrolls up under it; each city lands a stamp ring (2021 İSTANBUL … 2025 ESKİŞEHİR) and two stops flash a real photo inside the dot |
 | 4 | 0:11 | 3.5 | proof | celebratory | count-up | object-carry | power3.out | center | lime+ink | locked | motif:lime-dot, number-stack | | tick-run | surprise: colour event, the dot floods the whole frame lime; 83 STARTUP · 121 MENTOR · 62 PARTNER · 17 ÜLKE count up in ink, one per beat |
-| 5 | 0:14.5 | 4.0 | invite | playful | lanyard-drop | match-cut-shape | sine.inOut | top-down | panel+lavender | locked | motif:lime-dot, program-chips | lanyard-badge | cloth-swish | the flood shrinks back to the dot, which becomes the badge's punch hole; the KATILIMCI badge drops on its lanyard and settles with a damped swing (physics on a non-UI object, no bounce ease) |
-| 6 | 0:18.5 | 4.0 | cta | bold | slide-from-left | end | power2.out | right-to-left | ink+lime | locked | motif:lime-dot, cta-lockup, logos | | warm-chord | hard cut on the bar: the punch hole is now the full stop of ÇORLU●; date, venue, YERİNİ AL and the three official logos; the last 1 s is held |
+| 5 | 0:14.5 | 4.0 | invite | playful | lanyard-drop | match-cut-shape | sine.inOut | top-down | panel+lavender | locked | motif:lime-dot, program-chips | lanyard-badge | cloth-swish | the flood shrinks back to the dot, which becomes the badge's punch hole; the badge drops (role cycles GİRİŞİMCİ → YATIRIMCI → PARTNER) on its lanyard and settles with a damped swing (physics on a non-UI object, no bounce ease) |
+| 6 | 0:18.5 | 4.0 | cta | bold | slide-from-left | end | power2.out | right-to-left | ink+lime | locked | motif:lime-dot, cta-lockup, logos | | warm-chord | hard cut on the bar: the punch hole is now the full stop of VIBE TO / VENTURE●; date + ÇORLU, venue, YERİNİ AL + PARTNER OL, info@letscaleup.org and the three official logos; the last 1 s is held |
 
 ## The seven questions (answer before you build)
 1. **What do I want to say, and in what tone?** The sentence above. Bold and warm: big type, hard bar-locked cuts and real photos of real people.
@@ -38,7 +40,7 @@ Theme: 094 Match Cut · Format: 1080×1920 · Length: 22.5 s · Sound: music (12
 ### Frame 1 · Hook (0:00–4:00)
 - key visual: near-black ink; three lines of heavy type on the left; the full stop is a lime dot at R.
 - moves first: the words clip up one by one (expo.out, an eighth apart), then the dot pops at the downbeat (2.0 s). At 3.2 s the words dim to 0 and the dot breathes once.
-- on-screen words: FİKİR / TEK BAŞINA / BÜYÜMEZ.
+- on-screen words: HER GİRİŞİM BİR / VIBE.
 
 ### Frame 2 · Reveal (0:04–6:50)
 - key visual: an iris grows from R and reveals a past summit stage (Şanlıurfa 2024 photo, violet-lit). EURASIA / STARTUP / SUMMIT'26 slams in at the top left; a small lime ring stays at R.
