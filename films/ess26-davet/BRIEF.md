@@ -16,7 +16,7 @@ theme: "094 Match Cut"
 **Audience & channel:** Girişimciler, yatırımcılar, mentorlar ve ekosistemin geri kalanı. Instagram Reels / Story, 9:16, 1080×1920. Ses açık izlenmesi beklenir ama film sessizken de anlaşılmalı.
 
 **Truth source:** `ESS26_partnerlik.pdf` (JCI Avrasya, 2026). Tüm iddialar ve rakamlar yalnızca bu dosyadan alınır:
-- 24.10.2026 · Çorlu Sanayi ve Ticaret Odası · beklenen katılım 400 kişi
+- 24.10.2026 · Çorlu Ticaret ve Sanayi Odası · beklenen katılım 400 kişi
 - Let's Scale Up Girişim Hızlandırma Programı Final Zirvesi · JCI Avrasya, 2021'den beri
 - Geçmiş rakamlar: 83 startup · 121 konuşmacı/mentor · 62 partner/sponsor · 17 farklı ülkeden katılımcı
 - Rota: 2021 İstanbul · 2022 Bodrum · 2023 İstanbul · 2024 Şanlıurfa · 2025 Eskişehir · 2026 Tekirdağ

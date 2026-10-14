@@ -63,5 +63,5 @@ Theme: 094 Match Cut · Format: 1080×1920 · Length: 22.5 s · Sound: music (12
 - on-screen words: KATILIMCI · 24.10.2026 · ÇORLU · four chips
 
 ### Frame 6 · CTA (0:18.5–22:50)
-- key visual: "SIRADAKİ DURAK" small; ÇORLU● huge with the dot at R as its full stop; 24 EKİM 2026 · Çorlu Sanayi ve Ticaret Odası; a lime YERİNİ AL chip; JCI Avrasya · Let's Scale Up · Çorlu TSO logos.
+- key visual: "SIRADAKİ DURAK" small; ÇORLU● huge with the dot at R as its full stop; 24 EKİM 2026 · Çorlu Ticaret ve Sanayi Odası; a lime YERİNİ AL chip; JCI Avrasya · Let's Scale Up · Çorlu TSO logos.
 - loop note: not a loop; hold the last 1 s.

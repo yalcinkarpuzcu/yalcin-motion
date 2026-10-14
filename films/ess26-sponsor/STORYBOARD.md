@@ -49,4 +49,4 @@ Theme: 056 Workflow Canvas · Format: 1080×1920 · Length: 23 s · Sound: music
 - on-screen words: TEMAS NOKTALARI · Sahne & backdrop · B2B eşleştirme · Girişimci sunumları · Yaka kartı & foyer stant · Basın & sosyal medya · VIP akşam yemeği
 
 ### Frame 5 · CTA (17.5–23 s)
-- key visual: a lime horizon line; above it ESS'26 İŞ BİRLİĞİNİ / BİRLİKTE TASARLAYALIM.; below it info@letscaleup.org, 24 EKİM 2026 · Çorlu Sanayi ve Ticaret Odası, and the logos.
+- key visual: a lime horizon line; above it ESS'26 İŞ BİRLİĞİNİ / BİRLİKTE TASARLAYALIM.; below it info@letscaleup.org, 24 EKİM 2026 · Çorlu Ticaret ve Sanayi Odası, and the logos.

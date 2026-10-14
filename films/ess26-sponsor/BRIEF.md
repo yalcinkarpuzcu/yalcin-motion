@@ -20,7 +20,7 @@ theme: "056 Workflow Canvas"
 - Paydaşlar: Girişimler · Yatırımcılar · Şirketler · Kamu Kurumları · Teknoloji Sağlayıcılar · Üreticiler · Sivil Toplum Kuruluşları
 - Geçmiş rakamlar: 83 startup · 121 konuşmacı/mentor · 62 partner/sponsor · 17 farklı ülkeden katılımcı · beklenen katılım 400 kişi
 - Temas noktaları (ayrıcalıklar tablosundan, paket adı vermeden): backdrop ve sahnede logo · B2B eşleştirme · girişimci sunumları · yaka kartı ve foyer stant · basın ve sosyal medya · VIP akşam yemeği
-- 24.10.2026 · Çorlu Sanayi ve Ticaret Odası · info@letscaleup.org
+- 24.10.2026 · Çorlu Ticaret ve Sanayi Odası · info@letscaleup.org
 
 **Proof moment:** "MARKANIZ" düğümü yedi paydaş grubuna kabloyla bağlanıyor ve paketler aralarında akıyor.
 

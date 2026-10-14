@@ -72,9 +72,9 @@
       #badge .place { position: absolute; left: 40px; top: 446px; font: 700 32px/1.25 "DM Sans"; color: var(--ink); }
       #badge .logos { position: absolute; left: 32px; bottom: 22px; display: flex; gap: 28px; align-items: center; }
       #badge .logos img { height: 84px; }
-      #chips-cap { position: absolute; left: 64px; top: 1030px; font: 700 26px "DM Sans"; letter-spacing: .16em; color: var(--lav); }
-      .chip { position: absolute; left: 60px; padding: 18px 28px; border-radius: 40px; background: #26212e; border: 2px solid #A98BF055; font: 700 32px "DM Sans"; white-space: nowrap; }
-      .chip i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: var(--lav); margin-right: 14px; vertical-align: 3px; }
+      #chips-cap { position: absolute; left: 62px; top: 1018px; font: 700 34px "DM Sans"; letter-spacing: .16em; color: var(--lav); }
+      .chip { position: absolute; left: 50px; max-width: 470px; padding: 20px 30px 20px 64px; border-radius: 44px; background: #26212e; border: 3px solid #A98BF077; font: 700 40px/1.2 "DM Sans"; }
+      .chip i { position: absolute; left: 28px; top: 38px; width: 18px; height: 18px; border-radius: 50%; background: var(--lav); }
 
       /* 6 · cta */
       #cta-top { position: absolute; left: 84px; top: 300px; font: 700 30px "DM Sans"; letter-spacing: .14em; color: var(--lav); }
@@ -156,10 +156,10 @@
       <!-- 5 · badge -->
       <div id="s5" class="clip" data-start="14.3" data-duration="4.2" data-track-index="5">
         <div id="chips-cap">24 EKİM'DE</div>
-        <div class="chip" id="c1" style="top:1090px"><i></i>Keynote &amp; Panel</div>
-        <div class="chip" id="c2" style="top:1200px"><i></i>Girişimci Sunumları</div>
-        <div class="chip" id="c3" style="top:1310px"><i></i>B2B Matchmaking</div>
-        <div class="chip" id="c4" style="top:1420px"><i></i>Networking</div>
+        <div class="chip" id="c1" style="top:1080px"><i></i>Keynote &amp; Panel</div>
+        <div class="chip" id="c2" style="top:1192px"><i></i>Girişimci<br>Sunumları</div>
+        <div class="chip" id="c3" style="top:1352px;white-space:nowrap"><i></i>B2B Matchmaking</div>
+        <div class="chip" id="c4" style="top:1464px"><i></i>Networking</div>
         <div id="badge-rig">
           <div class="strap" style="left:640px;top:-280px;transform:rotate(-17deg)"></div>
           <div class="strap" style="left:916px;top:-280px;transform:rotate(17deg)"></div>
@@ -169,7 +169,7 @@
             <div class="role" data-layout-allow-overlap><span id="r1" data-layout-allow-overlap>GİRİŞİMCİ</span><span id="r2" data-layout-allow-overlap>YATIRIMCI</span><span id="r3" data-layout-allow-overlap>PARTNER</span></div>
             <div class="bar"></div>
             <div class="date">24.10.2026</div>
-            <div class="place">Çorlu Sanayi ve<br>Ticaret Odası</div>
+            <div class="place">Çorlu Ticaret ve<br>Sanayi Odası</div>
             <div class="logos"><img src="assets/logos/jci-avrasya.png" alt="JCI Avrasya" /><img src="assets/logos/lets-scale-up.png" alt="Let's Scale Up" /></div>
           </div>
         </div>
@@ -181,7 +181,7 @@
         <div id="cta-kick">VINE TO</div>
         <div id="cta-city" class="mont">VENTURE</div>
         <div id="cta-date">24 EKİM 2026 · ÇORLU</div>
-        <div id="cta-place">Çorlu Sanayi ve Ticaret Odası</div>
+        <div id="cta-place">Çorlu Ticaret ve Sanayi Odası</div>
         <div id="cta-btns"><div id="cta-btn">YERİNİ AL</div><div id="cta-btn2">PARTNER OL</div></div>
         <div id="cta-mail">Partnerlik: <b>info@letscaleup.org</b></div>
         <div id="cta-logos"><img src="assets/logos/jci-avrasya.png" alt="JCI Avrasya" /><div class="sep"></div><img src="assets/logos/lets-scale-up.png" alt="Let's Scale Up" /><div class="sep"></div><img src="assets/logos/ctso.png" alt="Çorlu TSO" /></div>
@@ -269,11 +269,11 @@
           gsap.set("#badge", { rotation: a, transformOrigin: "270px 80px" });
         } }, 15.0);
         tl.fromTo("#dot", { scale: 1 }, { scale: .8, duration: .2, ease: "power2.out", immediateRender: false }, 15.0);
-        gsap.set(["#r2", "#r3"], { yPercent: 110 });
-        tl.fromTo("#r1", { yPercent: 0 }, { yPercent: -110, duration: .3, ease: "power3.inOut" }, 16.0);
-        tl.fromTo("#r2", { yPercent: 110 }, { yPercent: 0, duration: .3, ease: "power3.inOut", immediateRender: false }, 16.0);
-        tl.fromTo("#r2", { yPercent: 0 }, { yPercent: -110, duration: .3, ease: "power3.inOut", immediateRender: false }, 17.0);
-        tl.fromTo("#r3", { yPercent: 110 }, { yPercent: 0, duration: .3, ease: "power3.inOut", immediateRender: false }, 17.0);
+        gsap.set(["#r2", "#r3"], { yPercent: 135 });
+        tl.fromTo("#r1", { yPercent: 0 }, { yPercent: -135, duration: .3, ease: "power3.inOut" }, 16.0);
+        tl.fromTo("#r2", { yPercent: 135 }, { yPercent: 0, duration: .3, ease: "power3.inOut", immediateRender: false }, 16.0);
+        tl.fromTo("#r2", { yPercent: 0 }, { yPercent: -135, duration: .3, ease: "power3.inOut", immediateRender: false }, 17.0);
+        tl.fromTo("#r3", { yPercent: 135 }, { yPercent: 0, duration: .3, ease: "power3.inOut", immediateRender: false }, 17.0);
         tl.fromTo("#chips-cap", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: .4, ease: "power2.out" }, 15.3);
         tl.fromTo(".chip", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: .45, ease: "power3.out", stagger: .5 }, 15.5);
 
