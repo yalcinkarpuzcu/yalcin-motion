@@ -1,0 +1,22 @@
+<!doctype html><meta charset=utf-8><link rel=stylesheet href=base.css><style>
+body{background:#fff;position:relative}
+.fx{position:absolute;left:0;right:0;top:0;height:96px;border-bottom:2px solid #d5d5de;background:var(--paper);display:flex;align-items:center;padding:0 40px;gap:24px;font:500 30px JBM,monospace}
+.fx span{color:var(--purple)}.fx em{font-style:normal;color:var(--navy)}
+.grid{position:absolute;left:0;right:0;top:96px;bottom:0}
+.r{display:grid;grid-template-columns:90px 1fr 330px 250px;height:92px;border-bottom:1px solid #e1e1e8;font:500 28px Rubik;align-items:center}
+.r>div{padding:0 22px;height:100%;display:flex;align-items:center;border-right:1px solid #e1e1e8;color:#9a9aa6}
+.r>div:first-child{background:var(--paper);justify-content:center;font:500 22px JBM}
+.hd>div{background:var(--paper);font:500 22px JBM;letter-spacing:.06em}
+.hot>div{color:var(--navy);background:#f6ecfe}.hot>div:nth-child(2){outline:4px solid var(--purple);outline-offset:-4px;font-weight:600}
+.hot>div:last-child{color:var(--purple);font-weight:600}
+.big{position:absolute;left:60px;top:760px;font:700 64px/1.1 Rubik;color:var(--navy)}
+.logo{position:absolute;left:60px;bottom:90px;height:44px}.ali{position:absolute;right:60px;bottom:96px;height:34px}
+</style>
+<div class=fx><span>fx</span><em>=AJAN("TİTCK duyuruları", saatlik)</em></div>
+<div class=grid><div class="r hd"><div></div><div>DUYURU</div><div>DURUM</div><div>İLGİLİ</div></div>
+<div class=r><div>1</div><div>Önceki duyuru</div><div>Kayıtlı</div><div>Gönderildi</div></div>
+<div class=r><div>2</div><div>Önceki duyuru</div><div>Kayıtlı</div><div>Gönderildi</div></div>
+<div class="r hot"><div>3</div><div>Yeni duyuru</div><div>Kayıt açıldı</div><div>E-posta →</div></div>
+<div class=r><div>4</div><div></div><div></div><div></div></div></div>
+<div class=big>Excel'i kimse<br>elle kovalamıyor.</div>
+<img class=logo src=../assets/brand/workiom-logo.png><img class=ali src=../assets/brand/aliraif-logo.png>

@@ -1,0 +1,12 @@
+@font-face{font-family:Rubik;font-weight:400;src:url(../assets/fonts/rubik-latin-ext-400-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20CF}
+@font-face{font-family:Rubik;font-weight:400;src:url(../assets/fonts/rubik-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:Rubik;font-weight:500;src:url(../assets/fonts/rubik-latin-ext-500-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF}
+@font-face{font-family:Rubik;font-weight:500;src:url(../assets/fonts/rubik-latin-500-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:Rubik;font-weight:600;src:url(../assets/fonts/rubik-latin-ext-600-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF}
+@font-face{font-family:Rubik;font-weight:600;src:url(../assets/fonts/rubik-latin-600-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:Rubik;font-weight:700;src:url(../assets/fonts/rubik-latin-ext-700-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF}
+@font-face{font-family:Rubik;font-weight:700;src:url(../assets/fonts/rubik-latin-700-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:JBM;font-weight:500;src:url(../assets/fonts/jetbrains-mono-latin-ext-500-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF}
+@font-face{font-family:JBM;font-weight:500;src:url(../assets/fonts/jetbrains-mono-latin-500-normal.woff2);unicode-range:U+0000-00FF,U+0131}
+:root{--navy:#221f5e;--purple:#9635f0;--pink:#ff006e;--yellow:#fdbc0b;--blue:#4e86f7;--ink:#373737;--mute:#8b8b8b;--paper:#f3f3f3;--white:#fbfbfb}
+*{box-sizing:border-box;margin:0}html,body{width:1080px;height:1350px;overflow:hidden;font-family:Rubik,sans-serif;color:var(--navy)}
