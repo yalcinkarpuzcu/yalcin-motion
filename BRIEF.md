@@ -31,14 +31,17 @@ theme: "(Stage 3'te seçilecek)"
 - Alıntı: "…kendiniz de istediğiniz şekilde oynayabileceğiniz bir oyun hamuru var… bize gelen işlerin yüzde 60-70'i kesilecek." — Timur Şahin (beklenti; sonuç olarak sunulmaz)
 - Sitedeki slogan: "Ekipler ve Yapay Zeka. İşler Tek Yerde Tamamlanır." · Ana sayfa: "Yapay Zeka Tabanlı Kod Gerektirmeyen İş Yönetim Platformu" · CTA: "Ücretsiz başla" / "Demo Talep Edin" / "Kredi kartı bilgisi gerekmez"
 
-**Components**
-| Component | Real or imaginary | Notes |
-|---|---|---|
-| Proje panosu (128 / 61 / 67) | real (sayfadaki rakamlar) | Stage 2'de yeniden çizilecek |
-| AI ajan → kayıt → mail akışı | real akış, imaginary UI | arayüz hayali, mantık gerçek |
-| Mila asistanı | real | |
+**Components (onaylandı)**
+| # | Component | Real or imaginary | Notes |
+|---|---|---|---|
+| 1 | Dağınık takip yığını (mail, Excel, Teams) | imaginary ("önce") | Vuruş 2 açılışı |
+| 2 | Tek proje panosu: 128 / 61 tamamlandı / 67 devam | real veri, UI yeniden çizilir | Merkezi takip |
+| 3 | "Proses Değerlendirme" uygulaması kuruluyor | imaginary UI, real yetenek | Hızlı kurulum |
+| 4 | **Yeni bileşen:** TİTCK ajanı: saatte bir tara → kayıt → mail | imaginary UI, real akış | Kanıt anı |
+| 5 | Mila asistanı | real, basitleştirilmiş | Takılınca yardım |
+| 6 | Kapanış: logo + slogan | marka | Resmi dosya |
 
-**Brand:** Workiom resmi logo (yeniden çizilmeyecek) · Ali Raif İlaç logosu yalnızca resmi dosyadan (aliraif.com.tr izinli) · renkler/font: Stage 2'de capture ile.
+**Brand (capture edildi):** logo `assets/brand/workiom-logo.png` (resmi, 2913×496) · Ali Raif İlaç `assets/brand/aliraif-logo.png` (resmi, aliraif.com.tr) · renkler: lacivert wordmark ≈ #221f5e, mor #9635f0, pembe #ff006e, sarı #fdbc0b, mavi #4e86f7 / #3a86ff, nötr #373737 / #f3f3f3 · font: Rubik (site CSS) · ton: **ciddi, kurumsal** (kullanıcı notu).
 
 **Do / Don't:** Türkçe, büyük harfleri elle yaz (İ/ı). %60-70'i sonuç gibi sunma, beklenti. Kapanışta ana slogan: "Ekipler ve yapay zeka aynı takımda, işler yolunda." Az yazı.
 
