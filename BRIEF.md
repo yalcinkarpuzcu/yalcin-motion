@@ -9,7 +9,7 @@ theme: "(Stage 3'te seçilecek)"
 
 # Workiom × Ali Raif İlaç — "Oyun hamuru"
 
-**One message:** "Ekipler ve Yapay Zeka. İşler Tek Yerde Tamamlanır." — üç vuruş, tek cümle:
+**One message:** "Ekipler ve yapay zeka aynı takımda, işler yolunda." (yeni slogan, kullanıcıdan) — üç vuruş, tek cümle. Sitedeki "Ekipler ve Yapay Zeka. İşler Tek Yerde Tamamlanır." ikincil/alt satır olarak kullanılabilir:
 1. **Hızlı kurulum, kolay kullanım** — "Biraz Excel bilen kendi işini kendisi yapsın"; bir ekip BT'ye başvurmadan kendi uygulamasını (Proses Değerlendirme) kurdu.
 2. **Merkezi proje yönetimi ve takip** — mail/Excel/ayaküstü → tek pano; 128 proje (61 tamamlandı, 67 devam); direktör toplantı hazırlığı sıfıra indi.
 3. **Yapay zekayı süreçlere dahil etme** — TİTCK'yı saatte bir tarayan ajan → kayıt → mail; AI ve RPA komitesi 49 iş getirdi.
@@ -29,7 +29,7 @@ theme: "(Stage 3'te seçilecek)"
 - AI ve RPA komitesi 49 iş getirdi
 - "Proses Değerlendirme" uygulamasını bir ekip BT'ye başvurmadan kurdu; asistan Mila
 - Alıntı: "…kendiniz de istediğiniz şekilde oynayabileceğiniz bir oyun hamuru var… bize gelen işlerin yüzde 60-70'i kesilecek." — Timur Şahin (beklenti; sonuç olarak sunulmaz)
-- Yeni slogan (sitede): "Ekipler ve Yapay Zeka. İşler Tek Yerde Tamamlanır." · Ana sayfa: "Yapay Zeka Tabanlı Kod Gerektirmeyen İş Yönetim Platformu" · CTA: "Ücretsiz başla" / "Demo Talep Edin" / "Kredi kartı bilgisi gerekmez"
+- Sitedeki slogan: "Ekipler ve Yapay Zeka. İşler Tek Yerde Tamamlanır." · Ana sayfa: "Yapay Zeka Tabanlı Kod Gerektirmeyen İş Yönetim Platformu" · CTA: "Ücretsiz başla" / "Demo Talep Edin" / "Kredi kartı bilgisi gerekmez"
 
 **Components**
 | Component | Real or imaginary | Notes |
@@ -40,6 +40,6 @@ theme: "(Stage 3'te seçilecek)"
 
 **Brand:** Workiom resmi logo (yeniden çizilmeyecek) · Ali Raif İlaç logosu yalnızca resmi dosyadan (aliraif.com.tr izinli) · renkler/font: Stage 2'de capture ile.
 
-**Do / Don't:** Türkçe, büyük harfleri elle yaz (İ/ı). %60-70'i sonuç gibi sunma, beklenti. Yeni sloganı kapanışta kullan. Az yazı.
+**Do / Don't:** Türkçe, büyük harfleri elle yaz (İ/ı). %60-70'i sonuç gibi sunma, beklenti. Kapanışta ana slogan: "Ekipler ve yapay zeka aynı takımda, işler yolunda." Az yazı.
 
 **Deliverables:** 1920×1080 master + 1080×1080/1080×1350 sosyal kırpmalar (onaya göre).
