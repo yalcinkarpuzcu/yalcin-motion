@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1350" />
+<script src="assets/js/gsap.min.js"></script>
+<style>
+@font-face{font-family:WRubik;font-weight:400;src:url(assets/fonts/rubik-latin-ext-400-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20CF}
+@font-face{font-family:WRubik;font-weight:400;src:url(assets/fonts/rubik-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:WRubik;font-weight:500;src:url(assets/fonts/rubik-latin-ext-500-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF}
+@font-face{font-family:WRubik;font-weight:500;src:url(assets/fonts/rubik-latin-500-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:WRubik;font-weight:600;src:url(assets/fonts/rubik-latin-ext-600-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF}
+@font-face{font-family:WRubik;font-weight:600;src:url(assets/fonts/rubik-latin-600-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:WRubik;font-weight:700;src:url(assets/fonts/rubik-latin-ext-700-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF}
+@font-face{font-family:WRubik;font-weight:700;src:url(assets/fonts/rubik-latin-700-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:JBM;font-weight:500;src:url(assets/fonts/jetbrains-mono-latin-ext-500-normal.woff2);unicode-range:U+0100-02BA,U+1E00-1EFF}
+@font-face{font-family:JBM;font-weight:500;src:url(assets/fonts/jetbrains-mono-latin-500-normal.woff2);unicode-range:U+0000-00FF,U+0131}
+
+:root{--navy:#221f5e;--purple:#9635f0;--pink:#ff006e;--blue:#4e86f7;--mute:#8b8b8b;--paper:#f3f3f3;--white:#fbfbfb;--lav:#f6ecfe}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden;background:#fbfbfb}
+#root{position:relative;width:1080px;height:1350px;overflow:hidden;font-family:WRubik,sans-serif;color:var(--navy)}
+.layer{position:absolute;left:0;top:0;width:1080px;height:1350px;overflow:hidden}
+.dots{background:#fbfbfb radial-gradient(#d9d9e3 2px,transparent 2px) 0 0/36px 36px}
+.abs{position:absolute}
+.n{position:absolute;background:#fff;border:2px solid var(--navy);border-radius:18px;padding:22px 26px;box-shadow:0 10px 0 rgba(34,31,94,.08)}
+.n small{display:block;font:500 19px JBM,monospace;letter-spacing:.08em;color:var(--mute);margin-bottom:8px}
+.n b{font:600 36px/1.15 WRubik;display:block}
+.ai{border-color:var(--purple);background:var(--lav)}.ai small{color:var(--purple)}
+.dk{background:var(--navy);color:#fff;border-color:var(--navy)}.dk small{color:#b9b7ee}
+.pink{border-color:var(--pink)}.pink small{color:var(--pink)}
+.t{position:absolute;left:60px;font:700 64px/1.08 WRubik;color:var(--navy)}
+.ln{display:block;overflow:hidden;padding:4px 0 8px}.ln>span{display:inline-block}
+svg.full{position:absolute;left:0;top:0;width:1080px;height:1350px;overflow:visible}
+.logo{position:absolute;left:60px;bottom:90px;height:44px}
+.ali{position:absolute;right:60px;bottom:96px;height:34px}
+.row{position:absolute;left:60px;width:520px;height:64px;border:2px solid #cfcfd8;border-radius:12px;background:#fff;font:500 26px WRubik;padding:15px 22px;color:#9a9aa6}
+.row.on{border-color:var(--purple);background:var(--lav);color:var(--navy);font-weight:600;border-width:4px;padding:13px 20px}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="45" data-width="1080" data-height="1350">
+
+<!-- 1 · HOOK 0–6 -->
+<div id="s1" class="layer dots clip" data-start="0" data-duration="6" data-track-index="0">
+  <svg class="full" fill="none" stroke="#ff006e" stroke-width="3" stroke-dasharray="14 12">
+    <path class="cb" d="M300 420C420 520 560 470 700 600"/><path class="cb" d="M780 430C700 560 520 600 380 760"/>
+    <path class="cb" d="M200 900C380 820 560 900 760 800"/><path class="cb" d="M300 1000C440 940 640 1010 820 950"/>
+  </svg>
+  <div class="n pink hn" style="left:120px;top:340px"><small>E-POSTA</small><b>Mail zinciri</b></div>
+  <div class="n pink hn" style="left:640px;top:330px"><small>EXCEL</small><b>Kendi dosyam</b></div>
+  <div class="n pink hn" style="left:140px;top:850px"><small>TEAMS</small><b>Mesaj</b></div>
+  <div class="n pink hn" style="left:660px;top:760px"><small>AYAKÜSTÜ</small><b>Konuşma</b></div>
+  <div class="t" style="top:100px"><span class="ln"><span id="q1">Kim,</span></span><span class="ln"><span id="q2">hangi işte?</span></span></div>
+  <div id="dot1" class="abs" style="left:530px;top:690px;width:20px;height:20px;border-radius:50%;background:var(--purple);opacity:0"></div>
+</div>
+
+<!-- 2 · REVEAL 6–9 -->
+<div id="s2" class="layer clip" data-start="6" data-duration="3" data-track-index="1" style="background:var(--navy)">
+  <div id="s2in" class="layer dots" style="background:#221f5e radial-gradient(#3a3780 2px,transparent 2px) 0 0/36px 36px;transform-origin:540px 675px">
+    <svg class="full" fill="none" stroke="#9635f0" stroke-width="5" stroke-linecap="round">
+      <path id="k1" d="M240 420L540 675"/><path id="k2" d="M840 420L540 675"/><path id="k3" d="M240 930L540 675"/><path id="k4" d="M840 930L540 675"/>
+    </svg>
+    <div class="n k" style="left:120px;top:340px;width:240px;padding:14px 18px"><small>E-POSTA</small></div>
+    <div class="n k" style="left:720px;top:340px;width:240px;padding:14px 18px"><small>EXCEL</small></div>
+    <div class="n k" style="left:120px;top:850px;width:240px;padding:14px 18px"><small>TEAMS</small></div>
+    <div class="n k" style="left:720px;top:850px;width:240px;padding:14px 18px"><small>AYAKÜSTÜ</small></div>
+    <div id="hub" class="abs" style="left:340px;top:555px;width:400px;height:240px;background:#fff;border-radius:28px;display:flex;align-items:center;justify-content:center;border:4px solid var(--purple)"><img src="assets/brand/workiom-logo.png" style="width:320px"/></div>
+  </div>
+</div>
+
+<!-- 3 · KURULUM 9–18 -->
+<div id="s3" class="layer dots clip" data-start="9" data-duration="9" data-track-index="2">
+  <div class="t" style="top:100px"><span class="ln"><span id="a1">BT'ye</span></span><span class="ln"><span id="a2">başvurmadan.</span></span></div>
+  <div id="card" class="n" style="left:60px;top:430px;width:620px;height:560px"><small>YENİ UYGULAMA</small><b>Proses Değerlendirme</b>
+    <div class="row f1" style="left:26px;top:120px;width:560px">Alan: Süreç adı</div>
+    <div class="row f2" style="left:26px;top:210px;width:560px">Alan: Sorumlu</div>
+    <div class="row f3" style="left:26px;top:300px;width:560px">Alan: Durum</div>
+    <div class="row f4" style="left:26px;top:390px;width:560px;border-style:dashed">+ Alan ekle</div>
+  </div>
+  <div id="mila" class="n ai" style="left:560px;top:1020px;width:460px"><small>MILA</small><b>Bu alanı ekleyelim mi?</b></div>
+  <img class="logo" src="assets/brand/workiom-logo.png"/>
+</div>
+
+<!-- 4 · TAKİP 18–26.3 -->
+<div id="s4" class="layer dots clip" data-start="18" data-duration="8.3" data-track-index="3">
+  <div class="t" style="top:90px"><span class="ln"><span id="b1">128 proje.</span></span><span class="ln"><span id="b2">Tek pano.</span></span></div>
+  <div id="big" class="abs" style="left:60px;top:410px;font:700 330px/1 WRubik;letter-spacing:-.04em;color:var(--navy);transform-origin:0 50%">0</div>
+  <div id="slot" class="n" style="left:60px;top:790px;width:960px;padding:16px 26px;border-color:var(--purple);background:var(--lav);opacity:0"><small style="margin:0">UYGULAMA</small><b style="font-size:30px">Proses Değerlendirme</b></div>
+  <div class="n" id="done" style="left:60px;top:930px;width:460px"><small>TAMAMLANDI</small><b style="font-size:72px"><span id="c61">0</span></b></div>
+  <div class="n ai" id="going" style="left:560px;top:930px;width:460px"><small>DEVAM EDİYOR</small><b style="font-size:72px"><span id="c67">0</span></b></div>
+  <div id="ruh" class="n dk" style="left:60px;top:1130px;width:300px;padding:14px 20px"><small style="margin:0">EKİP</small><b style="font-size:28px">Ruhsat</b></div>
+  <img class="logo" style="left:520px" src="assets/brand/workiom-logo.png"/>
+</div>
+
+<!-- 5 · KANIT 25.5–36.3 -->
+<div id="s5" class="layer clip" data-start="25.5" data-duration="10.8" data-track-index="5" style="clip-path:circle(0px at 210px 1160px)">
+  <div id="s5bg" class="layer dots"></div>
+  <div id="s5in" class="layer" style="transform-origin:840px 400px">
+    <div class="t" style="top:90px;font-size:56px"><span class="ln"><span id="p1">Saatte bir tarar.</span></span></div>
+    <div id="clock" class="abs" style="left:130px;top:260px;width:200px;height:200px;border-radius:50%;border:4px solid var(--navy);background:#fff">
+      <div id="hand" class="abs" style="left:96px;top:20px;width:8px;height:80px;background:var(--purple);border-radius:4px;transform-origin:50% 100%"></div>
+      <div class="abs" style="left:92px;top:92px;width:16px;height:16px;border-radius:50%;background:var(--navy)"></div>
+    </div>
+    <div id="band" class="abs" style="left:40px;top:500px;width:560px;height:92px;background:rgba(150,53,240,.14);border-top:3px solid var(--purple);border-bottom:3px solid var(--purple)"></div>
+    <div class="row r" style="top:520px">TİTCK · Duyuru</div><div class="row r" style="top:600px">TİTCK · Duyuru</div>
+    <div class="row r" style="top:680px">TİTCK · Duyuru</div><div id="newrow" class="row r" style="top:760px">TİTCK · Yeni duyuru</div>
+    <div class="row r" style="top:840px">TİTCK · Duyuru</div>
+    <svg class="full" fill="none" stroke="#9635f0" stroke-width="5" stroke-linecap="round">
+      <path id="br1" pathLength="1" d="M584 792H700Q760 792 760 850V990" stroke-dasharray="1" stroke-dashoffset="1"/>
+    </svg>
+    <div id="rec" class="n ai" style="left:60px;top:990px;width:420px"><small>WORKIOM KAYDI</small><b>Kayıt açıldı</b></div>
+    <div id="human" class="n dk" style="left:540px;top:990px;width:440px"><small>İNSAN</small><b>Ruhsat ekibine e-posta</b></div>
+    <div id="pkt" class="abs" style="left:750px;top:842px;width:20px;height:20px;border-radius:50%;background:var(--purple);opacity:0"></div>
+    <div id="say" class="abs" style="left:60px;top:1190px;font:600 40px WRubik;color:var(--navy);opacity:0">Ekibe haber gider.</div>
+    <img class="logo" style="bottom:50px;left:60px" src="assets/brand/workiom-logo.png"/>
+  </div>
+</div>
+
+<!-- 6 · ÖLÇEK 36–39.2 -->
+<div id="s6" class="layer dots clip" data-start="36" data-duration="3.2" data-track-index="4">
+  <svg class="full" fill="none" stroke="#9635f0" stroke-width="3"><path class="sp" d="M540 675L240 400"/><path class="sp" d="M540 675L840 400"/><path class="sp" d="M540 675L240 950"/><path class="sp" d="M540 675L840 950"/></svg>
+  <div class="n tm" style="left:90px;top:350px;width:300px;padding:16px 20px"><small>EKİP</small><b style="font-size:30px">Ar-Ge</b></div>
+  <div class="n ai" id="ruh6" style="left:690px;top:350px;width:300px;padding:16px 20px"><small>EKİP</small><b style="font-size:30px">Ruhsat</b></div>
+  <div class="n tm" style="left:90px;top:900px;width:300px;padding:16px 20px"><small>EKİP</small><b style="font-size:30px">İş Geliştirme</b></div>
+  <div class="n tm" style="left:690px;top:900px;width:300px;padding:16px 20px"><small>EKİP</small><b style="font-size:30px">BT</b></div>
+  <div id="hub6" class="n dk" style="left:390px;top:610px;width:300px;text-align:center;padding:16px"><b style="font-size:30px;color:transparent">aynı takımda</b></div>
+</div>
+
+<!-- 7 · KAPANIŞ 38.4–45 -->
+<div id="s7" class="layer clip" data-start="38.4" data-duration="6.6" data-track-index="6">
+  <div id="s7bg" class="layer" style="background:#fbfbfb;opacity:0"></div>
+  <div id="head" class="abs" style="left:60px;top:300px;width:960px;font:700 84px/1.1 WRubik;color:var(--navy)">
+    <span class="w">Ekipler</span> <span class="w">ve</span> <span class="w">yapay</span> <span class="w">zeka</span> <span id="word" style="display:inline-block;border-radius:14px;padding:0 0">aynı takımda,</span> <span class="w">işler</span> <span class="w">yolunda</span><span id="stop" style="color:var(--purple);display:inline-block">.</span>
+  </div>
+  <div id="sub" class="abs" style="left:60px;top:850px;font:500 30px WRubik;color:var(--mute);opacity:0">Ekipler ve Yapay Zeka. İşler Tek Yerde Tamamlanır.</div>
+  <div id="btn" class="abs" style="left:60px;top:960px;background:var(--navy);color:#fff;font:600 34px WRubik;padding:22px 44px;border-radius:14px;opacity:0">Ücretsiz başla</div>
+  <img id="lg" class="logo" src="assets/brand/workiom-logo.png" style="opacity:0"/>
+  <img id="al" class="ali" src="assets/brand/aliraif-logo.png" style="opacity:0"/>
+</div>
+
+<!-- carry layers -->
+<div id="carry" class="n ai clip" data-start="17.3" data-duration="1.6" data-track-index="8" style="left:60px;top:430px;width:620px;height:560px;opacity:0;transform-origin:0 0"><small>YENİ UYGULAMA</small><b>Proses Değerlendirme</b></div>
+</div>
+
+<script>
+(function(){
+  var tl = gsap.timeline({ paused: true });
+  var E = "expo.out";
+  /* ---------- 1 · HOOK ---------- */
+  tl.fromTo(".hn",{scale:.6,opacity:0,x:function(i){return [140,-140,140,-140][i]},y:function(i){return [140,140,-140,-140][i]}},{scale:1,opacity:1,x:0,y:0,duration:1.4,ease:E,stagger:.18},0.1);
+  tl.fromTo(".cb",{strokeDashoffset:0,opacity:0},{opacity:1,duration:.6,ease:"power1.out",stagger:.15},0.5);
+  tl.to(".cb",{strokeDashoffset:-260,duration:4.2,ease:"none"},0.5);
+  tl.fromTo("#q1",{yPercent:110},{yPercent:0,duration:.9,ease:E},.3);
+  tl.fromTo("#q2",{yPercent:110},{yPercent:0,duration:.9,ease:E},.55);
+  tl.fromTo("#dot1",{opacity:0,scale:0},{opacity:1,scale:1,duration:.5,ease:"power2.out"},3.2);
+  /* 4.8–6.0: hold-frame, nothing moves, silence */
+  /* ---------- 2 · REVEAL ---------- */
+  var S=6;
+  tl.fromTo(".k",{opacity:0,y:20},{opacity:1,y:0,duration:.5,ease:"power2.out",stagger:.08},S+.05);
+  tl.fromTo("#k1,#k2,#k3,#k4",{strokeDasharray:"14 12",stroke:"#ff006e",strokeWidth:3},{strokeDasharray:"1 0",stroke:"#9635f0",strokeWidth:5,duration:.06,ease:"none",stagger:0},S+.02);
+  tl.fromTo("#hub",{scale:.3,opacity:0},{scale:1,opacity:1,duration:.6,ease:"power4.out"},S+.02);
+  tl.fromTo("#s2in",{scale:1},{scale:1,duration:.01},S);
+  /* push-through into the hub */
+  tl.to("#s2in",{scale:9,duration:.6,ease:"power3.in"},S+2.4);
+  /* ---------- 3 · KURULUM ---------- */
+  var A=9;
+  tl.fromTo("#a1",{yPercent:110},{yPercent:0,duration:.7,ease:"power2.out"},A+.1);
+  tl.fromTo("#a2",{yPercent:110},{yPercent:0,duration:.7,ease:"power2.out"},A+.25);
+  tl.fromTo("#card",{scale:.7,opacity:0,x:-120},{scale:1,opacity:1,x:0,duration:.9,ease:"power2.out"},A+.5);
+  tl.fromTo(".f1,.f2,.f3,.f4",{opacity:0,x:-60},{opacity:1,x:0,duration:.5,ease:"power2.out",stagger:.9},A+1.4);
+  tl.to(".f1",{backgroundColor:"#f6ecfe",borderColor:"#9635f0",color:"#221f5e",duration:.3},A+2.0);
+  tl.to(".f3",{backgroundColor:"#f6ecfe",borderColor:"#9635f0",color:"#221f5e",duration:.3},A+4.0);
+  tl.fromTo("#mila",{opacity:0,y:40},{opacity:1,y:0,duration:.6,ease:"power2.out"},A+3.3);
+  tl.to("#mila",{opacity:.0,duration:.4},A+6.8);
+  /* object carry: card leaves s3 and flies to the board slot */
+  tl.set("#card",{opacity:0},17.3);
+  tl.set("#carry",{opacity:1},17.3);
+  tl.to("#carry",{y:360,scaleX:1.548,scaleY:.171,duration:1.2,ease:"power3.inOut"},17.3);
+  tl.to("#carry",{opacity:0,duration:.15},18.7);
+  /* ---------- 4 · TAKİP ---------- */
+  var B=18;
+  tl.fromTo("#b1",{yPercent:110},{yPercent:0,duration:.7,ease:"power4.out"},B+.2);
+  tl.fromTo("#b2",{yPercent:110},{yPercent:0,duration:.7,ease:"power4.out"},B+.4);
+  var cnt={v:0};
+  tl.to(cnt,{v:128,duration:2.6,ease:"steps(12)",onUpdate:function(){document.getElementById("big").textContent=Math.round(cnt.v)}},B+1.0);
+  /* surprise: 128 fills the frame, then settles */
+  tl.to("#big",{scale:1.9,x:90,duration:.5,ease:"expo.out"},B+4.0);
+  tl.to("#big",{scale:1,x:0,duration:.7,ease:"power2.inOut"},B+4.9);
+  tl.fromTo("#slot",{opacity:0,y:20},{opacity:1,y:0,duration:.4,ease:"power2.out"},B+.7);
+  var c1={v:0},c2={v:0};
+  tl.fromTo("#done",{opacity:0,y:50},{opacity:1,y:0,duration:.6,ease:"power2.out"},B+5.4);
+  tl.fromTo("#going",{opacity:0,y:50},{opacity:1,y:0,duration:.6,ease:"power2.out"},B+5.6);
+  tl.to(c1,{v:61,duration:.9,ease:"steps(10)",onUpdate:function(){document.getElementById("c61").textContent=Math.round(c1.v)}},B+5.6);
+  tl.to(c2,{v:67,duration:.9,ease:"steps(10)",onUpdate:function(){document.getElementById("c67").textContent=Math.round(c2.v)}},B+5.8);
+  tl.fromTo("#ruh",{opacity:0,x:-40},{opacity:1,x:0,duration:.5,ease:"power2.out"},B+6.6);
+  /* ---------- 5 · KANIT (focal iris out of "Ruhsat") ---------- */
+  var P=25.5;
+  tl.to("#s5",{clipPath:"circle(1900px at 210px 1160px)",duration:.8,ease:"power2.inOut"},P);
+  tl.fromTo("#p1",{yPercent:110},{yPercent:0,duration:.8,ease:"power2.out"},P+.9);
+  tl.fromTo("#clock",{opacity:0,scale:.6},{opacity:1,scale:1,duration:.6,ease:"power2.out"},P+1.0);
+  tl.fromTo(".r",{opacity:0,x:-40},{opacity:1,x:0,duration:.4,ease:"power1.out",stagger:.08},P+1.3);
+  /* the hourly lighthouse: 12-step sweep, rows dim as they are read */
+  tl.fromTo("#hand",{rotation:0},{rotation:360,duration:4.0,ease:"steps(12)"},P+2.0);
+  tl.fromTo("#band",{opacity:0,y:0},{opacity:1,y:0,duration:.2},P+2.0);
+  tl.to("#band",{y:240,duration:2.0,ease:"steps(6)"},P+2.2);   // rows 1-4 pass
+  tl.to(".r:not(#newrow)",{opacity:.45,duration:.25,stagger:.33},P+2.4);
+  /* beam stops on the new row: it refuses to dim */
+  tl.to("#newrow",{backgroundColor:"#f6ecfe",borderColor:"#9635f0",color:"#221f5e",duration:.25},P+4.2);
+  tl.fromTo("#newrow",{scale:1},{scale:1.04,duration:.2,ease:"power2.out",yoyo:true,repeat:1},P+4.2);
+  tl.to("#band",{opacity:0,duration:.3},P+4.6);
+  tl.to("#br1",{strokeDashoffset:0,duration:.8,ease:"power1.inOut"},P+5.0);
+  tl.fromTo("#rec",{opacity:0,y:30},{opacity:1,y:0,duration:.5,ease:"power2.out"},P+5.2);
+  tl.set("#pkt",{opacity:1},P+5.9);
+  tl.to("#pkt",{y:150,duration:.7,ease:"power1.inOut"},P+5.9);
+  tl.fromTo("#human",{opacity:0,y:30},{opacity:1,y:0,duration:.5,ease:"power2.out"},P+6.2);
+  tl.fromTo("#say",{opacity:0,y:20},{opacity:1,y:0,duration:.5,ease:"power2.out"},P+7.0);
+  /* dolly-out: the whole proof scene shrinks into the "Ruhsat" node */
+  tl.to("#s5in",{scale:.18,duration:.9,ease:"expo.inOut"},35.3);
+  tl.to("#s5bg",{opacity:0,duration:.6},35.4);
+  tl.set("#s5",{opacity:0},36.2);
+  /* ---------- 6 · ÖLÇEK ---------- */
+  var T=36;
+  tl.fromTo(".tm,#hub6",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.7,ease:"expo.inOut",stagger:.06},T);
+  tl.fromTo(".sp",{opacity:0},{opacity:1,duration:.6},T+.2);
+  /* the word "aynı takımda" appears on the hub (silence beat), then carries on */
+  /* ---------- 7 · KAPANIŞ ---------- */
+  var C=38.4;
+  tl.to("#hub6",{opacity:0,duration:.3},C+.2);
+  /* type carry: the word leaves the centre chip and lands in the headline */
+  tl.fromTo("#word",{x:233,y:237,scale:.45,backgroundColor:"#221f5e",color:"#ffffff"},{x:0,y:0,scale:1,backgroundColor:"rgba(34,31,94,0)",color:"#221f5e",duration:1.1,ease:"power3.inOut"},C+.1);
+  tl.to("#s7bg",{opacity:1,duration:.6},C+.1);
+  tl.fromTo(".w",{opacity:0,y:30},{opacity:1,y:0,duration:.6,ease:"power2.out",stagger:.12},C+1.0);
+  tl.fromTo("#stop",{opacity:0,scale:3},{opacity:1,scale:1,duration:.5,ease:"expo.out"},C+2.0);
+  tl.fromTo("#sub",{opacity:0,y:20},{opacity:1,y:0,duration:.5,ease:"power2.out"},C+2.6);
+  tl.fromTo("#btn",{opacity:0,y:20},{opacity:1,y:0,duration:.5,ease:"power2.out"},C+3.2);
+  tl.fromTo("#lg,#al",{opacity:0},{opacity:1,duration:.6,ease:"power1.out"},C+3.6);
+  tl.set({}, {}, 45);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+})();
+</script>
+</body>
+</html>
